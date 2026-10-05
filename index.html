@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daily Five - rank the day's five people</title>
+    <meta name="description" content="Five new historical people every day. Rank them from least good to most good, then see how you did.">
+    <meta name="theme-color" content="#0b0b0b">
+
+    <meta property="og:title" content="Daily Five">
+    <meta property="og:description" content="Five new people every day. Rank them from least good to most good.">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0b'/%3E%3Ctext x='32' y='45' font-family='Arial' font-size='40' font-weight='800' fill='%23fff' text-anchor='middle'%3E5%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="navbar">
+        <div class="logo">
+            DAILY FIVE
+        </div>
+
+        <div class="date" id="today-date">
+            &nbsp;
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="main-container">
+
+        <!-- Title -->
+        <section class="hero">
+            <h1>Who&rsquo;s better?</h1>
+
+            <p>
+                Rank today&rsquo;s five people from least good to most good.
+            </p>
+
+            <p class="played-note" id="played-note" hidden>
+                You have ranked today&rsquo;s five. Come back tomorrow for a new set.
+            </p>
+        </section>
+
+
+        <!-- Ranking Area -->
+        <section class="ranking-section">
+
+            <div class="ranking-labels">
+                <span>LEAST GOOD</span>
+                <span>MOST GOOD</span>
+            </div>
+
+            <!-- Number Line -->
+            <div class="number-line" aria-hidden="true">
+
+                <div class="line"></div>
+
+                <div class="tick tick-1"></div>
+                <div class="tick tick-2"></div>
+                <div class="tick tick-3"></div>
+                <div class="tick tick-4"></div>
+                <div class="tick tick-5"></div>
+
+            </div>
+
+
+            <!-- People (rendered by script.js) -->
+            <div class="people-container" id="people-container"></div>
+
+            <p class="hint">
+                Drag the cards, or tap one and then another to swap them.
+            </p>
+
+            <p class="legend">
+                Rank 1 = least good &middot; Rank 5 = most good
+            </p>
+
+        </section>
+
+
+        <!-- Submit -->
+        <section class="submit-section">
+
+            <button id="submit-ranking">
+                LOCK IN
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>New five every day.</p>
+        <p class="footer-links">
+            Portraits from
+            <a href="images/CREDITS.md">Wikipedia</a>
+            &middot;
+            <a href="?reset=1">reset today</a>
+        </p>
+    </footer>
+
+
+    <!-- Result Modal -->
+    <div class="modal-backdrop" id="result-modal" hidden>
+
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="result-title">
+
+            <button class="modal-close" id="result-close" aria-label="Close">&times;</button>
+
+            <p class="modal-kicker" id="result-kicker"></p>
+
+            <h2 id="result-title">Result</h2>
+
+            <p class="modal-score" id="result-score"></p>
+
+            <div class="compare">
+
+                <div class="compare-col">
+                    <h3>YOUR RANKING</h3>
+                    <ol id="your-list"></ol>
+                </div>
+
+                <div class="compare-col">
+                    <h3>COMMUNITY RANKING</h3>
+                    <ol id="community-list"></ol>
+                </div>
+
+            </div>
+
+            <p class="modal-note" id="result-note">
+                New five tomorrow.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script src="people.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
