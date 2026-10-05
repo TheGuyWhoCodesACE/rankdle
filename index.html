@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Rankdle - who's the better person?</title>
-    <meta name="description" content="Two historical people at a time. Pick the better one and the other gets replaced with someone new.">
-    <meta name="theme-color" content="#0b0b0b">
+    <meta name="description" content="Two people at a time - historical figures, musicians, streamers and creators. Pick the better one and the other gets replaced with someone new.">
+    <meta name="theme-color" content="#08080b">
 
     <meta property="og:title" content="Rankdle">
     <meta property="og:description" content="Two people. Pick the better one. The loser gets replaced with someone new.">
     <meta property="og:type" content="website">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0b'/%3E%3Ctext x='32' y='46' font-family='Arial' font-size='40' font-weight='800' fill='%23fff' text-anchor='middle'%3E%3F%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -22,7 +26,8 @@
     <!-- Header -->
     <header class="navbar">
         <div class="logo">
-            RANKDLE
+            <span class="logo-mark" aria-hidden="true">?</span>
+            <span class="logo-text">RANKDLE</span>
         </div>
 
         <div class="date" id="today-date">
@@ -36,11 +41,19 @@
 
         <!-- Title -->
         <section class="hero">
-            <h1>Who&rsquo;s better?</h1>
+            <span class="hero-kicker">Daily head-to-head</span>
 
-            <p>
+            <h1>Who&rsquo;s <span class="grad">better?</span></h1>
+
+            <p class="hero-sub">
                 Two people. Pick the better one &mdash; the other gets replaced with someone new.
             </p>
+
+            <ul class="hero-chips">
+                <li><span id="roster-count">0</span> people</li>
+                <li>Nobody repeats</li>
+                <li>Ranked by the community</li>
+            </ul>
         </section>
 
 
@@ -51,9 +64,14 @@
                 <span class="stat-label">PICKS</span>
             </div>
 
-            <div class="stat">
+            <div class="stat stat-accent">
                 <span class="stat-value" id="stat-agree">&mdash;</span>
                 <span class="stat-label">AGREED WITH THE COMMUNITY</span>
+            </div>
+
+            <div class="stat">
+                <span class="stat-value" id="stat-left">0</span>
+                <span class="stat-label">LEFT IN THE POOL</span>
             </div>
         </section>
 
@@ -61,7 +79,12 @@
         <!-- The two people (rendered by script.js) -->
         <section class="duel-section">
 
-            <div class="people-container" id="people-container"></div>
+            <div class="duel-frame">
+                <div class="people-container" id="people-container"></div>
+                <span class="vs-badge" aria-hidden="true">VS</span>
+            </div>
+
+            <p class="duel-status" id="duel-status" role="status" aria-live="polite"></p>
 
             <p class="hint">
                 Tap a card to pick. Nobody comes back twice in a session.
@@ -74,7 +97,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>Two at a time, all day.</p>
+        <p class="footer-tagline">Two at a time, all day.</p>
         <p class="footer-links">
             Portraits from
             <a href="images/CREDITS.md">Wikipedia</a>

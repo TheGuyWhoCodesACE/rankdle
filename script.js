@@ -17,9 +17,11 @@
 
 const STORAGE_PREFIX = "rankdle:v1:";
 
-// How long the winner / loser flash lasts before
-// the loser's card is replaced.
-const SWAP_DELAY = 340;
+// Timing of a pick: both cards hold still long enough to read the
+// community scores (HOLD), the loser then fades out (FADE) and the
+// replacement slides into the empty slot.
+const HOLD_DELAY = 600;
+const FADE_DELAY = 460;
 
 
 // ------------------------------------------
@@ -201,6 +203,24 @@ function byName(name) {
 }
 
 
+// The build writes a unique rank (1..N) as `score` - there are far more
+// people than 100 now, so a 0-99 scale would create ties. Cards show it
+// as a 0-100 "community score" instead.
+const SCORE_MAX =
+    typeof ROSTER !== "undefined" && Array.isArray(ROSTER) && ROSTER.length
+        ? Math.max(...ROSTER.map((person) => person.score))
+        : 100;
+
+
+function scoreFor(person) {
+    if (!person || !person.score) {
+        return 0;
+    }
+
+    return Math.max(1, Math.min(100, Math.round((person.score / SCORE_MAX) * 100)));
+}
+
+
 function formatDate(date) {
     return new Intl.DateTimeFormat("en-US", {
         month: "long",
@@ -217,6 +237,9 @@ function formatDate(date) {
 const container = document.getElementById("people-container");
 const statRounds = document.getElementById("stat-rounds");
 const statAgree = document.getElementById("stat-agree");
+const statLeft = document.getElementById("stat-left");
+const statusLine = document.getElementById("duel-status");
+const rosterCount = document.getElementById("roster-count");
 
 
 function cardMarkup(person) {
@@ -224,10 +247,19 @@ function cardMarkup(person) {
         ? `<img src="${person.image}" alt="" loading="lazy">`
         : "";
 
+    const tag = person.tag
+        ? `<span class="person-tag">${person.tag}</span>`
+        : "";
+
     return `
         <div class="portrait">
             <span class="initials" aria-hidden="true">${initialsFor(person.name)}</span>
             ${photo}
+            ${tag}
+            <span class="score-chip" aria-hidden="true">
+                <span class="score-chip-label">COMMUNITY</span>
+                <span class="score-chip-value">${scoreFor(person)}</span>
+            </span>
             <span class="pick-hint" aria-hidden="true">PICK</span>
         </div>
         <span class="person-name">${person.name}</span>
@@ -246,6 +278,7 @@ function buildCard(person, index) {
     card.setAttribute("role", "button");
     card.dataset.name = person.name;
     card.dataset.index = String(index);
+    card.dataset.tag = person.tag || "";
     card.innerHTML = cardMarkup(person);
 
     if (state.enterIndex === index) {
@@ -290,6 +323,12 @@ function updateStats() {
     statAgree.textContent = state.rounds
         ? `${Math.round((state.agree / state.rounds) * 100)}%`
         : "\u2014";
+
+    if (statLeft) {
+        statLeft.textContent = String(
+            Math.max(0, ROSTER.length - state.seen.size)
+        );
+    }
 }
 
 
@@ -312,32 +351,71 @@ function pick(index) {
 
     // The community ranking is the `score` on each person:
     // higher = better, so that is who the site says is right.
-    if (winner.score > loser.score) {
+    const agreed = winner.score > loser.score;
+
+    if (agreed) {
         state.agree++;
     }
 
+    // Work out the replacement straight away so it is ready
+    // the moment the animation lands. This also grows `seen`.
+    const replacement = nextPerson(new Set([winner.name, loser.name]));
+
     updateStats();
+    showStatus(agreed, winner, loser);
 
     const cards = [...container.children];
 
-    if (cards[index]) cards[index].classList.add("chosen");
-    if (cards[other]) cards[other].classList.add("replaced");
+    // Both cards show their community score first...
+    if (cards[index]) cards[index].classList.add("chosen", "revealed");
+    if (cards[other]) cards[other].classList.add("revealed");
 
-    // Work out the replacement straight away so it is ready
-    // the moment the animation lands.
-    const replacement = nextPerson(new Set([winner.name, loser.name]));
-
+    // ...then the loser fades, then the replacement slides in.
     window.setTimeout(() => {
 
-        state.slots[other] = replacement;
-        state.enterIndex = other;
+        if (cards[other]) cards[other].classList.add("replaced");
 
-        saveStats();
-        render();
+        window.setTimeout(() => {
 
-        state.busy = false;
+            state.slots[other] = replacement;
+            state.enterIndex = other;
 
-    }, SWAP_DELAY);
+            hideStatus();
+            saveStats();
+            render();
+
+            state.busy = false;
+
+        }, FADE_DELAY);
+
+    }, HOLD_DELAY);
+}
+
+
+function showStatus(agreed, winner, loser) {
+
+    if (!statusLine) {
+        return;
+    }
+
+    const pickText = `${winner.name} ${scoreFor(winner)}`;
+    const otherText = `${loser.name} ${scoreFor(loser)}`;
+
+    statusLine.className = `duel-status ${agreed ? "is-agree" : "is-disagree"}`;
+    statusLine.textContent = agreed
+        ? `\u2713 You agreed with the community \u2014 ${pickText} beats ${otherText}`
+        : `\u2715 You disagreed \u2014 the community prefers ${otherText} over ${pickText}`;
+}
+
+
+function hideStatus() {
+
+    if (!statusLine) {
+        return;
+    }
+
+    statusLine.className = "duel-status";
+    statusLine.textContent = "";
 }
 
 
@@ -379,6 +457,10 @@ handleReset();
 
 document.getElementById("today-date").textContent =
     formatDate(new Date()).toUpperCase();
+
+if (rosterCount && typeof ROSTER !== "undefined" && Array.isArray(ROSTER)) {
+    rosterCount.textContent = String(ROSTER.length);
+}
 
 if (!Array.isArray(ROSTER) || ROSTER.length < 3) {
 
