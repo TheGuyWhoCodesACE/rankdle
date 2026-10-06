@@ -221,6 +221,57 @@ function scoreFor(person) {
 }
 
 
+const REDUCED_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+
+// Rolls a number from wherever it currently sits to `end`, so the
+// scoreboard ticks instead of jumping. Harmless if called twice
+// quickly - the running frame is cancelled first.
+function countTo(element, end, suffix = "") {
+
+    if (!element) {
+        return;
+    }
+
+    const start = Number(element.dataset.count || 0);
+
+    element.dataset.count = String(end);
+
+    if (element.countFrame) {
+        cancelAnimationFrame(element.countFrame);
+        element.countFrame = null;
+    }
+
+    const paint = (value) => {
+        element.textContent = `${value}${suffix}`;
+    };
+
+    if (REDUCED_MOTION || start === end) {
+        paint(end);
+        return;
+    }
+
+    const began = performance.now();
+    const duration = 420;
+
+    const step = (now) => {
+        const progress = Math.min(1, (now - began) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+
+        paint(Math.round(start + (end - start) * eased));
+
+        if (progress < 1) {
+            element.countFrame = requestAnimationFrame(step);
+        } else {
+            element.countFrame = null;
+            paint(end);
+        }
+    };
+
+    element.countFrame = requestAnimationFrame(step);
+}
+
+
 function formatDate(date) {
     return new Intl.DateTimeFormat("en-US", {
         month: "long",
@@ -258,7 +309,7 @@ function cardMarkup(person) {
             ${tag}
             <span class="score-chip" aria-hidden="true">
                 <span class="score-chip-label">COMMUNITY</span>
-                <span class="score-chip-value">${scoreFor(person)}</span>
+                <span class="score-chip-value" data-score="${scoreFor(person)}">0</span>
             </span>
             <span class="pick-hint" aria-hidden="true">PICK</span>
         </div>
@@ -318,16 +369,19 @@ function render() {
 
 function updateStats() {
 
-    statRounds.textContent = String(state.rounds);
+    countTo(statRounds, state.rounds);
 
-    statAgree.textContent = state.rounds
-        ? `${Math.round((state.agree / state.rounds) * 100)}%`
-        : "\u2014";
+    if (state.rounds) {
+        countTo(statAgree, Math.round((state.agree / state.rounds) * 100), "%");
+        statAgree.classList.remove("is-empty");
+    } else {
+        statAgree.textContent = "\u2014";
+        statAgree.dataset.count = "0";
+        statAgree.classList.add("is-empty");
+    }
 
     if (statLeft) {
-        statLeft.textContent = String(
-            Math.max(0, ROSTER.length - state.seen.size)
-        );
+        countTo(statLeft, Math.max(0, ROSTER.length - state.seen.size));
     }
 }
 
@@ -369,6 +423,20 @@ function pick(index) {
     // Both cards show their community score first...
     if (cards[index]) cards[index].classList.add("chosen", "revealed");
     if (cards[other]) cards[other].classList.add("revealed");
+
+    // ...rolling up from zero so the reveal has some weight.
+    cards.forEach((card) => {
+
+        if (!card.classList.contains("revealed")) {
+            return;
+        }
+
+        const value = card.querySelector(".score-chip-value");
+
+        if (value) {
+            countTo(value, Number(value.dataset.score || 0));
+        }
+    });
 
     // ...then the loser fades, then the replacement slides in.
     window.setTimeout(() => {
@@ -428,6 +496,22 @@ container.addEventListener("click", (event) => {
     }
 
     pick(Number(card.dataset.index));
+});
+
+
+// The card lights up under the cursor rather than glowing at random.
+container.addEventListener("pointermove", (event) => {
+
+    const card = event.target.closest(".person-card");
+
+    if (!card) {
+        return;
+    }
+
+    const box = card.getBoundingClientRect();
+
+    card.style.setProperty("--mx", `${event.clientX - box.left}px`);
+    card.style.setProperty("--my", `${event.clientY - box.top}px`);
 });
 
 

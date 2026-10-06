@@ -6,17 +6,17 @@
 
     <title>Rankdle - who's the better person?</title>
     <meta name="description" content="Two people at a time - historical figures, musicians, streamers and creators. Pick the better one and the other gets replaced with someone new.">
-    <meta name="theme-color" content="#08080b">
+    <meta name="theme-color" content="#0a0a0c">
 
     <meta property="og:title" content="Rankdle">
     <meta property="og:description" content="Two people. Pick the better one. The loser gets replaced with someone new.">
     <meta property="og:type" content="website">
 
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0b'/%3E%3Ctext x='32' y='46' font-family='Arial' font-size='40' font-weight='800' fill='%23fff' text-anchor='middle'%3E%3F%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f2b544'/%3E%3Ctext x='32' y='46' font-family='Arial' font-size='40' font-weight='800' fill='%23171204' text-anchor='middle'%3E%3F%3C/text%3E%3C/svg%3E">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -30,8 +30,9 @@
             <span class="logo-text">RANKDLE</span>
         </div>
 
-        <div class="date" id="today-date">
-            &nbsp;
+        <div class="date">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span id="today-date">&nbsp;</span>
         </div>
     </header>
 
@@ -43,7 +44,7 @@
         <section class="hero">
             <span class="hero-kicker">Daily head-to-head</span>
 
-            <h1>Who&rsquo;s <span class="grad">better?</span></h1>
+            <h1>Who&rsquo;s <em class="accent-word">better?<svg class="squiggle" viewBox="0 0 200 12" aria-hidden="true"><path pathLength="1" d="M3 8.4C28 3.2 52 10.4 79 7.2 104 4.3 128 10.4 152 6.8 168 4.5 184 7.6 197 5.6"/></svg></em></h1>
 
             <p class="hero-sub">
                 Two people. Pick the better one &mdash; the other gets replaced with someone new.
@@ -61,23 +62,28 @@
         <section class="stats" aria-live="polite">
             <div class="stat">
                 <span class="stat-value" id="stat-rounds">0</span>
-                <span class="stat-label">PICKS</span>
+                <span class="stat-label">Picks made</span>
             </div>
 
-            <div class="stat stat-accent">
+            <div class="stat stat-accent" title="How often your pick matched the community ranking">
                 <span class="stat-value" id="stat-agree">&mdash;</span>
-                <span class="stat-label">AGREED WITH THE COMMUNITY</span>
+                <span class="stat-label">Agreed</span>
             </div>
 
             <div class="stat">
                 <span class="stat-value" id="stat-left">0</span>
-                <span class="stat-label">LEFT IN THE POOL</span>
+                <span class="stat-label">Left in pool</span>
             </div>
         </section>
 
 
         <!-- The two people (rendered by script.js) -->
         <section class="duel-section">
+
+            <div class="section-head">
+                <span class="section-label">Today&rsquo;s matchup</span>
+                <span class="rule" aria-hidden="true"></span>
+            </div>
 
             <div class="duel-frame">
                 <div class="people-container" id="people-container"></div>
