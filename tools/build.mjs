@@ -39,12 +39,9 @@ const ROSTER = [
     { name: "Rosa Parks", wiki: "Rosa Parks", years: "1913-2005", role: "Civil rights icon", tag: "Activist" },
     { name: "Harriet Tubman", wiki: "Harriet Tubman", years: "c. 1822-1913", role: "Underground Railroad conductor", tag: "Activist" },
     { name: "Susan B. Anthony", wiki: "Susan B. Anthony", years: "1820-1906", role: "Women's suffrage leader", tag: "Activist" },
-    { name: "Emmeline Pankhurst", wiki: "Emmeline Pankhurst", years: "1858-1928", role: "Suffragette leader", tag: "Activist" },
     { name: "Desmond Tutu", wiki: "Desmond Tutu", years: "1931-2021", role: "Anti-apartheid archbishop", tag: "Activist" },
-    { name: "B. R. Ambedkar", wiki: "B. R. Ambedkar", years: "1891-1956", role: "Constitutional reformer", tag: "Activist" },
     { name: "The Dalai Lama", wiki: "14th Dalai Lama", years: "b. 1935", role: "Spiritual leader in exile", tag: "Activist" },
     { name: "Mother Teresa", wiki: "Mother Teresa", years: "1910-1997", role: "Missionary of the poor", tag: "Activist" },
-    { name: "Marcus Garvey", wiki: "Marcus Garvey", years: "1887-1940", role: "Pan-Africanist leader", tag: "Activist" },
 
     // --- Political leaders -----------------------------------------
     { name: "Abraham Lincoln", wiki: "Abraham Lincoln", years: "1809-1865", role: "Ended slavery in the US", tag: "Leader" },
@@ -70,25 +67,18 @@ const ROSTER = [
     { name: "Vladimir Lenin", wiki: "Vladimir Lenin", years: "1870-1924", role: "Bolshevik revolutionary", tag: "Dictator" },
     { name: "Pol Pot", wiki: "Pol Pot", years: "1925-1998", role: "Khmer Rouge leader", tag: "Dictator" },
     { name: "Idi Amin", wiki: "Idi Amin", years: "1925-2003", role: "Ugandan dictator", tag: "Dictator" },
-    { name: "Leopold II", wiki: "Leopold II of Belgium", years: "1835-1909", role: "King of Belgium", tag: "Dictator" },
     { name: "Saddam Hussein", wiki: "Saddam Hussein", years: "1937-2006", role: "Iraqi dictator", tag: "Dictator" },
-    { name: "Caligula", wiki: "Caligula", years: "12-41", role: "Roman emperor", tag: "Dictator" },
-    { name: "Nero", wiki: "Nero", years: "37-68", role: "Roman emperor", tag: "Dictator" },
-    { name: "Benedict Arnold", wiki: "Benedict Arnold", years: "1741-1801", role: "American traitor", tag: "Dictator" },
 
     // --- Ancient & imperial rulers ---------------------------------
     { name: "Julius Caesar", wiki: "Julius Caesar", years: "100-44 BC", role: "Roman general and dictator", tag: "Ruler" },
     { name: "Alexander the Great", wiki: "Alexander the Great", years: "356-323 BC", role: "Macedonian king", tag: "Ruler" },
     { name: "Genghis Khan", wiki: "Genghis Khan", years: "c. 1162-1227", role: "Mongol emperor", tag: "Ruler" },
     { name: "Saladin", wiki: "Saladin", years: "1137-1193", role: "Sultan of Egypt and Syria", tag: "Ruler" },
-    { name: "Charlemagne", wiki: "Charlemagne", years: "742-814", role: "Holy Roman Emperor", tag: "Ruler" },
     { name: "Catherine the Great", wiki: "Catherine the Great", years: "1729-1796", role: "Empress of Russia", tag: "Ruler" },
     { name: "Peter the Great", wiki: "Peter the Great", years: "1672-1725", role: "Tsar of Russia", tag: "Ruler" },
     { name: "Henry VIII", wiki: "Henry VIII of England", years: "1491-1547", role: "King of England", tag: "Ruler" },
     { name: "Napoleon Bonaparte", wiki: "Napoleon", years: "1769-1821", role: "Emperor of the French", tag: "Ruler" },
     { name: "Mansa Musa", wiki: "Mansa Musa", years: "c. 1280-1337", role: "Emperor of Mali", tag: "Ruler" },
-    { name: "Akbar", wiki: "Akbar", years: "1542-1605", role: "Mughal emperor", tag: "Ruler" },
-    { name: "Ashoka", wiki: "Ashoka", years: "304-232 BC", role: "Mauryan emperor", tag: "Ruler" },
 
     // --- Thinkers ---------------------------------------------------
     { name: "Confucius", wiki: "Confucius", years: "551-479 BC", role: "Chinese philosopher", tag: "Thinker" },
@@ -110,7 +100,6 @@ const ROSTER = [
     { name: "Stephen Hawking", wiki: "Stephen Hawking", years: "1942-2018", role: "Theoretical physicist", tag: "Scientist" },
     { name: "Jonas Salk", wiki: "Jonas Salk", years: "1914-1995", role: "Developed the polio vaccine", tag: "Scientist" },
     { name: "Louis Pasteur", wiki: "Louis Pasteur", years: "1822-1895", role: "Chemist and microbiologist", tag: "Scientist" },
-    { name: "Emmy Noether", wiki: "Emmy Noether", years: "1882-1935", role: "Mathematician", tag: "Scientist" },
 
     // --- Artists & writers -----------------------------------------
     { name: "William Shakespeare", wiki: "William Shakespeare", years: "1564-1616", role: "Playwright and poet", tag: "Artist" },
@@ -132,7 +121,6 @@ const ROSTER = [
     { name: "Oskar Schindler", wiki: "Oskar Schindler", years: "1908-1974", role: "Saved around 1,200 Jews", tag: "Pioneer" },
     { name: "Christopher Columbus", wiki: "Christopher Columbus", years: "1451-1506", role: "Explorer", tag: "Pioneer" },
     { name: "Amelia Earhart", wiki: "Amelia Earhart", years: "1897-1937", role: "Aviation pioneer", tag: "Pioneer" },
-    { name: "Sacagawea", wiki: "Sacagawea", years: "c. 1788-1812", role: "Interpreter and guide", tag: "Pioneer" },
     { name: "Muhammad Ali", wiki: "Muhammad Ali", years: "1942-2016", role: "Boxer and activist", tag: "Pioneer" },
     { name: "Jesse Owens", wiki: "Jesse Owens", years: "1913-1980", role: "Olympic sprinter", tag: "Pioneer" },
 
@@ -253,6 +241,30 @@ const ROSTER = [
     { name: "Angela White", wiki: "Angela White", years: "b. 1985", role: "Adult film actress and director", tag: "OnlyFans" },
     { name: "Abella Danger", wiki: "Abella Danger", years: "b. 1995", role: "Adult film actress and director", tag: "OnlyFans" }
 ];
+
+// ------------------------------------------------------------
+// Portraits that do NOT come from Wikipedia.
+//
+// Some people have no free-licensed Wikipedia/Commons portrait, but a
+// good photo exists elsewhere. Drop the file into ./images and list it
+// here: the build skips the Wikipedia lookup for them and credits them
+// from this table instead.
+// ------------------------------------------------------------
+
+const LOCAL_IMAGES = {
+    "Sophie Rain": {
+        file: "images/sophie-rain.jpg",
+        artist: "Sophie Rain",
+        license: "CC BY 4.0",
+        source: "https://commons.wikimedia.org/wiki/File:Sophie_Rain.jpg"
+    },
+    "Piper Rockelle": {
+        file: "images/piper-rockelle.jpg",
+        artist: "Piper Rockelle (public profile photo)",
+        license: "Profile photo - not freely licensed",
+        source: "https://www.tiktok.com/@piperrockelle"
+    }
+};
 
 // ------------------------------------------------------------
 // Helpers
@@ -420,6 +432,12 @@ async function download(portraits) {
     const jobs = [];
 
     for (const person of ROSTER) {
+        // Photos kept on disk by hand (see LOCAL_IMAGES) - never re-fetched.
+        if (LOCAL_IMAGES[person.name]) {
+            person.image = LOCAL_IMAGES[person.name].file;
+            continue;
+        }
+
         const portrait = portraits.get(person.wiki);
 
         if (!portrait) {
@@ -515,6 +533,12 @@ function writePeople() {
 
 async function writeCredits(portraits) {
     const rows = ROSTER.filter((person) => person.image).map((person) => {
+        const local = LOCAL_IMAGES[person.name];
+
+        if (local) {
+            return `| [${person.name}](${local.source}) | ${local.artist} | ${local.license} | ${local.source} |`;
+        }
+
         const portrait = portraits.get(person.wiki) || {};
         const url = `https://en.wikipedia.org/wiki/${encodeURIComponent(person.wiki)}`;
         return `| [${person.name}](${url}) | ${portrait.artist || "unknown"} | ${portrait.license || "unknown"} | ${portrait.thumb || ""} |`;
@@ -523,8 +547,10 @@ async function writeCredits(portraits) {
     const output = [
         "# Image credits",
         "",
-        "Every portrait in `images/` comes from Wikipedia / Wikimedia Commons.",
-        "Images were resized to 400px wide. Full-size originals are at the links below.",
+        "Portraits in `images/` come from Wikipedia / Wikimedia Commons unless",
+        "the licence column says otherwise (a couple are local photos listed in",
+        "`LOCAL_IMAGES` inside `tools/build.mjs`).",
+        "Wikipedia images were resized to 400px wide. Full-size originals are at the links below.",
         "",
         "| Person | Author | Licence | Source |",
         "| --- | --- | --- | --- |",

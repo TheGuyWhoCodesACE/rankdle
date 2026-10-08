@@ -64,28 +64,12 @@ const ROSTER = [
         wiki: "Susan B. Anthony"
     },
     {
-        name: "Emmeline Pankhurst",
-        years: "1858-1928",
-        role: "Suffragette leader",
-        tag: "Activist",
-        image: "images/emmeline-pankhurst.jpg",
-        wiki: "Emmeline Pankhurst"
-    },
-    {
         name: "Desmond Tutu",
         years: "1931-2021",
         role: "Anti-apartheid archbishop",
         tag: "Activist",
         image: "images/desmond-tutu.jpg",
         wiki: "Desmond Tutu"
-    },
-    {
-        name: "B. R. Ambedkar",
-        years: "1891-1956",
-        role: "Constitutional reformer",
-        tag: "Activist",
-        image: "images/b-r-ambedkar.jpg",
-        wiki: "B. R. Ambedkar"
     },
     {
         name: "The Dalai Lama",
@@ -102,14 +86,6 @@ const ROSTER = [
         tag: "Activist",
         image: "images/mother-teresa.jpg",
         wiki: "Mother Teresa"
-    },
-    {
-        name: "Marcus Garvey",
-        years: "1887-1940",
-        role: "Pan-Africanist leader",
-        tag: "Activist",
-        image: "images/marcus-garvey.jpg",
-        wiki: "Marcus Garvey"
     },
     {
         name: "Abraham Lincoln",
@@ -280,44 +256,12 @@ const ROSTER = [
         wiki: "Idi Amin"
     },
     {
-        name: "Leopold II",
-        years: "1835-1909",
-        role: "King of Belgium",
-        tag: "Dictator",
-        image: "images/leopold-ii.jpg",
-        wiki: "Leopold II of Belgium"
-    },
-    {
         name: "Saddam Hussein",
         years: "1937-2006",
         role: "Iraqi dictator",
         tag: "Dictator",
         image: "images/saddam-hussein.jpg",
         wiki: "Saddam Hussein"
-    },
-    {
-        name: "Caligula",
-        years: "12-41",
-        role: "Roman emperor",
-        tag: "Dictator",
-        image: "images/caligula.jpg",
-        wiki: "Caligula"
-    },
-    {
-        name: "Nero",
-        years: "37-68",
-        role: "Roman emperor",
-        tag: "Dictator",
-        image: "images/nero.jpg",
-        wiki: "Nero"
-    },
-    {
-        name: "Benedict Arnold",
-        years: "1741-1801",
-        role: "American traitor",
-        tag: "Dictator",
-        image: "images/benedict-arnold.jpg",
-        wiki: "Benedict Arnold"
     },
     {
         name: "Julius Caesar",
@@ -350,14 +294,6 @@ const ROSTER = [
         tag: "Ruler",
         image: "images/saladin.jpg",
         wiki: "Saladin"
-    },
-    {
-        name: "Charlemagne",
-        years: "742-814",
-        role: "Holy Roman Emperor",
-        tag: "Ruler",
-        image: "images/charlemagne.jpg",
-        wiki: "Charlemagne"
     },
     {
         name: "Catherine the Great",
@@ -398,22 +334,6 @@ const ROSTER = [
         tag: "Ruler",
         image: "images/mansa-musa.jpg",
         wiki: "Mansa Musa"
-    },
-    {
-        name: "Akbar",
-        years: "1542-1605",
-        role: "Mughal emperor",
-        tag: "Ruler",
-        image: "images/akbar.jpg",
-        wiki: "Akbar"
-    },
-    {
-        name: "Ashoka",
-        years: "304-232 BC",
-        role: "Mauryan emperor",
-        tag: "Ruler",
-        image: "images/ashoka.jpg",
-        wiki: "Ashoka"
     },
     {
         name: "Confucius",
@@ -552,14 +472,6 @@ const ROSTER = [
         wiki: "Louis Pasteur"
     },
     {
-        name: "Emmy Noether",
-        years: "1882-1935",
-        role: "Mathematician",
-        tag: "Scientist",
-        image: "images/emmy-noether.jpg",
-        wiki: "Emmy Noether"
-    },
-    {
         name: "William Shakespeare",
         years: "1564-1616",
         role: "Playwright and poet",
@@ -694,14 +606,6 @@ const ROSTER = [
         tag: "Pioneer",
         image: "images/amelia-earhart.jpg",
         wiki: "Amelia Earhart"
-    },
-    {
-        name: "Sacagawea",
-        years: "c. 1788-1812",
-        role: "Interpreter and guide",
-        tag: "Pioneer",
-        image: "images/sacagawea.jpg",
-        wiki: "Sacagawea"
     },
     {
         name: "Muhammad Ali",
@@ -1268,7 +1172,7 @@ const ROSTER = [
         years: "b. 2007",
         role: "Content creator and model",
         tag: "Influencer",
-        image: "",
+        image: "images/piper-rockelle.jpg",
         wiki: "Piper Rockelle"
     },
     {
@@ -1540,7 +1444,7 @@ const ROSTER = [
         years: "b. 2004",
         role: "Internet personality",
         tag: "OnlyFans",
-        image: "",
+        image: "images/sophie-rain.jpg",
         wiki: "Sophie Rain"
     },
     {
