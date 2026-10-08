@@ -4,7 +4,7 @@
 you pick the better one and the loser is replaced by someone new.
 
 The roster mixes historical figures with today's musicians, internet
-creators, Twitch streamers and OnlyFans creators — 186 people in total.
+creators, Twitch streamers and OnlyFans creators — 106 people in total.
 
 Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
 
@@ -17,7 +17,7 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
   by a new face. Nothing else is scored or judged.
 - **Nobody repeats.** Everyone you have already seen this session is kept in a
   `seen` list, so the replacement is always somebody you have not been shown yet.
-  Once all 186 people have been used, the pool reshuffles and starts over.
+  Once all 106 people have been used, the pool reshuffles and starts over.
 - **Session storage.** The two people on screen and the `seen` list are stored in
   `localStorage`, so a refresh picks up where you left off. Append `?reset=1` to the
   URL to wipe the session and start again while testing.
@@ -29,7 +29,8 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
 | `index.html` | The page (was `homepage.html` — GitHub Pages only serves `index.html` at the root) |
 | `style.css` | All styling, including the phone layout |
 | `script.js` | Drawing, the pick / replace loop, session storage |
-| `people.js` | **Generated.** The roster of 186 people: name, dates, role, category, portrait |
+| `people.js` | **Generated.** The roster of 106 people: name, dates, role, category, portrait |
+| `names.txt` | **Generated.** Every name in the roster, A-Z |
 | `images/` | Portraits pulled from Wikipedia, plus `CREDITS.md` |
 | `tools/build.mjs` | Source of truth for the roster + the image downloader |
 
