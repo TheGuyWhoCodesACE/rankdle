@@ -31,7 +31,6 @@
         </div>
 
         <div class="date">
-            <span class="live-dot" aria-hidden="true"></span>
             <span id="today-date">&nbsp;</span>
         </div>
     </header>
@@ -42,38 +41,13 @@
 
         <!-- Title -->
         <section class="hero">
-            <span class="hero-kicker">Daily head-to-head</span>
+            <span class="hero-kicker">Head-to-head</span>
 
             <h1>Who&rsquo;s <em class="accent-word">better?<svg class="squiggle" viewBox="0 0 200 12" aria-hidden="true"><path pathLength="1" d="M3 8.4C28 3.2 52 10.4 79 7.2 104 4.3 128 10.4 152 6.8 168 4.5 184 7.6 197 5.6"/></svg></em></h1>
 
             <p class="hero-sub">
                 Two people. Pick the better one &mdash; the other gets replaced with someone new.
             </p>
-
-            <ul class="hero-chips">
-                <li><span id="roster-count">0</span> people</li>
-                <li>Nobody repeats</li>
-                <li>Ranked by the community</li>
-            </ul>
-        </section>
-
-
-        <!-- Scoreboard -->
-        <section class="stats" aria-live="polite">
-            <div class="stat">
-                <span class="stat-value" id="stat-rounds">0</span>
-                <span class="stat-label">Picks made</span>
-            </div>
-
-            <div class="stat stat-accent" title="How often your pick matched the community ranking">
-                <span class="stat-value" id="stat-agree">&mdash;</span>
-                <span class="stat-label">Agreed</span>
-            </div>
-
-            <div class="stat">
-                <span class="stat-value" id="stat-left">0</span>
-                <span class="stat-label">Left in pool</span>
-            </div>
         </section>
 
 
@@ -81,7 +55,7 @@
         <section class="duel-section">
 
             <div class="section-head">
-                <span class="section-label">Today&rsquo;s matchup</span>
+                <span class="section-label">Make your pick</span>
                 <span class="rule" aria-hidden="true"></span>
             </div>
 
@@ -90,10 +64,9 @@
                 <span class="vs-badge" aria-hidden="true">VS</span>
             </div>
 
-            <p class="duel-status" id="duel-status" role="status" aria-live="polite"></p>
-
             <p class="hint">
-                Tap a card to pick. Nobody comes back twice in a session.
+                Tap a card to choose &mdash; or focus one and press
+                <kbd>Enter</kbd>.
             </p>
 
         </section>

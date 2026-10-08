@@ -8,25 +8,21 @@
 :root {
     --bg: #0a0a0c;
     --panel: #131316;
-    --panel-hi: #19191d;
+    --panel-hi: #191920;
     --line: rgba(255, 255, 255, 0.075);
     --line-strong: rgba(255, 255, 255, 0.17);
 
-    --text: #f1f1f3;
-    --muted: #9b9ba5;
-    --dim: #6c6c76;
+    --text: #f2f2f4;
+    --muted: #a0a0ab;
+    --dim: #71717c;
 
     --accent: #f2b544;
+    --accent-soft: rgba(242, 181, 68, 0.42);
     --accent-ink: #171204;
     --accent-wash: #241e15;   /* the accent tint, blended over --panel */
 
-    --good-line: rgba(74, 217, 160, 0.42);
-    --good-fill: rgba(74, 217, 160, 0.1);
-    --bad-line: rgba(255, 122, 114, 0.4);
-    --bad-fill: rgba(255, 122, 114, 0.1);
-
-    --radius: 16px;
-    --radius-sm: 11px;
+    --radius: 20px;
+    --radius-sm: 13px;
 
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -51,12 +47,20 @@ body {
     flex-direction: column;
 
     font-family: var(--font);
-    background: var(--bg);
+    background:
+        radial-gradient(880px 460px at 50% -6%, rgba(242, 181, 68, 0.1), transparent 62%),
+        radial-gradient(720px 520px at 100% 14%, rgba(96, 122, 255, 0.07), transparent 66%),
+        var(--bg);
     color: var(--text);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
+}
+
+::selection {
+    background: rgba(242, 181, 68, 0.28);
+    color: #fff;
 }
 
 /* Film grain: a little texture so flat surfaces don't read as plastic */
@@ -85,6 +89,12 @@ a:hover {
     text-decoration-color: var(--accent);
 }
 
+a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
 
 /* ---------- NAVBAR ---------- */
 
@@ -93,7 +103,7 @@ a:hover {
     top: 0;
     z-index: 30;
 
-    height: 62px;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -101,29 +111,48 @@ a:hover {
     padding: 0 clamp(16px, 4vw, 44px);
 
     border-bottom: 1px solid var(--line);
-    background: rgba(10, 10, 12, 0.8);
-    backdrop-filter: blur(14px) saturate(150%);
-    -webkit-backdrop-filter: blur(14px) saturate(150%);
+    background: rgba(10, 10, 12, 0.78);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+/* A soft highlight along the top edge of the bar */
+.navbar::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.09) 30%,
+        rgba(255, 255, 255, 0.09) 70%,
+        transparent
+    );
+    pointer-events: none;
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 11px;
 }
 
 .logo-mark {
     display: grid;
     place-items: center;
 
-    width: 26px;
-    height: 26px;
-    border-radius: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 9px;
 
-    background: var(--accent);
+    background: linear-gradient(160deg, #ffd074 0%, var(--accent) 55%, #dfa12f 100%);
     color: var(--accent-ink);
+    box-shadow:
+        0 6px 16px -8px rgba(242, 181, 68, 0.75),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
 
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 800;
 
     transition: transform 0.35s var(--ease);
@@ -139,30 +168,20 @@ a:hover {
     letter-spacing: 0.24em;
 }
 
+/* The date is just a date: a quiet pill, nothing pretending to be live */
 .date {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 9px;
 
-    color: var(--dim);
+    padding: 7px 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+
+    color: var(--muted);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.14em;
-}
-
-/* Slow pulse so the page reads as "live" without shouting */
-.live-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-
-    background: var(--accent);
-    animation: live-pulse 2.8s ease-in-out infinite;
-}
-
-@keyframes live-pulse {
-    0%, 100% { opacity: 0.5; box-shadow: 0 0 0 0 rgba(242, 181, 68, 0.45); }
-    50%      { opacity: 1;   box-shadow: 0 0 0 4px rgba(242, 181, 68, 0); }
 }
 
 
@@ -171,9 +190,9 @@ a:hover {
 .main-container {
     flex: 1 0 auto;
 
-    width: min(860px, 92%);
+    width: min(800px, 92%);
     margin: 0 auto;
-    padding: clamp(38px, 6.5vw, 72px) 0 68px;
+    padding: clamp(26px, 4vw, 42px) 0 72px;
 }
 
 
@@ -181,7 +200,7 @@ a:hover {
 
 .hero {
     text-align: center;
-    margin-bottom: clamp(30px, 5vw, 46px);
+    margin-bottom: clamp(22px, 3.5vw, 34px);
 }
 
 .hero > * {
@@ -190,7 +209,6 @@ a:hover {
 
 .hero h1 { animation-delay: 0.07s; }
 .hero-sub { animation-delay: 0.14s; }
-.hero-chips { animation-delay: 0.21s; }
 
 @keyframes rise {
     from { opacity: 0; transform: translateY(12px); }
@@ -218,10 +236,10 @@ a:hover {
 }
 
 .hero h1 {
-    margin-top: 16px;
+    margin-top: 12px;
 
     font-family: var(--font-display);
-    font-size: clamp(46px, 8.6vw, 82px);
+    font-size: clamp(42px, 6.6vw, 64px);
     font-weight: 400;
     letter-spacing: -0.015em;
     line-height: 1.03;
@@ -262,102 +280,19 @@ a:hover {
 }
 
 .hero-sub {
-    margin: 16px auto 0;
+    margin: 12px auto 0;
     max-width: 44ch;
 
     color: var(--muted);
-    font-size: clamp(15px, 2.3vw, 17px);
+    font-size: clamp(15px, 2.2vw, 16px);
     line-height: 1.6;
-}
-
-.hero-chips {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 22px;
-
-    list-style: none;
-
-    color: var(--dim);
-    font-size: 12.5px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-
-.hero-chips li + li::before {
-    content: "\00b7";
-    margin: 0 11px;
-    color: var(--dim);
-}
-
-#roster-count {
-    color: var(--accent);
-    font-weight: 700;
-    font-variant-numeric: tabular-nums;
-}
-
-
-/* ---------- STATS ---------- */
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    margin-bottom: clamp(26px, 4vw, 38px);
-
-    background: var(--panel);
-    border: 1px solid var(--line);
-    border-radius: 14px;
-
-    animation: rise 0.7s 0.28s var(--ease) both;
-}
-
-.stat {
-    padding: 15px 14px 13px;
-    text-align: center;
-}
-
-.stat + .stat {
-    border-left: 1px solid var(--line);
-}
-
-.stat-value {
-    display: block;
-
-    font-size: clamp(21px, 3.6vw, 26px);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums;
-}
-
-.stat-accent .stat-value {
-    color: var(--accent);
-}
-
-.stat-accent .stat-value.is-empty {
-    color: var(--dim);
-}
-
-.stat-label {
-    display: block;
-
-    margin-top: 5px;
-
-    color: var(--dim);
-    font-size: 9.5px;
-    font-weight: 600;
-    letter-spacing: 0.13em;
-    line-height: 1.4;
-    text-transform: uppercase;
 }
 
 
 /* ---------- SECTION LABEL ---------- */
 
 .duel-section {
-    animation: rise 0.7s 0.36s var(--ease) both;
+    animation: rise 0.7s 0.22s var(--ease) both;
 }
 
 .section-head {
@@ -365,10 +300,14 @@ a:hover {
     align-items: center;
     gap: 15px;
 
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
     color: var(--muted);
     font-size: 10.5px;
     font-weight: 700;
@@ -377,10 +316,19 @@ a:hover {
     white-space: nowrap;
 }
 
+.section-label::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(242, 181, 68, 0.14);
+}
+
 .rule {
     flex: 1;
     height: 1px;
-    background: var(--line);
+    background: linear-gradient(to right, var(--line), transparent);
 }
 
 
@@ -394,31 +342,33 @@ a:hover {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    gap: clamp(12px, 2.4vw, 22px);
+    gap: clamp(14px, 2.6vw, 26px);
 
     justify-items: stretch;
 }
 
-/* Sits in the gutter between the two cards */
+/* Sits in the gutter between the two cards, level with the portraits */
 .vs-badge {
     position: absolute;
     left: 50%;
-    top: 32%;
+    top: 30%;
     z-index: 6;
 
     display: grid;
     place-items: center;
 
-    width: clamp(38px, 6.5vw, 50px);
+    width: clamp(42px, 6.5vw, 54px);
     aspect-ratio: 1;
     border-radius: 50%;
     transform: translate(-50%, -50%);
 
-    background: #0d0d10;
-    border: 1px solid var(--line-strong);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
+    background: rgba(12, 12, 15, 0.9);
+    border: 1px solid var(--accent-soft);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
 
-    color: var(--text);
+    color: var(--accent);
     font-size: clamp(10px, 1.5vw, 13px);
     font-weight: 700;
     letter-spacing: 0.09em;
@@ -428,8 +378,8 @@ a:hover {
 }
 
 @keyframes vs-breathe {
-    0%, 100% { box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65), 0 0 0 0 rgba(255, 255, 255, 0.16); }
-    50%      { box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65), 0 0 0 7px rgba(255, 255, 255, 0); }
+    0%, 100% { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 0 0 rgba(242, 181, 68, 0.22); }
+    50%      { box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 0 9px rgba(242, 181, 68, 0); }
 }
 
 .person-card {
@@ -438,23 +388,29 @@ a:hover {
     display: flex;
     flex-direction: column;
 
-    background: var(--panel);
+    background: linear-gradient(180deg, var(--panel-hi) 0%, var(--panel) 52%);
     border: 1px solid var(--line);
     border-radius: var(--radius);
 
-    padding: 10px 10px 16px;
+    padding: 10px 10px 12px;
 
     cursor: pointer;
     outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045);
 
     transition:
-        transform 0.32s var(--ease),
-        border-color 0.22s ease,
-        box-shadow 0.32s var(--ease),
-        background-color 0.22s ease,
-        opacity 0.4s ease;
+        transform 0.35s var(--ease),
+        border-color 0.25s ease,
+        box-shadow 0.35s var(--ease),
+        background-color 0.25s ease,
+        opacity 0.4s ease,
+        filter 0.4s ease;
 }
 
 /* Pointer-tracked sheen: the card lights up where the cursor is */
@@ -462,14 +418,14 @@ a:hover {
     content: "";
     position: absolute;
     inset: 0;
-    z-index: 2;
+    z-index: 5;
 
     border-radius: inherit;
     pointer-events: none;
 
     background: radial-gradient(
-        240px circle at var(--mx, 50%) var(--my, -10%),
-        rgba(255, 236, 206, 0.075),
+        260px circle at var(--mx, 50%) var(--my, -10%),
+        rgba(255, 236, 206, 0.09),
         transparent 68%
     );
 
@@ -479,9 +435,11 @@ a:hover {
 
 .person-card:hover,
 .person-card:focus-visible {
-    transform: translateY(-5px);
-    border-color: var(--line-strong);
-    box-shadow: 0 26px 46px -28px rgba(0, 0, 0, 0.95);
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 42px 62px -40px rgba(0, 0, 0, 1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
 .person-card:hover::before,
@@ -492,8 +450,8 @@ a:hover {
 .person-card:focus-visible {
     border-color: var(--accent);
     box-shadow:
-        0 26px 46px -28px rgba(0, 0, 0, 0.95),
-        0 0 0 3px rgba(242, 181, 68, 0.3);
+        0 42px 62px -40px rgba(0, 0, 0, 1),
+        0 0 0 3px rgba(242, 181, 68, 0.32);
 }
 
 /* Photo, with initials behind it as a fallback */
@@ -501,11 +459,27 @@ a:hover {
 .portrait {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
     border-radius: var(--radius-sm);
     background: var(--panel-hi);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+/* A permanent, gentle vignette so every photo sits in the same light */
+.portrait::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    pointer-events: none;
+
+    background: radial-gradient(
+        125% 95% at 50% 0%,
+        transparent 42%,
+        rgba(0, 0, 0, 0.34) 100%
+    );
 }
 
 .portrait .initials {
@@ -572,34 +546,34 @@ a:hover {
     object-fit: cover;
     object-position: center 22%;
 
-    filter: brightness(0.96) saturate(0.95) contrast(1.03);
+    filter: brightness(0.97) saturate(0.94) contrast(1.03);
     transition: transform 0.6s var(--ease), filter 0.4s ease;
 }
 
 .person-card:hover .portrait img,
 .person-card:focus-visible .portrait img {
-    transform: scale(1.045);
-    filter: brightness(1.04) saturate(1) contrast(1.03);
+    transform: scale(1.05);
+    filter: brightness(1.05) saturate(1.02) contrast(1.03);
 }
 
 .person-card.no-photo .portrait img {
     display: none;
 }
 
-/* Category chip - kept clear of the PICK pill in the opposite corner */
+/* Category chip, top-left of the photo */
 .person-tag {
     position: absolute;
     left: 9px;
     top: 9px;
     z-index: 3;
 
-    max-width: calc(100% - 76px);
+    max-width: calc(100% - 26px);
 
     padding: 5px 10px;
     border-radius: 999px;
 
-    background: rgba(10, 10, 12, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(10, 10, 12, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 
@@ -614,159 +588,157 @@ a:hover {
     text-overflow: ellipsis;
 }
 
-/* Community score, popped in after you pick */
-.score-chip {
-    position: absolute;
-    left: 9px;
-    bottom: 9px;
-    z-index: 3;
+/* ---------- CARD FOOTER: name, meta, pick affordance ---------- */
 
+.person-info {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: clamp(8px, 1.6vw, 14px);
 
-    padding: 5px 5px 5px 11px;
-    border-radius: 999px;
-
-    background: rgba(10, 10, 12, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    opacity: 0;
-    transform: translateY(6px) scale(0.96);
-    transition: opacity 0.26s ease, transform 0.26s var(--ease);
+    padding: 14px 4px 4px 6px;
 }
 
-.person-card.revealed .score-chip {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-}
-
-.score-chip-label {
-    color: #a2a2b0;
-    font-size: 8.5px;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-}
-
-.score-chip-value {
-    display: grid;
-    place-items: center;
-
-    min-width: 30px;
-    height: 22px;
-    padding: 0 7px;
-    border-radius: 999px;
-
-    background: var(--accent);
-    color: var(--accent-ink);
-
-    font-size: 12px;
-    font-weight: 800;
-    font-variant-numeric: tabular-nums;
-}
-
-/* Pick affordance in the corner of the photo */
-
-.pick-hint {
-    position: absolute;
-    right: 9px;
-    top: 9px;
-    z-index: 4;
-
-    padding: 5px 10px;
-    border-radius: 999px;
-
-    background: rgba(10, 10, 12, 0.74);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    color: #e8e8ee;
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-
-    transition: background 0.2s ease, color 0.2s ease,
-        border-color 0.2s ease, transform 0.25s var(--ease);
-}
-
-.person-card:hover .pick-hint,
-.person-card:focus-visible .pick-hint {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--accent-ink);
-    transform: translateY(-1px);
+.person-text {
+    flex: 1;
+    min-width: 0;
 }
 
 .person-name {
-    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 
-    text-align: center;
-
-    margin-top: 13px;
-
-    font-size: clamp(15px, 2.4vw, 18px);
+    font-size: clamp(16px, 2.4vw, 19px);
     font-weight: 700;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
+    line-height: 1.22;
+    text-align: left;
 
     color: var(--text);
 }
 
+.person-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3px 7px;
+
+    margin-top: 7px;
+
+    font-size: 12.5px;
+    line-height: 1.45;
+    text-align: left;
+}
+
 .person-years {
-    display: block;
-
-    text-align: center;
-
-    margin-top: 5px;
-
-    font-size: 12px;
     font-weight: 500;
     font-variant-numeric: tabular-nums;
-
     color: var(--muted);
 }
 
 .person-role {
-    display: block;
-
-    text-align: center;
-
-    margin-top: 4px;
-
-    font-size: 12px;
-    line-height: 1.4;
-
+    min-width: 0;
     color: var(--dim);
+}
+
+/* The bullet travels with the role, so a wrap never leaves it dangling */
+.person-role::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin-right: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    vertical-align: middle;
+    transform: translateY(-1px);
+}
+
+/* The one action on the card: quiet at rest, amber on intent */
+.pick-btn {
+    flex: none;
+
+    display: grid;
+    place-items: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--line-strong);
+    color: var(--muted);
+
+    transition:
+        background 0.28s ease,
+        border-color 0.28s ease,
+        color 0.28s ease,
+        transform 0.32s var(--ease),
+        box-shadow 0.32s var(--ease);
+}
+
+.pick-btn svg {
+    width: 17px;
+    height: 17px;
+}
+
+.pick-check {
+    display: none;
+}
+
+.person-card:hover .pick-btn,
+.person-card:focus-visible .pick-btn {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    transform: translateX(3px);
+    box-shadow: 0 10px 22px -12px rgba(242, 181, 68, 0.85);
 }
 
 
 /* ---------- PICK FEEDBACK ---------- */
 
 .person-card.chosen {
-    border-color: rgba(242, 181, 68, 0.6);
-    background-color: var(--accent-wash);
+    border-color: rgba(242, 181, 68, 0.7);
+    background: linear-gradient(180deg, #241e13 0%, #17131a 55%);
     box-shadow:
-        0 26px 46px -28px rgba(0, 0, 0, 0.95),
-        0 0 0 1px rgba(242, 181, 68, 0.22);
-    transform: translateY(-5px);
+        0 42px 62px -40px rgba(0, 0, 0, 1),
+        0 0 0 3px rgba(242, 181, 68, 0.24);
+    transform: translateY(-8px);
+}
+
+.person-card.chosen .pick-btn {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    transform: none;
+    box-shadow: 0 10px 22px -12px rgba(242, 181, 68, 0.85);
+}
+
+.person-card.chosen .pick-arrow {
+    display: none;
+}
+
+.person-card.chosen .pick-check {
+    display: block;
 }
 
 .person-card.replaced {
     opacity: 0;
-    transform: scale(0.96);
+    filter: blur(6px);
+    transform: translateY(-12px) scale(0.97);
     pointer-events: none;
 }
 
 .person-card.enter {
-    animation: card-in 0.42s var(--ease);
+    animation: card-in 0.45s var(--ease) backwards;
 }
 
 @keyframes card-in {
     from {
         opacity: 0;
-        transform: translateY(16px) scale(0.97);
+        transform: translateY(18px) scale(0.97);
     }
     to {
         opacity: 1;
@@ -775,71 +747,33 @@ a:hover {
 }
 
 
-/* ---------- RESULT LINE ---------- */
-
-.duel-status {
-    min-height: 0;
-
-    margin-top: 0;
-
-    text-align: center;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.5;
-
-    color: var(--muted);
-    transition: color 0.2s ease;
-}
-
-.duel-status:not(:empty) {
-    display: block;
-    width: fit-content;
-    max-width: 100%;
-    min-height: 0;
-
-    margin: 24px auto 0;
-    padding: 10px 20px;
-
-    border: 1px solid var(--line-strong);
-    border-radius: 999px;
-
-    background: var(--panel);
-
-    animation: status-in 0.3s var(--ease);
-}
-
-/* The result replaces the instruction instead of stacking under it */
-.duel-section:has(.duel-status:not(:empty)) .hint {
-    display: none;
-}
-
-@keyframes status-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-.duel-status.is-agree {
-    color: #b6f0d7;
-    border-color: var(--good-line);
-    background: var(--good-fill);
-}
-
-.duel-status.is-disagree {
-    color: #ffd0cc;
-    border-color: var(--bad-line);
-    background: var(--bad-fill);
-}
-
-
 /* ---------- HINT ---------- */
 
 .hint {
     text-align: center;
 
-    margin-top: 22px;
+    margin: 26px auto 0;
 
     color: var(--dim);
     font-size: 13px;
+    line-height: 1.7;
+}
+
+.hint kbd {
+    display: inline-block;
+
+    padding: 2px 7px;
+    border: 1px solid var(--line-strong);
+    border-bottom-width: 2px;
+    border-radius: 6px;
+
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+
+    font-family: var(--font);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
 }
 
 .hint code {
@@ -855,6 +789,7 @@ footer {
     padding: 32px 24px 40px;
 
     border-top: 1px solid var(--line);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.018), transparent);
 }
 
 .footer-tagline {
@@ -884,8 +819,10 @@ footer {
         height: 56px;
     }
 
-    #today-date {
-        display: none;
+    .date {
+        padding: 6px 10px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
     }
 
     .logo-text {
@@ -895,7 +832,11 @@ footer {
 
     .main-container {
         width: min(560px, 94%);
-        padding: 30px 0 52px;
+        padding: 28px 0 56px;
+    }
+
+    .hero {
+        margin-bottom: 26px;
     }
 
     .hero-kicker {
@@ -909,39 +850,22 @@ footer {
     }
 
     .hero h1 {
+        margin-top: 12px;
         letter-spacing: -0.02em;
     }
 
     .hero-sub {
-        margin-top: 14px;
-    }
-
-    .hero-chips {
-        gap: 4px 0;
-        font-size: 11.5px;
-    }
-
-    .stats {
-        border-radius: 12px;
-        margin-bottom: 24px;
-    }
-
-    .stat {
-        padding: 12px 6px 11px;
-    }
-
-    .stat-label {
-        font-size: 8.5px;
-        letter-spacing: 0.1em;
+        margin-top: 13px;
+        font-size: 15px;
     }
 
     .section-head {
-        margin-bottom: 12px;
+        margin-bottom: 13px;
     }
 
     .person-card {
-        padding: 8px 8px 13px;
-        border-radius: 14px;
+        padding: 7px 7px 9px;
+        border-radius: 16px;
     }
 
     .person-card:hover,
@@ -954,77 +878,62 @@ footer {
     }
 
     .portrait {
-        border-radius: 10px;
+        border-radius: 11px;
+        aspect-ratio: 4 / 5;
+    }
+
+    .person-info {
+        gap: 7px;
+        padding: 10px 2px 2px 3px;
     }
 
     .person-name {
-        margin-top: 10px;
+        font-size: 15px;
         letter-spacing: -0.02em;
     }
 
-    .person-years {
-        font-size: 11px;
-        margin-top: 4px;
+    .person-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        margin-top: 5px;
+        font-size: 11.5px;
     }
 
-    .person-role {
-        font-size: 11px;
-        margin-top: 4px;
+    /* Stacked, so the bullet never starts a line of its own */
+    .person-role::before {
+        display: none;
+    }
+
+    .pick-btn {
+        width: 32px;
+        height: 32px;
+    }
+
+    .pick-btn svg {
+        width: 15px;
+        height: 15px;
     }
 
     .person-tag {
         left: 7px;
         top: 7px;
-        max-width: calc(100% - 62px);
+        max-width: calc(100% - 20px);
         padding: 4px 8px;
         font-size: 8.5px;
         letter-spacing: 0.1em;
     }
 
-    .score-chip {
-        left: 7px;
-        bottom: 7px;
-        padding: 4px 4px 4px 9px;
-        gap: 6px;
-    }
-
-    .score-chip-label {
-        font-size: 7.5px;
-    }
-
-    .score-chip-value {
-        min-width: 26px;
-        height: 19px;
-        font-size: 11px;
-    }
-
-    .pick-hint {
-        right: 7px;
-        top: 7px;
-        padding: 4px 8px;
-        font-size: 8.5px;
-        letter-spacing: 0.12em;
-    }
-
     .vs-badge {
-        top: 30%;
+        top: 28%;
         width: 36px;
         font-size: 10px;
     }
 
-    .duel-status {
-        font-size: 13px;
-    }
-
-    .duel-status:not(:empty) {
-        margin-top: 20px;
-        padding: 9px 15px;
-        border-radius: 999px;
-    }
-
     .hint {
-        margin-top: 20px;
-        font-size: 12px;
+        margin-top: 22px;
+        font-size: 12.5px;
+        max-width: 30ch;
     }
 }
 
@@ -1032,6 +941,14 @@ footer {
 @media (max-width: 360px) {
     .vs-badge {
         display: none;
+    }
+}
+
+/* Touch devices never hover - keep the pick button readable instead */
+@media (hover: none) {
+    .pick-btn {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--muted);
     }
 }
 
