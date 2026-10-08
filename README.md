@@ -29,7 +29,7 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
 | `index.html` | The page (was `homepage.html` — GitHub Pages only serves `index.html` at the root) |
 | `style.css` | All styling, including the phone layout |
 | `script.js` | Drawing, the pick / replace loop, session storage |
-| `people.js` | **Generated.** The roster of 198 people: name, dates, role, score, category, portrait |
+| `people.js` | **Generated.** The roster of 198 people: name, dates, role, category, portrait |
 | `images/` | Portraits pulled from Wikipedia, plus `CREDITS.md` |
 | `tools/build.mjs` | Source of truth for the roster + the image downloader |
 
@@ -39,7 +39,7 @@ The roster lives in `tools/build.mjs`, not in `people.js` — `people.js` is
 generated. To add, remove or re-rate someone:
 
 1. Edit the `ROSTER` array in `tools/build.mjs` (name, Wikipedia title, years,
-   role, editorial `score`, category `tag`).
+   role, category `tag`).
 2. Run:
 
    ```bash
@@ -48,12 +48,6 @@ generated. To add, remove or re-rate someone:
 
    This looks up a portrait for every person, downloads anything missing into
    `images/`, writes `people.js` and refreshes `images/CREDITS.md`.
-
-The `score` on each person is editorial metadata carried over from an older
-version of the site. The page no longer reads it: there is no ranking, no
-verdict and no community number on screen — you pick a card, the other one is
-replaced. The build still writes a unique rank (1 = worst, N = best) into
-`people.js` so the field stays consistent, but nothing displays it.
 
 The only thing you need is network access on the first run; after that the images
 are on disk and re-running is a no-op (people without a free-licensed Wikipedia

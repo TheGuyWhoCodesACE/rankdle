@@ -129,7 +129,7 @@ function freshPair() {
 // STORAGE
 // ------------------------------------------
 
-function loadStats() {
+function loadSession() {
     try {
         const raw = localStorage.getItem(STORAGE_PREFIX + state.key);
 
@@ -140,7 +140,7 @@ function loadStats() {
 }
 
 
-function saveStats() {
+function saveSession() {
     try {
         localStorage.setItem(STORAGE_PREFIX + state.key, JSON.stringify({
             seen: [...state.seen],
@@ -342,7 +342,7 @@ function pick(index) {
             state.slots[other] = replacement;
             state.enterIndex = other;
 
-            saveStats();
+            saveSession();
             render();
 
             state.busy = false;
@@ -415,7 +415,7 @@ if (!Array.isArray(ROSTER) || ROSTER.length < 3) {
 
 } else {
 
-    const saved = loadStats();
+    const saved = loadSession();
 
     // The queue of "who is left to show" starts empty every load -
     // refill it, then let `seen` do the filtering.
