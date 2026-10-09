@@ -799,14 +799,6 @@ const RATINGS = {
         "gender": 1,
         "fiction": 0
     },
-    "Amouranth": {
-        "fame": 3,
-        "era": 5,
-        "morality": 3,
-        "controversy": 4,
-        "gender": 1,
-        "fiction": 0
-    },
     "Sophie Rain": {
         "fame": 3,
         "era": 5,
@@ -815,40 +807,8 @@ const RATINGS = {
         "gender": 1,
         "fiction": 0
     },
-    "Bonnie Blue": {
-        "fame": 3,
-        "era": 5,
-        "morality": 3,
-        "controversy": 4,
-        "gender": 1,
-        "fiction": 0
-    },
     "Riley Reid": {
         "fame": 3,
-        "era": 5,
-        "morality": 3,
-        "controversy": 2,
-        "gender": 1,
-        "fiction": 0
-    },
-    "Mia Malkova": {
-        "fame": 2,
-        "era": 5,
-        "morality": 3,
-        "controversy": 2,
-        "gender": 1,
-        "fiction": 0
-    },
-    "Lily Phillips": {
-        "fame": 2,
-        "era": 5,
-        "morality": 3,
-        "controversy": 4,
-        "gender": 1,
-        "fiction": 0
-    },
-    "Abella Danger": {
-        "fame": 2,
         "era": 5,
         "morality": 3,
         "controversy": 2,

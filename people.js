@@ -900,15 +900,6 @@ const ROSTER = [
     },
     {
         id: 100,
-        name: "Amouranth",
-        years: "b. 1993",
-        role: "Streamer and creator",
-        tag: "P*rn Star",
-        image: "images/amouranth.jpg",
-        wiki: "Amouranth"
-    },
-    {
-        id: 101,
         name: "Sophie Rain",
         years: "b. 2004",
         role: "Internet personality",
@@ -917,16 +908,7 @@ const ROSTER = [
         wiki: "Sophie Rain"
     },
     {
-        id: 102,
-        name: "Bonnie Blue",
-        years: "b. 1999",
-        role: "Adult film actress",
-        tag: "P*rn Star",
-        image: "images/bonnie-blue.jpg",
-        wiki: "Bonnie Blue"
-    },
-    {
-        id: 103,
+        id: 101,
         name: "Riley Reid",
         years: "b. 1991",
         role: "Adult film actress",
@@ -935,34 +917,7 @@ const ROSTER = [
         wiki: "Riley Reid"
     },
     {
-        id: 104,
-        name: "Mia Malkova",
-        years: "b. 1992",
-        role: "Adult film actress and media personality",
-        tag: "P*rn Star",
-        image: "images/mia-malkova.jpg",
-        wiki: "Mia Malkova"
-    },
-    {
-        id: 105,
-        name: "Lily Phillips",
-        years: "b. 2001",
-        role: "Adult film actress",
-        tag: "P*rn Star",
-        image: "images/lily-phillips.png",
-        wiki: "Lily Phillips"
-    },
-    {
-        id: 106,
-        name: "Abella Danger",
-        years: "b. 1995",
-        role: "Adult film actress and director",
-        tag: "P*rn Star",
-        image: "images/abella-danger.jpg",
-        wiki: "Abella Danger"
-    },
-    {
-        id: 107,
+        id: 102,
         name: "Harry Potter",
         years: "Debut 1997",
         role: "Boy wizard of Hogwarts",
@@ -971,7 +926,7 @@ const ROSTER = [
         wiki: "Harry Potter"
     },
     {
-        id: 108,
+        id: 103,
         name: "Hermione Granger",
         years: "Debut 1997",
         role: "Hogwarts witch and bookworm",
@@ -980,7 +935,7 @@ const ROSTER = [
         wiki: "Hermione Granger"
     },
     {
-        id: 109,
+        id: 104,
         name: "Sherlock Holmes",
         years: "Debut 1887",
         role: "Consulting detective of Baker Street",
@@ -989,7 +944,7 @@ const ROSTER = [
         wiki: "Sherlock Holmes"
     },
     {
-        id: 110,
+        id: 105,
         name: "Dracula",
         years: "Debut 1897",
         role: "Transylvanian vampire count",
@@ -998,7 +953,7 @@ const ROSTER = [
         wiki: "Dracula"
     },
     {
-        id: 111,
+        id: 106,
         name: "Gandalf",
         years: "Debut 1954",
         role: "Wizard of Middle-earth",
@@ -1007,7 +962,7 @@ const ROSTER = [
         wiki: "Gandalf"
     },
     {
-        id: 112,
+        id: 107,
         name: "Alice",
         years: "Debut 1865",
         role: "Girl down the rabbit hole",
@@ -1016,7 +971,7 @@ const ROSTER = [
         wiki: "Alice (Alice's Adventures in Wonderland)"
     },
     {
-        id: 113,
+        id: 108,
         name: "Superman",
         years: "Debut 1938",
         role: "Kryptonian hero of Metropolis",
@@ -1025,7 +980,7 @@ const ROSTER = [
         wiki: "Superman"
     },
     {
-        id: 114,
+        id: 109,
         name: "Batman",
         years: "Debut 1939",
         role: "Caped crusader of Gotham",
@@ -1034,7 +989,7 @@ const ROSTER = [
         wiki: "Batman"
     },
     {
-        id: 115,
+        id: 110,
         name: "Spider-Man",
         years: "Debut 1962",
         role: "Web-slinging hero of New York",
@@ -1043,7 +998,7 @@ const ROSTER = [
         wiki: "Spider-Man"
     },
     {
-        id: 116,
+        id: 111,
         name: "Wonder Woman",
         years: "Debut 1941",
         role: "Amazon warrior princess",
@@ -1052,7 +1007,7 @@ const ROSTER = [
         wiki: "Wonder Woman"
     },
     {
-        id: 117,
+        id: 112,
         name: "The Joker",
         years: "Debut 1940",
         role: "Gotham's clown prince of crime",
@@ -1061,7 +1016,7 @@ const ROSTER = [
         wiki: "Joker (character)"
     },
     {
-        id: 118,
+        id: 113,
         name: "Harley Quinn",
         years: "Debut 1992",
         role: "Arkham psychiatrist turned villain",
@@ -1070,7 +1025,7 @@ const ROSTER = [
         wiki: "Harley Quinn"
     },
     {
-        id: 119,
+        id: 114,
         name: "Darth Vader",
         years: "Debut 1977",
         role: "Sith lord in a black mask",
@@ -1079,7 +1034,7 @@ const ROSTER = [
         wiki: "Darth Vader"
     },
     {
-        id: 120,
+        id: 115,
         name: "Luke Skywalker",
         years: "Debut 1977",
         role: "Rebel pilot turned Jedi",
@@ -1088,7 +1043,7 @@ const ROSTER = [
         wiki: "Luke Skywalker"
     },
     {
-        id: 121,
+        id: 116,
         name: "James Bond",
         years: "Debut 1953",
         role: "007, British secret agent",
@@ -1097,7 +1052,7 @@ const ROSTER = [
         wiki: "James Bond (literary character)"
     },
     {
-        id: 122,
+        id: 117,
         name: "Indiana Jones",
         years: "Debut 1981",
         role: "Archaeologist in a fedora",
@@ -1106,7 +1061,7 @@ const ROSTER = [
         wiki: "Indiana Jones"
     },
     {
-        id: 123,
+        id: 118,
         name: "Rocky Balboa",
         years: "Debut 1976",
         role: "Boxer from Philadelphia",
@@ -1115,7 +1070,7 @@ const ROSTER = [
         wiki: "Rocky Balboa"
     },
     {
-        id: 124,
+        id: 119,
         name: "Katniss Everdeen",
         years: "Debut 2008",
         role: "Tribute who sparked a rebellion",
@@ -1124,7 +1079,7 @@ const ROSTER = [
         wiki: "Katniss Everdeen"
     },
     {
-        id: 125,
+        id: 120,
         name: "Walter White",
         years: "Debut 2008",
         role: "Chemist turned meth kingpin",
@@ -1133,7 +1088,7 @@ const ROSTER = [
         wiki: "Walter White"
     },
     {
-        id: 126,
+        id: 121,
         name: "Willy Wonka",
         years: "Debut 1964",
         role: "Eccentric chocolate factory owner",
@@ -1142,7 +1097,7 @@ const ROSTER = [
         wiki: "Willy Wonka"
     },
     {
-        id: 127,
+        id: 122,
         name: "Daenerys Targaryen",
         years: "Debut 1996",
         role: "Mother of Dragons",
@@ -1151,7 +1106,7 @@ const ROSTER = [
         wiki: "Daenerys Targaryen"
     },
     {
-        id: 128,
+        id: 123,
         name: "Mickey Mouse",
         years: "Debut 1928",
         role: "Disney's original cartoon mouse",
@@ -1160,7 +1115,7 @@ const ROSTER = [
         wiki: "Mickey Mouse"
     },
     {
-        id: 129,
+        id: 124,
         name: "Bugs Bunny",
         years: "Debut 1940",
         role: "Carrot-munching trickster rabbit",
@@ -1169,7 +1124,7 @@ const ROSTER = [
         wiki: "Bugs Bunny"
     },
     {
-        id: 130,
+        id: 125,
         name: "SpongeBob SquarePants",
         years: "Debut 1999",
         role: "Fry cook of Bikini Bottom",
@@ -1178,7 +1133,7 @@ const ROSTER = [
         wiki: "SpongeBob SquarePants"
     },
     {
-        id: 131,
+        id: 126,
         name: "Scooby-Doo",
         years: "Debut 1969",
         role: "Mystery-solving Great Dane",
@@ -1187,7 +1142,7 @@ const ROSTER = [
         wiki: "Scooby-Doo"
     },
     {
-        id: 132,
+        id: 127,
         name: "Cinderella",
         years: "Debut 1950",
         role: "Princess of the glass slipper",
@@ -1196,7 +1151,7 @@ const ROSTER = [
         wiki: "Cinderella"
     },
     {
-        id: 133,
+        id: 128,
         name: "Elsa",
         years: "Debut 2013",
         role: "Snow queen of Arendelle",
@@ -1205,7 +1160,7 @@ const ROSTER = [
         wiki: "Elsa (Frozen)"
     },
     {
-        id: 134,
+        id: 129,
         name: "Simba",
         years: "Debut 1994",
         role: "Lion king of the Pride Lands",
@@ -1214,7 +1169,7 @@ const ROSTER = [
         wiki: "Simba"
     },
     {
-        id: 135,
+        id: 130,
         name: "Shrek",
         years: "Debut 2001",
         role: "Ogre of the swamp",
@@ -1223,7 +1178,7 @@ const ROSTER = [
         wiki: "Shrek"
     },
     {
-        id: 136,
+        id: 131,
         name: "Buzz Lightyear",
         years: "Debut 1995",
         role: "Toy space ranger",
@@ -1232,7 +1187,7 @@ const ROSTER = [
         wiki: "Buzz Lightyear"
     },
     {
-        id: 137,
+        id: 132,
         name: "Homer Simpson",
         years: "Debut 1989",
         role: "Springfield's donut-loving dad",
@@ -1241,7 +1196,7 @@ const ROSTER = [
         wiki: "Homer Simpson"
     },
     {
-        id: 138,
+        id: 133,
         name: "Mario",
         years: "Debut 1981",
         role: "Plumber and Nintendo mascot",
@@ -1250,7 +1205,7 @@ const ROSTER = [
         wiki: "Mario (character)"
     },
     {
-        id: 139,
+        id: 134,
         name: "Link",
         years: "Debut 1986",
         role: "Hero of Hyrule",
@@ -1259,7 +1214,7 @@ const ROSTER = [
         wiki: "Link (The Legend of Zelda)"
     },
     {
-        id: 140,
+        id: 135,
         name: "Sonic the Hedgehog",
         years: "Debut 1991",
         role: "Sega's speedy blue hedgehog",
@@ -1268,7 +1223,7 @@ const ROSTER = [
         wiki: "Sonic the Hedgehog"
     },
     {
-        id: 141,
+        id: 136,
         name: "Lara Croft",
         years: "Debut 1996",
         role: "Tomb-raiding archaeologist",
@@ -1277,7 +1232,7 @@ const ROSTER = [
         wiki: "Lara Croft"
     },
     {
-        id: 142,
+        id: 137,
         name: "Goku",
         years: "Debut 1984",
         role: "Saiyan fighter of Dragon Ball",
@@ -1286,7 +1241,7 @@ const ROSTER = [
         wiki: "Goku"
     },
     {
-        id: 143,
+        id: 138,
         name: "Naruto Uzumaki",
         years: "Debut 1999",
         role: "Ninja who dreams of Hokage",
@@ -1295,7 +1250,7 @@ const ROSTER = [
         wiki: "Naruto Uzumaki"
     },
     {
-        id: 144,
+        id: 139,
         name: "Sailor Moon",
         years: "Debut 1991",
         role: "Guardian of love and justice",
@@ -1304,7 +1259,7 @@ const ROSTER = [
         wiki: "Sailor Moon"
     },
     {
-        id: 145,
+        id: 140,
         name: "Pikachu",
         years: "Debut 1996",
         role: "Electric-type Pokemon mascot",
@@ -1313,7 +1268,7 @@ const ROSTER = [
         wiki: "Pikachu"
     },
     {
-        id: 146,
+        id: 141,
         name: "Monkey D. Luffy",
         years: "Debut 1997",
         role: "Pirate captain of the Straw Hats",
@@ -1322,7 +1277,7 @@ const ROSTER = [
         wiki: "Monkey D. Luffy"
     },
     {
-        id: 147,
+        id: 142,
         name: "Jeffrey Epstein",
         years: "1953-2019",
         role: "Financier and sex offender",

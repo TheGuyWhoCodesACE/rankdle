@@ -6,7 +6,7 @@ you pick the better one and the loser is replaced by someone new.
 The roster mixes historical figures with today's musicians, internet
 creators, Twitch streamers and P*rn Stars, plus fictional
 characters from books, comics, film, cartoons, games and anime —
-147 people in total.
+142 people in total.
 
 Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
 
@@ -19,7 +19,7 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
   by a new face. Nothing else is scored or judged.
 - **Nobody repeats.** Everyone you have already seen this session is kept in a
   `seen` list, so the replacement is always somebody you have not been shown yet.
-  Once all 147 people have been used, the pool reshuffles and starts over.
+  Once all 142 people have been used, the pool reshuffles and starts over.
 - **Session storage.** The two people on screen and the `seen` list are stored in
   `localStorage`, so a refresh picks up where you left off. Append `?reset=1` to the
   URL to wipe the session and start again while testing.
@@ -27,7 +27,7 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
 ## Person ids
 
 Every person has a stable `id` — their position in the roster, numbered
-from 1 to 147 (`names.txt` is the A-Z lookup table). Ids are what the game
+from 1 to 142 (`names.txt` is the A-Z lookup table). Ids are what the game
 refers to people by, so **append new people to the end of the roster** in
 `tools/build.mjs` rather than inserting them mid-list, which would shift
 everyone's id. The card's DOM element carries the id as `data-id`.
@@ -58,7 +58,7 @@ repeat until the whole roster has been used.
 | `index.html` | The page (was `homepage.html` — GitHub Pages only serves `index.html` at the root) |
 | `style.css` | All styling, including the phone layout |
 | `script.js` | Drawing, the pick / replace loop, session storage |
-| `people.js` | **Generated.** The roster of 147 people: id, name, dates, role, category, portrait |
+| `people.js` | **Generated.** The roster of 142 people: id, name, dates, role, category, portrait |
 | `ratings.json` | Hand-authored game data: six ratings per person (see above) |
 | `ratings.js` | **Generated** from `ratings.json` (browsers can't script-tag a `.json`) |
 | `names.txt` | **Generated.** Every id + name in the roster, A-Z |

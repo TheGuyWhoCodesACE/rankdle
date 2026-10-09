@@ -153,13 +153,8 @@ const ROSTER = [
 
     // --- P*rn Stars & platform creators -----------------------------
     { name: "Mia Khalifa", wiki: "Mia Khalifa", years: "b. 1993", role: "Media personality", tag: "P*rn Star" },
-    { name: "Amouranth", wiki: "Amouranth", years: "b. 1993", role: "Streamer and creator", tag: "P*rn Star" },
     { name: "Sophie Rain", wiki: "Sophie Rain", years: "b. 2004", role: "Internet personality", tag: "P*rn Star" },
-    { name: "Bonnie Blue", wiki: "Bonnie Blue", years: "b. 1999", role: "Adult film actress", tag: "P*rn Star" },
     { name: "Riley Reid", wiki: "Riley Reid", years: "b. 1991", role: "Adult film actress", tag: "P*rn Star" },
-    { name: "Mia Malkova", wiki: "Mia Malkova", years: "b. 1992", role: "Adult film actress and media personality", tag: "P*rn Star" },
-    { name: "Lily Phillips", wiki: "Lily Phillips", years: "b. 2001", role: "Adult film actress", tag: "P*rn Star" },
-    { name: "Abella Danger", wiki: "Abella Danger", years: "b. 1995", role: "Adult film actress and director", tag: "P*rn Star" },
 
     // --- Fictional characters --------------------------------------
     //

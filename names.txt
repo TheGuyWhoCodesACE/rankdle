@@ -1,64 +1,61 @@
-106  Abella Danger
   7  Abraham Lincoln
  83  Addison Rae
  63  Adele
  15  Adolf Hitler
  29  Albert Einstein
  21  Alexander the Great
-112  Alice
+107  Alice
  47  Amelia Earhart
-100  Amouranth
  86  Andrew Tate
  45  Anne Frank
  61  Ariana Grande
  27  Aristotle
  72  Bad Bunny
-114  Batman
+109  Batman
  87  Bella Poarch
  53  Beyonce
  70  Billie Eilish
  74  Billy Joel
  65  Bob Marley
-102  Bonnie Blue
  62  Bruno Mars
-129  Bugs Bunny
-136  Buzz Lightyear
+124  Bugs Bunny
+131  Buzz Lightyear
  35  Charles Darwin
  46  Christopher Columbus
-132  Cinderella
+127  Cinderella
  14  Cleopatra
-127  Daenerys Targaryen
+122  Daenerys Targaryen
  88  DanTDM
-119  Darth Vader
+114  Darth Vader
  66  Dolly Parton
  97  Dr Disrespect
-110  Dracula
+105  Dracula
  55  Drake
  77  Ed Sheeran
-133  Elsa
+128  Elsa
  75  Elton John
  51  Elvis Presley
  57  Eminem
  67  Frank Sinatra
   9  Franklin D. Roosevelt
  34  Galileo Galilei
-111  Gandalf
+106  Gandalf
  22  Genghis Khan
  12  George Washington
-142  Goku
-118  Harley Quinn
+137  Goku
+113  Harley Quinn
   5  Harriet Tubman
-107  Harry Potter
+102  Harry Potter
  23  Henry VIII
-108  Hermione Granger
-137  Homer Simpson
-122  Indiana Jones
+103  Hermione Granger
+132  Homer Simpson
+117  Indiana Jones
  30  Isaac Newton
  84  iShowSpeed
  81  Jake Paul
-121  James Bond
+116  James Bond
  58  Jay-Z
-147  Jeffrey Epstein
+142  Jeffrey Epstein
  49  Jesse Owens
  10  John F. Kennedy
  52  John Lennon
@@ -66,71 +63,69 @@
  20  Julius Caesar
  95  Kai Cenat
  56  Kanye West
-124  Katniss Everdeen
+119  Katniss Everdeen
  76  Katy Perry
  82  KSI
  60  Lady Gaga
-141  Lara Croft
+136  Lara Croft
  38  Leonardo da Vinci
-105  Lily Phillips
-139  Link
+134  Link
  80  Logan Paul
  98  Ludwig
  42  Ludwig van Beethoven
-120  Luke Skywalker
+115  Luke Skywalker
  59  Madonna
   2  Mahatma Gandhi
  17  Mao Zedong
  31  Marie Curie
-138  Mario
+133  Mario
  44  Mark Twain
  85  Markiplier
   1  Martin Luther King Jr.
  89  MatPat
  99  Mia Khalifa
-104  Mia Malkova
  50  Michael Jackson
  39  Michelangelo
-128  Mickey Mouse
-146  Monkey D. Luffy
+123  Mickey Mouse
+141  Monkey D. Luffy
   6  Mother Teresa
  78  MrBeast
  48  Muhammad Ali
  24  Napoleon Bonaparte
-143  Naruto Uzumaki
+138  Naruto Uzumaki
   3  Nelson Mandela
  32  Nikola Tesla
  92  Ninja
  71  Olivia Rodrigo
  41  Pablo Picasso
  79  PewDiePie
-145  Pikachu
+140  Pikachu
  91  Piper Rockelle
  26  Plato
  93  Pokimane
-103  Riley Reid
-123  Rocky Balboa
+101  Riley Reid
+118  Rocky Balboa
  11  Ronald Reagan
   4  Rosa Parks
  19  Saddam Hussein
-144  Sailor Moon
-131  Scooby-Doo
+139  Sailor Moon
+126  Scooby-Doo
  73  Shakira
-109  Sherlock Holmes
-135  Shrek
-134  Simba
+104  Sherlock Holmes
+130  Shrek
+129  Simba
  69  Snoop Dogg
  25  Socrates
-140  Sonic the Hedgehog
-101  Sophie Rain
-115  Spider-Man
-130  SpongeBob SquarePants
+135  Sonic the Hedgehog
+100  Sophie Rain
+110  Spider-Man
+125  SpongeBob SquarePants
  90  SSSniperWolf
  36  Stephen Hawking
  28  Sun Tzu
-113  Superman
+108  Superman
  54  Taylor Swift
-117  The Joker
+112  The Joker
  33  Thomas Edison
  13  Thomas Jefferson
  68  Tupac Shakur
@@ -138,10 +133,10 @@
  96  Valkyrae
  40  Vincent van Gogh
  18  Vladimir Lenin
-125  Walter White
+120  Walter White
  64  Whitney Houston
  37  William Shakespeare
-126  Willy Wonka
+121  Willy Wonka
   8  Winston Churchill
  43  Wolfgang Amadeus Mozart
-116  Wonder Woman
+111  Wonder Woman
