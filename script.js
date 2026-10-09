@@ -34,7 +34,6 @@ const state = {
     seen: new Set(),       // names already shown this session
     queue: [],             // shuffled roster positions still waiting
     enterIndex: null,      // card to animate in on the next render
-    focusIndex: null,      // card to re-focus after a pick (keyboard flow)
     initial: true,         // the very first paint, where both cards rise in
     busy: false            // a swap is animating
 };
@@ -254,7 +253,6 @@ function buildCard(person, index) {
     const card = document.createElement("div");
 
     card.className = "person-card";
-    card.tabIndex = 0;
     card.setAttribute("role", "button");
     card.dataset.name = person.name;
     card.dataset.index = String(index);
@@ -303,23 +301,6 @@ function render() {
         container.appendChild(card);
     });
 
-    // A pick rebuilds both cards, which throws keyboard focus to <body>.
-    // Hand it back to the card that was chosen so Enter keeps working.
-    // Only reclaim focus that was on a card (or died with one) - never
-    // steal it from elsewhere on the page, and never on first paint.
-    if (state.focusIndex !== null) {
-
-        const active = document.activeElement;
-        const wasOnCard = active === document.body || container.contains(active);
-        const card = container.querySelector(`[data-index="${state.focusIndex}"]`);
-
-        if (wasOnCard && card) {
-            card.focus();
-        }
-
-        state.focusIndex = null;
-    }
-
     state.enterIndex = null;
     state.initial = false;
 }
@@ -360,10 +341,6 @@ function pick(index) {
             state.slots[other] = replacement;
             state.enterIndex = other;
 
-            // The chosen card survives the swap, so keyboard focus
-            // belongs back on it once the new cards are painted.
-            state.focusIndex = index;
-
             saveSession();
             render();
 
@@ -400,24 +377,6 @@ container.addEventListener("pointermove", (event) => {
 
     card.style.setProperty("--mx", `${event.clientX - box.left}px`);
     card.style.setProperty("--my", `${event.clientY - box.top}px`);
-});
-
-
-container.addEventListener("keydown", (event) => {
-
-    if (event.key !== "Enter" && event.key !== " ") {
-        return;
-    }
-
-    const card = event.target.closest(".person-card");
-
-    if (!card) {
-        return;
-    }
-
-    event.preventDefault();
-
-    pick(Number(card.dataset.index));
 });
 
 
