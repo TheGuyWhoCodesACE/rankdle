@@ -75,10 +75,24 @@ function dayKey(date) {
 // PICKING PEOPLE (stat-driven)
 //
 // Nobody shows up twice in a session, and the next card is
-// not a random draw: it is whoever is MOST DIFFERENT from
-// the card that stays on screen, measured across the six
-// ratings in ratings.json. Exact ties are broken at random.
+// not a random draw. Each pick flips its own coin (about
+// 50/50, never alternating):
+//
+//   - "different" half: whoever is MOST DIFFERENT from the
+//     card that stayed on screen
+//   - "similar" half: whoever is MOST SIMILAR - and if the
+//     card that stayed is a villain, the pool shrinks to the
+//     other villains first, so villains keep meeting villains
+//
+// All measured across the six ratings in ratings.json.
+// Exact ties are broken at random.
 // ------------------------------------------
+
+// Villains: real (non-fiction) people at the bottom of the
+// morality scale, plus every P*rn Star.
+function isVillain(person) {
+    return person.tag === "P*rn Star" || (person.fiction === 0 && person.morality <= 1);
+}
 
 // How different two people are, 0-30. Every stat is normalised
 // to 0-1 first (so all six weigh equally) then scored in integer
@@ -128,6 +142,37 @@ function mostDifferent(pool, reference) {
 }
 
 
+// The most SIMILAR person in `pool` to `reference` (smallest
+// differenceScore). Ties broken at random. No reference = random.
+function mostSimilar(pool, reference) {
+
+    if (!pool.length) {
+        return null;
+    }
+
+    if (!reference) {
+        return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    let best = [];
+    let bestScore = Infinity;
+
+    for (const person of pool) {
+
+        const score = differenceScore(person, reference);
+
+        if (score < bestScore) {
+            bestScore = score;
+            best = [person];
+        } else if (score === bestScore) {
+            best.push(person);
+        }
+    }
+
+    return best[Math.floor(Math.random() * best.length)];
+}
+
+
 // Everybody not yet shown this session and not in `excluded`.
 function eligiblePool(excluded) {
     return PEOPLE.filter(
@@ -136,11 +181,33 @@ function eligiblePool(excluded) {
 }
 
 
-// A new, never-shown-this-session person who is maximally
-// different from `reference` and not one of `excluded`.
+// The actual decision: flip the coin, then pick accordingly.
+function chooseReplacement(excluded, reference) {
+
+    const pool = eligiblePool(excluded);
+    const wantSimilar = Math.random() < 0.5;
+
+    // Villain on screen + similar half = the pool shrinks to
+    // the remaining villains, so Hitler, Stalin, Saddam,
+    // Epstein and the P*rn Stars keep ending up face to face.
+    if (wantSimilar && reference && isVillain(reference)) {
+
+        const villains = pool.filter(isVillain);
+
+        if (villains.length) {
+            return mostSimilar(villains, reference);
+        }
+    }
+
+    return wantSimilar ? mostSimilar(pool, reference) : mostDifferent(pool, reference);
+}
+
+
+// A new, never-shown-this-session person for the slot next to
+// `reference`, following the rules above.
 function nextPerson(excluded, reference) {
 
-    let found = mostDifferent(eligiblePool(excluded), reference);
+    let found = chooseReplacement(excluded, reference);
 
     if (found) {
         state.seen.add(found.name);
@@ -151,7 +218,7 @@ function nextPerson(excluded, reference) {
     // whoever is currently on screen out of the fresh pool.
     state.seen = new Set(excluded);
 
-    found = mostDifferent(eligiblePool(excluded), reference);
+    found = chooseReplacement(excluded, reference);
 
     if (found) {
         state.seen.add(found.name);
@@ -163,8 +230,8 @@ function nextPerson(excluded, reference) {
 
 function freshPair() {
 
-    // Nothing to be different from yet, so the first card is
-    // random - then the second is its polar opposite.
+    // The first card has nothing to be different (or similar)
+    // from, so it is random - the second follows the coin flip.
     const left = nextPerson(new Set(), null);
     const right = nextPerson(new Set([left.name]), left);
 

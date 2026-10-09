@@ -4,7 +4,7 @@
 you pick the better one and the loser is replaced by someone new.
 
 The roster mixes historical figures with today's musicians, internet
-creators, Twitch streamers and OnlyFans creators, plus fictional
+creators, Twitch streamers and P*rn Stars, plus fictional
 characters from books, comics, film, cartoons, games and anime —
 147 people in total.
 
@@ -34,13 +34,22 @@ everyone's id. The card's DOM element carries the id as `data-id`.
 
 ## How the next card is chosen
 
-The replacement after each pick is **not random**: it is whoever is the most
-different from the card you kept, measured across the six ratings
-(`fame`/`era`/`morality`/`controversy` normalized to 0-1, plus `gender` and
-`fiction` as 0/1 - so all six weigh equally), scored 0-30 in integer fifths.
+The replacement after each pick is **not random**, but it is not always the
+polar opposite either: each pick flips its own coin (about 50/50, never
+alternating) between two modes.
+
+- **Different half** — whoever is the most different from the card you kept,
+  measured across the six ratings (`fame`/`era`/`morality`/`controversy`
+  normalized to 0-1, plus `gender` and `fiction` as 0/1 - so all six weigh
+  equally), scored 0-30 in integer fifths.
+- **Similar half** — whoever is the most *similar*. And if the card you kept
+  is a **villain** (a real person at the bottom of the morality scale, or any
+  P*rn Star), the pool first shrinks to the remaining villains - so Hitler,
+  Stalin, Saddam, Epstein and the P*rn Stars keep ending up face to face.
+
 Exact ties are broken at random, and so is the very first card of a session
-(there is nothing to be different from yet). Everyone still can't repeat
-until the whole roster has been used.
+(there is nothing to be similar or different from yet). Everyone still can't
+repeat until the whole roster has been used.
 
 ## Files
 

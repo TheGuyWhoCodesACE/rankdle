@@ -894,7 +894,7 @@ const ROSTER = [
         name: "Mia Khalifa",
         years: "b. 1993",
         role: "Media personality",
-        tag: "OnlyFans",
+        tag: "P*rn Star",
         image: "images/mia-khalifa.png",
         wiki: "Mia Khalifa"
     },
@@ -903,7 +903,7 @@ const ROSTER = [
         name: "Amouranth",
         years: "b. 1993",
         role: "Streamer and creator",
-        tag: "OnlyFans",
+        tag: "P*rn Star",
         image: "images/amouranth.jpg",
         wiki: "Amouranth"
     },
@@ -912,7 +912,7 @@ const ROSTER = [
         name: "Sophie Rain",
         years: "b. 2004",
         role: "Internet personality",
-        tag: "OnlyFans",
+        tag: "P*rn Star",
         image: "images/sophie-rain.jpg",
         wiki: "Sophie Rain"
     },
@@ -921,7 +921,7 @@ const ROSTER = [
         name: "Bonnie Blue",
         years: "b. 1999",
         role: "Adult film actress",
-        tag: "OnlyFans",
+        tag: "P*rn Star",
         image: "images/bonnie-blue.jpg",
         wiki: "Bonnie Blue"
     },
@@ -930,7 +930,7 @@ const ROSTER = [
         name: "Riley Reid",
         years: "b. 1991",
         role: "Adult film actress",
-        tag: "OnlyFans",
+        tag: "P*rn Star",
         image: "images/riley-reid.jpg",
         wiki: "Riley Reid"
     },
@@ -939,7 +939,7 @@ const ROSTER = [
         name: "Mia Malkova",
         years: "b. 1992",
         role: "Adult film actress and media personality",
-        tag: "OnlyFans",
+        tag: "P*rn Star",
         image: "images/mia-malkova.jpg",
         wiki: "Mia Malkova"
     },
@@ -948,7 +948,7 @@ const ROSTER = [
         name: "Lily Phillips",
         years: "b. 2001",
         role: "Adult film actress",
-        tag: "OnlyFans",
+        tag: "P*rn Star",
         image: "images/lily-phillips.png",
         wiki: "Lily Phillips"
     },
@@ -957,7 +957,7 @@ const ROSTER = [
         name: "Abella Danger",
         years: "b. 1995",
         role: "Adult film actress and director",
-        tag: "OnlyFans",
+        tag: "P*rn Star",
         image: "images/abella-danger.jpg",
         wiki: "Abella Danger"
     },
