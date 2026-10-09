@@ -25,6 +25,26 @@ const FADE_DELAY = 400;
 
 
 // ------------------------------------------
+// DATA
+//
+// people.js gives the roster; ratings.js (generated from
+// ratings.json) gives the six game ratings keyed by name.
+// Merge them once here so every part of the game can score
+// people directly. Anyone without ratings gets neutral ones.
+// ------------------------------------------
+
+const RATINGS_TABLE = typeof RATINGS !== "undefined" ? RATINGS : {};
+
+const NEUTRAL_RATINGS = { fame: 3, era: 3, morality: 3, controversy: 3, gender: 0, fiction: 0 };
+
+const PEOPLE = (typeof ROSTER !== "undefined" ? ROSTER : []).map((person) => ({
+    ...person,
+    ...NEUTRAL_RATINGS,
+    ...(RATINGS_TABLE[person.name] || {})
+}));
+
+
+// ------------------------------------------
 // STATE
 // ------------------------------------------
 
@@ -32,7 +52,6 @@ const state = {
     key: dayKey(new Date()),
     slots: [null, null],   // the two people on screen, left and right
     seen: new Set(),       // names already shown this session
-    queue: [],             // shuffled roster positions still waiting
     enterIndex: null,      // card to animate in on the next render
     initial: true,         // the very first paint, where both cards rise in
     busy: false            // a swap is animating
@@ -52,74 +71,102 @@ function dayKey(date) {
 }
 
 
-function shuffle(list, random = Math.random) {
-    for (let i = list.length - 1; i > 0; i--) {
-
-        const j = Math.floor(random() * (i + 1));
-
-        [list[i], list[j]] = [list[j], list[i]];
-    }
-
-    return list;
-}
-
-
 // ------------------------------------------
-// PICKING PEOPLE
+// PICKING PEOPLE (stat-driven)
 //
-// Every person shown gets added to `seen`, so
-// the next replacement is always somebody new.
+// Nobody shows up twice in a session, and the next card is
+// not a random draw: it is whoever is MOST DIFFERENT from
+// the card that stays on screen, measured across the six
+// ratings in ratings.json. Exact ties are broken at random.
 // ------------------------------------------
 
-function fillQueue() {
-    state.queue = shuffle(ROSTER.map((person, index) => index));
+// How different two people are, 0-30. Every stat is normalised
+// to 0-1 first (so all six weigh equally) then scored in integer
+// fifths: the four 0-5 stats contribute up to 5 each, gender and
+// fiction up to 5 each. Integers keep tie comparisons exact.
+function differenceScore(a, b) {
+    return (
+        Math.abs(a.fame - b.fame) +
+        Math.abs(a.era - b.era) +
+        Math.abs(a.morality - b.morality) +
+        Math.abs(a.controversy - b.controversy) +
+        5 * Math.abs(a.gender - b.gender) +
+        5 * Math.abs(a.fiction - b.fiction)
+    );
 }
 
 
-function takeFromQueue(excluded) {
+// The most different person in `pool` compared to `reference`.
+// No reference (the very first card of a session) = random.
+// People who are equally the most different = random among them.
+function mostDifferent(pool, reference) {
 
-    while (state.queue.length) {
-
-        const person = ROSTER[state.queue.pop()];
-
-        if (!person || state.seen.has(person.name) || excluded.has(person.name)) {
-            continue;
-        }
-
-        state.seen.add(person.name);
-
-        return person;
+    if (!pool.length) {
+        return null;
     }
 
-    return null;
+    if (!reference) {
+        return pool[Math.floor(Math.random() * pool.length)];
+    }
+
+    let best = [];
+    let bestScore = -1;
+
+    for (const person of pool) {
+
+        const score = differenceScore(person, reference);
+
+        if (score > bestScore) {
+            bestScore = score;
+            best = [person];
+        } else if (score === bestScore) {
+            best.push(person);
+        }
+    }
+
+    return best[Math.floor(Math.random() * best.length)];
 }
 
 
-// A new, never-shown-this-session person who is
-// not one of the names in `excluded`.
-function nextPerson(excluded) {
+// Everybody not yet shown this session and not in `excluded`.
+function eligiblePool(excluded) {
+    return PEOPLE.filter(
+        (person) => !state.seen.has(person.name) && !excluded.has(person.name)
+    );
+}
 
-    const found = takeFromQueue(excluded);
+
+// A new, never-shown-this-session person who is maximally
+// different from `reference` and not one of `excluded`.
+function nextPerson(excluded, reference) {
+
+    let found = mostDifferent(eligiblePool(excluded), reference);
 
     if (found) {
+        state.seen.add(found.name);
         return found;
     }
 
     // Whole roster has been used up - start over, but keep
     // whoever is currently on screen out of the fresh pool.
     state.seen = new Set(excluded);
-    fillQueue();
 
-    return takeFromQueue(excluded);
+    found = mostDifferent(eligiblePool(excluded), reference);
+
+    if (found) {
+        state.seen.add(found.name);
+    }
+
+    return found;
 }
 
 
 function freshPair() {
 
-    fillQueue();
-
-    const left = nextPerson(new Set());
-    const right = nextPerson(new Set([left.name]));
+    // Nothing to be different from yet, so the first card is
+    // random - then the second is its polar opposite.
+    const left = nextPerson(new Set(), null);
+    const right = nextPerson(new Set([left.name]), left);
 
     return [left, right];
 }
@@ -196,7 +243,7 @@ function initialsFor(name) {
 
 
 function byName(name) {
-    return ROSTER.find((person) => person.name === name) || null;
+    return PEOPLE.find((person) => person.name === name) || null;
 }
 
 
@@ -324,7 +371,8 @@ function pick(index) {
 
     // Work out the replacement straight away so it is ready
     // the moment the animation lands. This also grows `seen`.
-    const replacement = nextPerson(new Set([kept.name, replaced.name]));
+    // It is the most different person from the one being kept.
+    const replacement = nextPerson(new Set([kept.name, replaced.name]), kept);
 
     const cards = [...container.children];
 
@@ -389,7 +437,7 @@ handleReset();
 document.getElementById("today-date").textContent =
     formatDate(new Date()).toUpperCase();
 
-if (!Array.isArray(ROSTER) || ROSTER.length < 3) {
+if (!Array.isArray(PEOPLE) || PEOPLE.length < 3) {
 
     container.innerHTML =
         "<p class='hint'>No people loaded. Run <code>node tools/build.mjs</code> first.</p>";
@@ -397,10 +445,6 @@ if (!Array.isArray(ROSTER) || ROSTER.length < 3) {
 } else {
 
     const saved = loadSession();
-
-    // The queue of "who is left to show" starts empty every load -
-    // refill it, then let `seen` do the filtering.
-    fillQueue();
 
     if (saved) {
 

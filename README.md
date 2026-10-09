@@ -24,6 +24,16 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
   `localStorage`, so a refresh picks up where you left off. Append `?reset=1` to the
   URL to wipe the session and start again while testing.
 
+## How the next card is chosen
+
+The replacement after each pick is **not random**: it is whoever is the most
+different from the card you kept, measured across the six ratings
+(`fame`/`era`/`morality`/`controversy` normalized to 0-1, plus `gender` and
+`fiction` as 0/1 - so all six weigh equally), scored 0-30 in integer fifths.
+Exact ties are broken at random, and so is the very first card of a session
+(there is nothing to be different from yet). Everyone still can't repeat
+until the whole roster has been used.
+
 ## Files
 
 | File | What it is |
@@ -32,9 +42,12 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
 | `style.css` | All styling, including the phone layout |
 | `script.js` | Drawing, the pick / replace loop, session storage |
 | `people.js` | **Generated.** The roster of 146 people: name, dates, role, category, portrait |
+| `ratings.json` | Hand-authored game data: six ratings per person (see above) |
+| `ratings.js` | **Generated** from `ratings.json` (browsers can't script-tag a `.json`) |
 | `names.txt` | **Generated.** Every name in the roster, A-Z |
 | `images/` | Portraits pulled from Wikipedia / Wikimedia Commons, plus `CREDITS.md` |
 | `tools/build.mjs` | Source of truth for the roster + the image downloader |
+| `tools/build-ratings.mjs` | Mirrors `ratings.json` into `ratings.js` |
 
 ## Editing the roster
 
@@ -75,6 +88,29 @@ Wikimedia Commons file instead:
 straight from Commons for `images/CREDITS.md`. Commons only hosts free-licensed
 files, so anything there is safe to use. Each fictional character's `years` is their
 debut (`Debut 1997`), not a lifespan.
+
+## ratings.json
+
+`ratings.json` scores every person in the roster on six attributes, keyed by
+the exact name used in `people.js`. It is hand-authored game data — edit it
+directly if you disagree with a score, but keep the name keys in sync with
+the roster.
+
+| Key | Values | Meaning |
+| --- | --- | --- |
+| `fame` | 0-5 | How globally famous: 5 = household name worldwide, 2 = known mainly within a region or community |
+| `era` | 0-5 | Modern-day vs historical: 5 = a present-day figure, 0 = ancient |
+| `morality` | 0-5 | Broad public moral reputation: 5 = widely admired, 3 = neutral / no strong reputation, 0 = widely regarded as evil |
+| `controversy` | 0-5 | Amount of public controversy: 5 = relentlessly controversial or infamous, 0 = essentially controversy-free |
+| `gender` | 0 / 1 | 0 = man, 1 = woman |
+| `fiction` | 0 / 1 | 0 = real person, 1 = fictional character (matches the Literature / Comic / Film & TV / Cartoon / Game / Anime tags) |
+
+`era` is assigned by band — alive and active today = 5; died 1980-2015
+(fiction debut 1980-1999) = 4; 1940-1979 = 3; 1900-1939 = 2; 1500-1899 = 1;
+earlier = 0.
+
+`morality` and `controversy` describe broad public perception, not personal
+judgement — they are game data.
 
 ## Deploying (GitHub Pages)
 
