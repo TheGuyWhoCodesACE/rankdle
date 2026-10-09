@@ -5,6 +5,7 @@ Adele
 Adolf Hitler
 Albert Einstein
 Alexander the Great
+Alice
 Amelia Earhart
 Amouranth
 Andrew Tate
@@ -12,6 +13,7 @@ Anne Frank
 Ariana Grande
 Aristotle
 Bad Bunny
+Batman
 Bella Poarch
 Beyonce
 Billie Eilish
@@ -19,27 +21,42 @@ Billy Joel
 Bob Marley
 Bonnie Blue
 Bruno Mars
+Bugs Bunny
+Buzz Lightyear
 Charles Darwin
 Christopher Columbus
+Cinderella
 Cleopatra
+Daenerys Targaryen
 DanTDM
+Darth Vader
 Dolly Parton
 Dr Disrespect
+Dracula
 Drake
 Ed Sheeran
+Elsa
 Elton John
 Elvis Presley
 Eminem
 Frank Sinatra
 Franklin D. Roosevelt
 Galileo Galilei
+Gandalf
 Genghis Khan
 George Washington
+Goku
+Harley Quinn
 Harriet Tubman
+Harry Potter
 Henry VIII
+Hermione Granger
+Homer Simpson
+Indiana Jones
 Isaac Newton
 iShowSpeed
 Jake Paul
+James Bond
 Jay-Z
 Jesse Owens
 John F. Kennedy
@@ -48,18 +65,23 @@ Joseph Stalin
 Julius Caesar
 Kai Cenat
 Kanye West
+Katniss Everdeen
 Katy Perry
 KSI
 Lady Gaga
+Lara Croft
 Leonardo da Vinci
 Lily Phillips
+Link
 Logan Paul
 Ludwig
 Ludwig van Beethoven
+Luke Skywalker
 Madonna
 Mahatma Gandhi
 Mao Zedong
 Marie Curie
+Mario
 Mark Twain
 Markiplier
 Martin Luther King Jr.
@@ -68,31 +90,46 @@ Mia Khalifa
 Mia Malkova
 Michael Jackson
 Michelangelo
+Mickey Mouse
+Monkey D. Luffy
 Mother Teresa
 MrBeast
 Muhammad Ali
 Napoleon Bonaparte
+Naruto Uzumaki
 Nelson Mandela
 Nikola Tesla
 Ninja
 Olivia Rodrigo
 Pablo Picasso
 PewDiePie
+Pikachu
 Piper Rockelle
 Plato
 Pokimane
 Riley Reid
+Rocky Balboa
 Ronald Reagan
 Rosa Parks
 Saddam Hussein
+Sailor Moon
+Scooby-Doo
 Shakira
+Sherlock Holmes
+Shrek
+Simba
 Snoop Dogg
 Socrates
+Sonic the Hedgehog
 Sophie Rain
+Spider-Man
+SpongeBob SquarePants
 SSSniperWolf
 Stephen Hawking
 Sun Tzu
+Superman
 Taylor Swift
+The Joker
 Thomas Edison
 Thomas Jefferson
 Tupac Shakur
@@ -100,7 +137,10 @@ Tyler1
 Valkyrae
 Vincent van Gogh
 Vladimir Lenin
+Walter White
 Whitney Houston
 William Shakespeare
+Willy Wonka
 Winston Churchill
 Wolfgang Amadeus Mozart
+Wonder Woman

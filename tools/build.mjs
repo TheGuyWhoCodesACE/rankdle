@@ -159,7 +159,66 @@ const ROSTER = [
     { name: "Riley Reid", wiki: "Riley Reid", years: "b. 1991", role: "Adult film actress", tag: "OnlyFans" },
     { name: "Mia Malkova", wiki: "Mia Malkova", years: "b. 1992", role: "Adult film actress and media personality", tag: "OnlyFans" },
     { name: "Lily Phillips", wiki: "Lily Phillips", years: "b. 2001", role: "Adult film actress", tag: "OnlyFans" },
-    { name: "Abella Danger", wiki: "Abella Danger", years: "b. 1995", role: "Adult film actress and director", tag: "OnlyFans" }
+    { name: "Abella Danger", wiki: "Abella Danger", years: "b. 1995", role: "Adult film actress and director", tag: "OnlyFans" },
+
+    // --- Fictional characters --------------------------------------
+    //
+    // `years` is the debut (first appearance), not a lifespan, so it reads
+    // "Debut 1997". `commons` points at a Wikimedia Commons file for anyone
+    // whose Wikipedia page image is missing, a logo, or otherwise unusable -
+    // it wins over the Wikipedia thumbnail and is credited from Commons.
+
+    // --- Fictional: literature ----------------------------------
+    { name: "Harry Potter", wiki: "Harry Potter", years: "Debut 1997", role: "Boy wizard of Hogwarts", tag: "Literature", commons: "File:Harry Potter cosplay.jpg" },
+    { name: "Hermione Granger", wiki: "Hermione Granger", years: "Debut 1997", role: "Hogwarts witch and bookworm", tag: "Literature", commons: "File:Hermione Granger fanart - Cor-Sa.jpg" },
+    { name: "Sherlock Holmes", wiki: "Sherlock Holmes", years: "Debut 1887", role: "Consulting detective of Baker Street", tag: "Literature" },
+    { name: "Dracula", wiki: "Dracula", years: "Debut 1897", role: "Transylvanian vampire count", tag: "Literature" },
+    { name: "Gandalf", wiki: "Gandalf", years: "Debut 1954", role: "Wizard of Middle-earth", tag: "Literature", commons: "File:Supanova 2022 Gandalf White 2.jpg" },
+    { name: "Alice", wiki: "Alice (Alice's Adventures in Wonderland)", years: "Debut 1865", role: "Girl down the rabbit hole", tag: "Literature" },
+
+    // --- Fictional: comics --------------------------------------
+    { name: "Superman", wiki: "Superman", years: "Debut 1938", role: "Kryptonian hero of Metropolis", tag: "Comic", commons: "File:Superman MultiVersus.png" },
+    { name: "Batman", wiki: "Batman", years: "Debut 1939", role: "Caped crusader of Gotham", tag: "Comic", commons: "File:San Diego Comic-Con 2024 Masquerade - Cosplay of Batman 3.jpg" },
+    { name: "Spider-Man", wiki: "Spider-Man", years: "Debut 1962", role: "Web-slinging hero of New York", tag: "Comic", commons: "File:Comikaze 2014 - Amazing Spider-Man (15733465882).jpg" },
+    { name: "Wonder Woman", wiki: "Wonder Woman", years: "Debut 1941", role: "Amazon warrior princess", tag: "Comic", commons: "File:Wonder Woman MultiVersus.png" },
+    { name: "The Joker", wiki: "Joker (character)", years: "Debut 1940", role: "Gotham's clown prince of crime", tag: "Comic", commons: "File:Cesar Romero - The Joker 1967 (colored).png" },
+    { name: "Harley Quinn", wiki: "Harley Quinn", years: "Debut 1992", role: "Arkham psychiatrist turned villain", tag: "Comic", commons: "File:Harley Quinn MultiVersus.png" },
+
+    // --- Fictional: film & TV -----------------------------------
+    { name: "Darth Vader", wiki: "Darth Vader", years: "Debut 1977", role: "Sith lord in a black mask", tag: "Film & TV", commons: "File:Darth Vader mural by Pieksa in Kraków, 20210530 1744 3355 DxO.jpg" },
+    { name: "Luke Skywalker", wiki: "Luke Skywalker", years: "Debut 1977", role: "Rebel pilot turned Jedi", tag: "Film & TV" },
+    { name: "James Bond", wiki: "James Bond (literary character)", years: "Debut 1953", role: "007, British secret agent", tag: "Film & TV", commons: "File:James Bond at Madame Tussauds, London.jpg" },
+    { name: "Indiana Jones", wiki: "Indiana Jones", years: "Debut 1981", role: "Archaeologist in a fedora", tag: "Film & TV", commons: "File:Indiana Jones Statue Leicester Square.jpg" },
+    { name: "Rocky Balboa", wiki: "Rocky Balboa", years: "Debut 1976", role: "Boxer from Philadelphia", tag: "Film & TV", commons: "File:Rocky Balboa Statue in Philadelphia.jpg" },
+    { name: "Katniss Everdeen", wiki: "Katniss Everdeen", years: "Debut 2008", role: "Tribute who sparked a rebellion", tag: "Film & TV" },
+    { name: "Walter White", wiki: "Walter White", years: "Debut 2008", role: "Chemist turned meth kingpin", tag: "Film & TV", commons: "File:Dry brush portrait of Walter White from Breaking Bad by SD (2015).jpg" },
+    { name: "Willy Wonka", wiki: "Willy Wonka", years: "Debut 1964", role: "Eccentric chocolate factory owner", tag: "Film & TV" },
+    { name: "Daenerys Targaryen", wiki: "Daenerys Targaryen", years: "Debut 1996", role: "Mother of Dragons", tag: "Film & TV", commons: "File:SDCC 2012 - Daenerys Targaryen (7567458148).jpg" },
+
+    // --- Fictional: cartoons -------------------------------------
+    { name: "Mickey Mouse", wiki: "Mickey Mouse", years: "Debut 1928", role: "Disney's original cartoon mouse", tag: "Cartoon", commons: "File:Disneyland Resort Line Mickey Mouse Statue.jpg" },
+    { name: "Bugs Bunny", wiki: "Bugs Bunny", years: "Debut 1940", role: "Carrot-munching trickster rabbit", tag: "Cartoon", commons: "File:Bugs Bunny MultiVersus.png" },
+    { name: "SpongeBob SquarePants", wiki: "SpongeBob SquarePants", years: "Debut 1999", role: "Fry cook of Bikini Bottom", tag: "Cartoon", commons: "File:SpongeBob at New York City's 2025 Village Halloween Parade.jpg" },
+    { name: "Scooby-Doo", wiki: "Scooby-Doo", years: "Debut 1969", role: "Mystery-solving Great Dane", tag: "Cartoon", commons: "File:Scooby Doo Cosplay.jpg" },
+    { name: "Cinderella", wiki: "Cinderella", years: "Debut 1950", role: "Princess of the glass slipper", tag: "Cartoon" },
+    { name: "Elsa", wiki: "Elsa (Frozen)", years: "Debut 2013", role: "Snow queen of Arendelle", tag: "Cartoon", commons: "File:Frozen - Elsa - Magic On Parade (12291641724).jpg" },
+    { name: "Simba", wiki: "Simba", years: "Debut 1994", role: "Lion king of the Pride Lands", tag: "Cartoon", commons: "File:Beto Sargentelli como Simba em O Rei Leão.jpg" },
+    { name: "Shrek", wiki: "Shrek", years: "Debut 2001", role: "Ogre of the swamp", tag: "Cartoon", commons: "File:Shrek Madame Tussauds London.jpg" },
+    { name: "Buzz Lightyear", wiki: "Buzz Lightyear", years: "Debut 1995", role: "Toy space ranger", tag: "Cartoon" },
+    { name: "Homer Simpson", wiki: "Homer Simpson", years: "Debut 1989", role: "Springfield's donut-loving dad", tag: "Cartoon", commons: "File:Cosplay of Homer Simpson at Comic Fiesta 2022.jpg" },
+
+    // --- Fictional: games ----------------------------------------
+    { name: "Mario", wiki: "Mario (character)", years: "Debut 1981", role: "Plumber and Nintendo mascot", tag: "Game", commons: "File:Cosplayer of Mario, Mario Kart at Otakuthon 20160807.jpg" },
+    { name: "Link", wiki: "Link (The Legend of Zelda)", years: "Debut 1986", role: "Hero of Hyrule", tag: "Game", commons: "File:ANIME EXPO 2017 Cosplay of Link 2.jpg" },
+    { name: "Sonic the Hedgehog", wiki: "Sonic the Hedgehog", years: "Debut 1991", role: "Sega's speedy blue hedgehog", tag: "Game", commons: "File:SONIC Alton Towers.jpg" },
+    { name: "Lara Croft", wiki: "Lara Croft", years: "Debut 1996", role: "Tomb-raiding archaeologist", tag: "Game", commons: "File:Cosplay of Lara Croft from Tomb Raider at Brussels Comic Con 2019 (46391102755).jpg" },
+
+    // --- Fictional: anime ----------------------------------------
+    { name: "Goku", wiki: "Goku", years: "Debut 1984", role: "Saiyan fighter of Dragon Ball", tag: "Anime", commons: "File:Goku Cosplay by. Angel.jpg" },
+    { name: "Naruto Uzumaki", wiki: "Naruto Uzumaki", years: "Debut 1999", role: "Ninja who dreams of Hokage", tag: "Anime", commons: "File:Cosplay of Naruto Uzumaki from Naruto Shippuden at AniManGaki 2014, Day 2 029 (20140810).jpg" },
+    { name: "Sailor Moon", wiki: "Sailor Moon", years: "Debut 1991", role: "Guardian of love and justice", tag: "Anime", commons: "File:Japan Expo 2024 Sailor Moon.jpg" },
+    { name: "Pikachu", wiki: "Pikachu", years: "Debut 1996", role: "Electric-type Pokemon mascot", tag: "Anime", commons: "File:Big Pikachu figure at Königsbau Stuttgart (2022-12-31) 2.jpg" },
+    { name: "Monkey D. Luffy", wiki: "Monkey D. Luffy", years: "Debut 1997", role: "Pirate captain of the Straw Hats", tag: "Anime", commons: "File:Monkey D Luffy Cosplay.jpg" }
 ];
 
 // ------------------------------------------------------------
@@ -183,12 +242,6 @@ const LOCAL_IMAGES = {
         artist: "Piper Rockelle (public profile photo)",
         license: "Profile photo - not freely licensed",
         source: "https://www.tiktok.com/@piperrockelle"
-    },
-    "The Notorious B.I.G.": {
-        file: "images/the-notorious-b-i-g.jpg",
-        artist: "Unknown author (via Wikipedia)",
-        license: "Non-free / fair use - Wikipedia infobox image",
-        source: "https://en.wikipedia.org/wiki/File:Biggie_Smalls_1997.jpg"
     }
 };
 
@@ -213,9 +266,9 @@ function chunk(array, size) {
     return out;
 }
 
-async function wikipedia(params) {
+async function api(host, params) {
     const url =
-        "https://en.wikipedia.org/w/api.php?" +
+        `https://${host}/w/api.php?` +
         new URLSearchParams({ format: "json", origin: "*", ...params });
 
     const response = await fetch(url, {
@@ -225,10 +278,18 @@ async function wikipedia(params) {
     });
 
     if (!response.ok) {
-        throw new Error(`Wikipedia responded ${response.status}`);
+        throw new Error(`${host} responded ${response.status}`);
     }
 
     return response.json();
+}
+
+async function wikipedia(params) {
+    return api("en.wikipedia.org", params);
+}
+
+async function commons(params) {
+    return api("commons.wikimedia.org", params);
 }
 
 function stripHtml(html) {
@@ -349,10 +410,68 @@ async function findPortraits() {
 }
 
 // ------------------------------------------------------------
+// 1b. Portraits that live on Wikimedia Commons instead
+//
+// Fictional characters rarely have a usable Wikipedia page image (what
+// Wikipedia shows is usually a non-free logo or film still), so those
+// entries name a Commons file directly: `commons: "File:Whatever.jpg"`.
+// ------------------------------------------------------------
+
+async function findCommonsPortraits() {
+    const results = new Map(); // person name -> { thumb, license, artist, source }
+    const wanted = ROSTER.filter((person) => person.commons);
+
+    if (!wanted.length) return results;
+
+    for (const batch of chunk(wanted, 20)) {
+        const data = await commons({
+            action: "query",
+            prop: "imageinfo",
+            iiprop: "url|extmetadata",
+            iiurlwidth: String(THUMB_WIDTH),
+            redirects: "1",
+            titles: batch.map((person) => person.commons).join("|")
+        });
+
+        const resolve = makeResolver(data);
+        const pages = Object.values(data.query?.pages || {});
+
+        for (const person of batch) {
+            const title = resolve(person.commons);
+            const page =
+                pages.find((candidate) => candidate.title === title) ||
+                pages.find((candidate) => candidate.title === person.commons);
+
+            const info = page?.imageinfo?.[0];
+
+            if (!info?.url) {
+                console.warn(`  ! no Commons file for ${person.name} (${person.commons})`);
+                continue;
+            }
+
+            const meta = info.extmetadata || {};
+
+            results.set(person.name, {
+                thumb: (info.thumburl || info.url).split("?")[0],
+                license: stripHtml(meta.LicenseShortName?.value) || "unknown",
+                artist: stripHtml(meta.Artist?.value) || "unknown",
+                source: `https://commons.wikimedia.org/wiki/${
+                    encodeURIComponent(person.commons.replace(/ /g, "_"))
+                }`
+            });
+        }
+    }
+
+    console.log(`  found ${results.size}/${wanted.length} Commons images`);
+
+    return results;
+}
+
+// ------------------------------------------------------------
 // 2. Download the portraits
 // ------------------------------------------------------------
 
-async function download(portraits) {
+async function download(portraits, commonsPortraits) {
     await fs.mkdir(IMAGES_DIR, { recursive: true });
 
     const jobs = [];
@@ -364,7 +483,10 @@ async function download(portraits) {
             continue;
         }
 
-        const portrait = portraits.get(person.wiki);
+        // A named Commons file beats whatever Wikipedia would show - for
+        // fictional characters that is usually a logo or nothing at all.
+        const portrait =
+            commonsPortraits.get(person.name) || portraits.get(person.wiki);
 
         if (!portrait) {
             person.image = "";
@@ -389,19 +511,34 @@ async function download(portraits) {
                 return;
             }
 
-            try {
-                const response = await fetch(job.portrait.thumb, {
-                    headers: { "User-Agent": "rankdle-build/1.0" }
-                });
+            // Rate limits happen (429) - retry with a short backoff rather
+            // than silently dropping the portrait.
+            let failure = null;
 
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
+            for (let attempt = 1; attempt <= 4; attempt++) {
+                try {
+                    const response = await fetch(job.portrait.thumb, {
+                        headers: { "User-Agent": "rankdle-build/1.0" }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+
+                    const bytes = Buffer.from(await response.arrayBuffer());
+                    await fs.writeFile(job.absolute, bytes);
+                    failure = null;
+                    break;
+                } catch (error) {
+                    failure = error;
+                    if (attempt < 4) {
+                        await new Promise((resolve) => setTimeout(resolve, 750 * attempt));
+                    }
                 }
+            }
 
-                const bytes = Buffer.from(await response.arrayBuffer());
-                await fs.writeFile(job.absolute, bytes);
-            } catch (error) {
-                console.warn(`  ! could not download ${job.person.name}: ${error.message}`);
+            if (failure) {
+                console.warn(`  ! could not download ${job.person.name}: ${failure.message}`);
                 job.person.image = "";
             }
 
@@ -465,12 +602,18 @@ function writeNames() {
     return fs.writeFile(path.join(ROOT, "names.txt"), names.join("\n") + "\n", "utf8");
 }
 
-async function writeCredits(portraits) {
+async function writeCredits(portraits, commonsPortraits) {
     const rows = ROSTER.filter((person) => person.image).map((person) => {
         const local = LOCAL_IMAGES[person.name];
 
         if (local) {
             return `| [${person.name}](${local.source}) | ${local.artist} | ${local.license} | ${local.source} |`;
+        }
+
+        const fromCommons = commonsPortraits.get(person.name);
+
+        if (fromCommons) {
+            return `| [${person.name}](${fromCommons.source}) | ${fromCommons.artist} | ${fromCommons.license} | ${fromCommons.thumb} |`;
         }
 
         const portrait = portraits.get(person.wiki) || {};
@@ -505,8 +648,11 @@ async function main() {
     console.log("Looking up portraits on Wikipedia...");
     const portraits = await findPortraits();
 
+    console.log("Looking up Commons files...");
+    const commonsPortraits = await findCommonsPortraits();
+
     console.log("Downloading images...");
-    await download(portraits);
+    await download(portraits, commonsPortraits);
 
     console.log("Writing people.js...");
     await writePeople();
@@ -515,7 +661,7 @@ async function main() {
     await writeNames();
 
     console.log("Writing images/CREDITS.md...");
-    await writeCredits(portraits);
+    await writeCredits(portraits, commonsPortraits);
 
     const missing = ROSTER.filter((person) => !person.image);
     console.log(`Done. ${ROSTER.length - missing.length}/${ROSTER.length} have a photo.`);

@@ -854,6 +854,326 @@ const ROSTER = [
         tag: "OnlyFans",
         image: "images/abella-danger.jpg",
         wiki: "Abella Danger"
+    },
+    {
+        name: "Harry Potter",
+        years: "Debut 1997",
+        role: "Boy wizard of Hogwarts",
+        tag: "Literature",
+        image: "images/harry-potter.jpg",
+        wiki: "Harry Potter"
+    },
+    {
+        name: "Hermione Granger",
+        years: "Debut 1997",
+        role: "Hogwarts witch and bookworm",
+        tag: "Literature",
+        image: "images/hermione-granger.jpg",
+        wiki: "Hermione Granger"
+    },
+    {
+        name: "Sherlock Holmes",
+        years: "Debut 1887",
+        role: "Consulting detective of Baker Street",
+        tag: "Literature",
+        image: "images/sherlock-holmes.jpg",
+        wiki: "Sherlock Holmes"
+    },
+    {
+        name: "Dracula",
+        years: "Debut 1897",
+        role: "Transylvanian vampire count",
+        tag: "Literature",
+        image: "images/dracula.jpg",
+        wiki: "Dracula"
+    },
+    {
+        name: "Gandalf",
+        years: "Debut 1954",
+        role: "Wizard of Middle-earth",
+        tag: "Literature",
+        image: "images/gandalf.jpg",
+        wiki: "Gandalf"
+    },
+    {
+        name: "Alice",
+        years: "Debut 1865",
+        role: "Girl down the rabbit hole",
+        tag: "Literature",
+        image: "images/alice.png",
+        wiki: "Alice (Alice's Adventures in Wonderland)"
+    },
+    {
+        name: "Superman",
+        years: "Debut 1938",
+        role: "Kryptonian hero of Metropolis",
+        tag: "Comic",
+        image: "images/superman.png",
+        wiki: "Superman"
+    },
+    {
+        name: "Batman",
+        years: "Debut 1939",
+        role: "Caped crusader of Gotham",
+        tag: "Comic",
+        image: "images/batman.jpg",
+        wiki: "Batman"
+    },
+    {
+        name: "Spider-Man",
+        years: "Debut 1962",
+        role: "Web-slinging hero of New York",
+        tag: "Comic",
+        image: "images/spider-man.jpg",
+        wiki: "Spider-Man"
+    },
+    {
+        name: "Wonder Woman",
+        years: "Debut 1941",
+        role: "Amazon warrior princess",
+        tag: "Comic",
+        image: "images/wonder-woman.png",
+        wiki: "Wonder Woman"
+    },
+    {
+        name: "The Joker",
+        years: "Debut 1940",
+        role: "Gotham's clown prince of crime",
+        tag: "Comic",
+        image: "images/the-joker.png",
+        wiki: "Joker (character)"
+    },
+    {
+        name: "Harley Quinn",
+        years: "Debut 1992",
+        role: "Arkham psychiatrist turned villain",
+        tag: "Comic",
+        image: "images/harley-quinn.png",
+        wiki: "Harley Quinn"
+    },
+    {
+        name: "Darth Vader",
+        years: "Debut 1977",
+        role: "Sith lord in a black mask",
+        tag: "Film & TV",
+        image: "images/darth-vader.jpg",
+        wiki: "Darth Vader"
+    },
+    {
+        name: "Luke Skywalker",
+        years: "Debut 1977",
+        role: "Rebel pilot turned Jedi",
+        tag: "Film & TV",
+        image: "images/luke-skywalker.jpg",
+        wiki: "Luke Skywalker"
+    },
+    {
+        name: "James Bond",
+        years: "Debut 1953",
+        role: "007, British secret agent",
+        tag: "Film & TV",
+        image: "images/james-bond.jpg",
+        wiki: "James Bond (literary character)"
+    },
+    {
+        name: "Indiana Jones",
+        years: "Debut 1981",
+        role: "Archaeologist in a fedora",
+        tag: "Film & TV",
+        image: "images/indiana-jones.jpg",
+        wiki: "Indiana Jones"
+    },
+    {
+        name: "Rocky Balboa",
+        years: "Debut 1976",
+        role: "Boxer from Philadelphia",
+        tag: "Film & TV",
+        image: "images/rocky-balboa.jpg",
+        wiki: "Rocky Balboa"
+    },
+    {
+        name: "Katniss Everdeen",
+        years: "Debut 2008",
+        role: "Tribute who sparked a rebellion",
+        tag: "Film & TV",
+        image: "images/katniss-everdeen.jpg",
+        wiki: "Katniss Everdeen"
+    },
+    {
+        name: "Walter White",
+        years: "Debut 2008",
+        role: "Chemist turned meth kingpin",
+        tag: "Film & TV",
+        image: "images/walter-white.jpg",
+        wiki: "Walter White"
+    },
+    {
+        name: "Willy Wonka",
+        years: "Debut 1964",
+        role: "Eccentric chocolate factory owner",
+        tag: "Film & TV",
+        image: "images/willy-wonka.jpg",
+        wiki: "Willy Wonka"
+    },
+    {
+        name: "Daenerys Targaryen",
+        years: "Debut 1996",
+        role: "Mother of Dragons",
+        tag: "Film & TV",
+        image: "images/daenerys-targaryen.jpg",
+        wiki: "Daenerys Targaryen"
+    },
+    {
+        name: "Mickey Mouse",
+        years: "Debut 1928",
+        role: "Disney's original cartoon mouse",
+        tag: "Cartoon",
+        image: "images/mickey-mouse.jpg",
+        wiki: "Mickey Mouse"
+    },
+    {
+        name: "Bugs Bunny",
+        years: "Debut 1940",
+        role: "Carrot-munching trickster rabbit",
+        tag: "Cartoon",
+        image: "images/bugs-bunny.png",
+        wiki: "Bugs Bunny"
+    },
+    {
+        name: "SpongeBob SquarePants",
+        years: "Debut 1999",
+        role: "Fry cook of Bikini Bottom",
+        tag: "Cartoon",
+        image: "images/spongebob-squarepants.jpg",
+        wiki: "SpongeBob SquarePants"
+    },
+    {
+        name: "Scooby-Doo",
+        years: "Debut 1969",
+        role: "Mystery-solving Great Dane",
+        tag: "Cartoon",
+        image: "images/scooby-doo.jpg",
+        wiki: "Scooby-Doo"
+    },
+    {
+        name: "Cinderella",
+        years: "Debut 1950",
+        role: "Princess of the glass slipper",
+        tag: "Cartoon",
+        image: "images/cinderella.jpg",
+        wiki: "Cinderella"
+    },
+    {
+        name: "Elsa",
+        years: "Debut 2013",
+        role: "Snow queen of Arendelle",
+        tag: "Cartoon",
+        image: "images/elsa.jpg",
+        wiki: "Elsa (Frozen)"
+    },
+    {
+        name: "Simba",
+        years: "Debut 1994",
+        role: "Lion king of the Pride Lands",
+        tag: "Cartoon",
+        image: "images/simba.jpg",
+        wiki: "Simba"
+    },
+    {
+        name: "Shrek",
+        years: "Debut 2001",
+        role: "Ogre of the swamp",
+        tag: "Cartoon",
+        image: "images/shrek.jpg",
+        wiki: "Shrek"
+    },
+    {
+        name: "Buzz Lightyear",
+        years: "Debut 1995",
+        role: "Toy space ranger",
+        tag: "Cartoon",
+        image: "images/buzz-lightyear.jpg",
+        wiki: "Buzz Lightyear"
+    },
+    {
+        name: "Homer Simpson",
+        years: "Debut 1989",
+        role: "Springfield's donut-loving dad",
+        tag: "Cartoon",
+        image: "images/homer-simpson.jpg",
+        wiki: "Homer Simpson"
+    },
+    {
+        name: "Mario",
+        years: "Debut 1981",
+        role: "Plumber and Nintendo mascot",
+        tag: "Game",
+        image: "images/mario.jpg",
+        wiki: "Mario (character)"
+    },
+    {
+        name: "Link",
+        years: "Debut 1986",
+        role: "Hero of Hyrule",
+        tag: "Game",
+        image: "images/link.jpg",
+        wiki: "Link (The Legend of Zelda)"
+    },
+    {
+        name: "Sonic the Hedgehog",
+        years: "Debut 1991",
+        role: "Sega's speedy blue hedgehog",
+        tag: "Game",
+        image: "images/sonic-the-hedgehog.jpg",
+        wiki: "Sonic the Hedgehog"
+    },
+    {
+        name: "Lara Croft",
+        years: "Debut 1996",
+        role: "Tomb-raiding archaeologist",
+        tag: "Game",
+        image: "images/lara-croft.jpg",
+        wiki: "Lara Croft"
+    },
+    {
+        name: "Goku",
+        years: "Debut 1984",
+        role: "Saiyan fighter of Dragon Ball",
+        tag: "Anime",
+        image: "images/goku.jpg",
+        wiki: "Goku"
+    },
+    {
+        name: "Naruto Uzumaki",
+        years: "Debut 1999",
+        role: "Ninja who dreams of Hokage",
+        tag: "Anime",
+        image: "images/naruto-uzumaki.jpg",
+        wiki: "Naruto Uzumaki"
+    },
+    {
+        name: "Sailor Moon",
+        years: "Debut 1991",
+        role: "Guardian of love and justice",
+        tag: "Anime",
+        image: "images/sailor-moon.jpg",
+        wiki: "Sailor Moon"
+    },
+    {
+        name: "Pikachu",
+        years: "Debut 1996",
+        role: "Electric-type Pokemon mascot",
+        tag: "Anime",
+        image: "images/pikachu.jpg",
+        wiki: "Pikachu"
+    },
+    {
+        name: "Monkey D. Luffy",
+        years: "Debut 1997",
+        role: "Pirate captain of the Straw Hats",
+        tag: "Anime",
+        image: "images/monkey-d-luffy.jpg",
+        wiki: "Monkey D. Luffy"
     }
 ];
 

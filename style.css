@@ -535,6 +535,24 @@ a:focus-visible {
     color: #efb0cd;
 }
 
+.person-card[data-tag="Literature"] .portrait .initials,
+.person-card[data-tag="Film & TV"] .portrait .initials {
+    background: #0c1518;
+    color: #7fd4e8;
+}
+
+.person-card[data-tag="Comic"] .portrait .initials,
+.person-card[data-tag="Game"] .portrait .initials {
+    background: #1b120c;
+    color: #f0a878;
+}
+
+.person-card[data-tag="Cartoon"] .portrait .initials,
+.person-card[data-tag="Anime"] .portrait .initials {
+    background: #131a0e;
+    color: #b9e07d;
+}
+
 .portrait img {
     position: relative;
     z-index: 1;
