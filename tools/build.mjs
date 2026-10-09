@@ -144,7 +144,7 @@ const ROSTER = [
 
     // --- Twitch streamers ------------------------------------------
     { name: "Ninja", wiki: "Ninja (gamer)", years: "b. 1991", role: "Streamer and YouTuber", tag: "Streamer" },
-    { name: "Pokimane", wiki: "Pokimane", years: "b. 1996", role: "Streamer and creator", tag: "Streamer" },
+    { name: "Pokimane", wiki: "Pokimane", years: "b. 1996", role: "Streamer and creator", tag: "Streamer", commons: "File:Pokimane in 2019 in a Podcast.jpg" },
     { name: "Tyler1", wiki: "Tyler1", years: "b. 1995", role: "Twitch streamer", tag: "Streamer" },
     { name: "Kai Cenat", wiki: "Kai Cenat", years: "b. 2001", role: "Streamer and entertainer", tag: "Streamer" },
     { name: "Valkyrae", wiki: "Valkyrae", years: "b. 1992", role: "Streamer and YouTuber", tag: "Streamer" },
@@ -218,7 +218,10 @@ const ROSTER = [
     { name: "Naruto Uzumaki", wiki: "Naruto Uzumaki", years: "Debut 1999", role: "Ninja who dreams of Hokage", tag: "Anime", commons: "File:Cosplay of Naruto Uzumaki from Naruto Shippuden at AniManGaki 2014, Day 2 029 (20140810).jpg" },
     { name: "Sailor Moon", wiki: "Sailor Moon", years: "Debut 1991", role: "Guardian of love and justice", tag: "Anime", commons: "File:Japan Expo 2024 Sailor Moon.jpg" },
     { name: "Pikachu", wiki: "Pikachu", years: "Debut 1996", role: "Electric-type Pokemon mascot", tag: "Anime", commons: "File:Cosplay of Pikachu from Pokemon at GalaxyCon Richmond 2020 (49666783737).jpg" },
-    { name: "Monkey D. Luffy", wiki: "Monkey D. Luffy", years: "Debut 1997", role: "Pirate captain of the Straw Hats", tag: "Anime", commons: "File:Figura Monkey D Luffy A74007320250206.jpg" }
+    { name: "Monkey D. Luffy", wiki: "Monkey D. Luffy", years: "Debut 1997", role: "Pirate captain of the Straw Hats", tag: "Anime", commons: "File:Figura Monkey D Luffy A74007320250206.jpg" },
+
+    // --- Infamy -----------------------------------------------------
+    { name: "Jeffrey Epstein", wiki: "Jeffrey Epstein", years: "1953-2019", role: "Financier and sex offender", tag: "Villain" }
 ];
 
 // ------------------------------------------------------------
@@ -557,10 +560,15 @@ async function download(portraits, commonsPortraits) {
 // 3. Write the outputs
 // ------------------------------------------------------------
 
+// Every person gets a stable `id`: their position in the roster,
+// numbered from 1. New people should be APPENDED to the roster so
+// existing ids never shift - they are what the game refers to people
+// by. `writeNames` emits the same ids as an A-Z lookup table.
 function writePeople() {
-    const lines = ROSTER.map((person) => {
+    const lines = ROSTER.map((person, index) => {
         return [
             "    {",
+            `        id: ${index + 1},`,
             `        name: ${JSON.stringify(person.name)},`,
             `        years: ${JSON.stringify(person.years)},`,
             `        role: ${JSON.stringify(person.role)},`,
@@ -594,12 +602,15 @@ function writePeople() {
     return fs.writeFile(path.join(ROOT, "people.js"), output, "utf8");
 }
 
-// Every name on the site, A-Z - handy as a checklist / for sharing.
+// Every name on the site, A-Z, each prefixed with its stable id -
+// handy as a checklist / for sharing / for referring to people by number.
 function writeNames() {
-    const names = ROSTER.map((person) => person.name)
-        .sort((a, b) => a.localeCompare(b, "en", { sensitivity: "base" }));
+    const rows = ROSTER
+        .map((person, index) => ({ id: index + 1, name: person.name }))
+        .sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }))
+        .map((row) => `${String(row.id).padStart(3, " ")}  ${row.name}`);
 
-    return fs.writeFile(path.join(ROOT, "names.txt"), names.join("\n") + "\n", "utf8");
+    return fs.writeFile(path.join(ROOT, "names.txt"), rows.join("\n") + "\n", "utf8");
 }
 
 async function writeCredits(portraits, commonsPortraits) {

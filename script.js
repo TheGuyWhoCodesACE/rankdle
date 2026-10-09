@@ -302,6 +302,7 @@ function buildCard(person, index) {
     card.className = "person-card";
     card.setAttribute("role", "button");
     card.dataset.name = person.name;
+    card.dataset.id = String(person.id);
     card.dataset.index = String(index);
     card.dataset.tag = person.tag || "";
     card.innerHTML = cardMarkup(person);

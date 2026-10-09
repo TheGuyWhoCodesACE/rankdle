@@ -512,7 +512,8 @@ a:focus-visible {
 }
 
 .person-card[data-tag="Dictator"] .portrait .initials,
-.person-card[data-tag="Ruler"] .portrait .initials {
+.person-card[data-tag="Ruler"] .portrait .initials,
+.person-card[data-tag="Villain"] .portrait .initials {
     background: #161209;
     color: #ecc486;
 }

@@ -1174,6 +1174,14 @@ const RATINGS = {
         "controversy": 1,
         "gender": 0,
         "fiction": 1
+    },
+    "Jeffrey Epstein": {
+        "fame": 5,
+        "era": 5,
+        "morality": 0,
+        "controversy": 5,
+        "gender": 0,
+        "fiction": 0
     }
 };
 

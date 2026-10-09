@@ -8,6 +8,7 @@
 
 const ROSTER = [
     {
+        id: 1,
         name: "Martin Luther King Jr.",
         years: "1929-1968",
         role: "Civil rights leader",
@@ -16,6 +17,7 @@ const ROSTER = [
         wiki: "Martin Luther King Jr."
     },
     {
+        id: 2,
         name: "Mahatma Gandhi",
         years: "1869-1948",
         role: "Indian independence leader",
@@ -24,6 +26,7 @@ const ROSTER = [
         wiki: "Mahatma Gandhi"
     },
     {
+        id: 3,
         name: "Nelson Mandela",
         years: "1918-2013",
         role: "Anti-apartheid leader",
@@ -32,6 +35,7 @@ const ROSTER = [
         wiki: "Nelson Mandela"
     },
     {
+        id: 4,
         name: "Rosa Parks",
         years: "1913-2005",
         role: "Civil rights icon",
@@ -40,6 +44,7 @@ const ROSTER = [
         wiki: "Rosa Parks"
     },
     {
+        id: 5,
         name: "Harriet Tubman",
         years: "c. 1822-1913",
         role: "Underground Railroad conductor",
@@ -48,6 +53,7 @@ const ROSTER = [
         wiki: "Harriet Tubman"
     },
     {
+        id: 6,
         name: "Mother Teresa",
         years: "1910-1997",
         role: "Missionary of the poor",
@@ -56,6 +62,7 @@ const ROSTER = [
         wiki: "Mother Teresa"
     },
     {
+        id: 7,
         name: "Abraham Lincoln",
         years: "1809-1865",
         role: "Ended slavery in the US",
@@ -64,6 +71,7 @@ const ROSTER = [
         wiki: "Abraham Lincoln"
     },
     {
+        id: 8,
         name: "Winston Churchill",
         years: "1874-1965",
         role: "Wartime British prime minister",
@@ -72,6 +80,7 @@ const ROSTER = [
         wiki: "Winston Churchill"
     },
     {
+        id: 9,
         name: "Franklin D. Roosevelt",
         years: "1882-1945",
         role: "US president, New Deal and WWII",
@@ -80,6 +89,7 @@ const ROSTER = [
         wiki: "Franklin D. Roosevelt"
     },
     {
+        id: 10,
         name: "John F. Kennedy",
         years: "1917-1963",
         role: "US president",
@@ -88,6 +98,7 @@ const ROSTER = [
         wiki: "John F. Kennedy"
     },
     {
+        id: 11,
         name: "Ronald Reagan",
         years: "1911-2004",
         role: "US president",
@@ -96,6 +107,7 @@ const ROSTER = [
         wiki: "Ronald Reagan"
     },
     {
+        id: 12,
         name: "George Washington",
         years: "1732-1799",
         role: "First US president",
@@ -104,6 +116,7 @@ const ROSTER = [
         wiki: "George Washington"
     },
     {
+        id: 13,
         name: "Thomas Jefferson",
         years: "1743-1826",
         role: "US founding father",
@@ -112,6 +125,7 @@ const ROSTER = [
         wiki: "Thomas Jefferson"
     },
     {
+        id: 14,
         name: "Cleopatra",
         years: "69-30 BC",
         role: "Queen of Egypt",
@@ -120,6 +134,7 @@ const ROSTER = [
         wiki: "Cleopatra"
     },
     {
+        id: 15,
         name: "Adolf Hitler",
         years: "1889-1945",
         role: "Nazi dictator",
@@ -128,6 +143,7 @@ const ROSTER = [
         wiki: "Adolf Hitler"
     },
     {
+        id: 16,
         name: "Joseph Stalin",
         years: "1878-1953",
         role: "Soviet dictator",
@@ -136,6 +152,7 @@ const ROSTER = [
         wiki: "Joseph Stalin"
     },
     {
+        id: 17,
         name: "Mao Zedong",
         years: "1893-1976",
         role: "Communist China's chairman",
@@ -144,6 +161,7 @@ const ROSTER = [
         wiki: "Mao Zedong"
     },
     {
+        id: 18,
         name: "Vladimir Lenin",
         years: "1870-1924",
         role: "Bolshevik revolutionary",
@@ -152,6 +170,7 @@ const ROSTER = [
         wiki: "Vladimir Lenin"
     },
     {
+        id: 19,
         name: "Saddam Hussein",
         years: "1937-2006",
         role: "Iraqi dictator",
@@ -160,6 +179,7 @@ const ROSTER = [
         wiki: "Saddam Hussein"
     },
     {
+        id: 20,
         name: "Julius Caesar",
         years: "100-44 BC",
         role: "Roman general and dictator",
@@ -168,6 +188,7 @@ const ROSTER = [
         wiki: "Julius Caesar"
     },
     {
+        id: 21,
         name: "Alexander the Great",
         years: "356-323 BC",
         role: "Macedonian king",
@@ -176,6 +197,7 @@ const ROSTER = [
         wiki: "Alexander the Great"
     },
     {
+        id: 22,
         name: "Genghis Khan",
         years: "c. 1162-1227",
         role: "Mongol emperor",
@@ -184,6 +206,7 @@ const ROSTER = [
         wiki: "Genghis Khan"
     },
     {
+        id: 23,
         name: "Henry VIII",
         years: "1491-1547",
         role: "King of England",
@@ -192,6 +215,7 @@ const ROSTER = [
         wiki: "Henry VIII of England"
     },
     {
+        id: 24,
         name: "Napoleon Bonaparte",
         years: "1769-1821",
         role: "Emperor of the French",
@@ -200,6 +224,7 @@ const ROSTER = [
         wiki: "Napoleon"
     },
     {
+        id: 25,
         name: "Socrates",
         years: "470-399 BC",
         role: "Greek philosopher",
@@ -208,6 +233,7 @@ const ROSTER = [
         wiki: "Socrates"
     },
     {
+        id: 26,
         name: "Plato",
         years: "428-348 BC",
         role: "Greek philosopher",
@@ -216,6 +242,7 @@ const ROSTER = [
         wiki: "Plato"
     },
     {
+        id: 27,
         name: "Aristotle",
         years: "384-322 BC",
         role: "Greek philosopher",
@@ -224,6 +251,7 @@ const ROSTER = [
         wiki: "Aristotle"
     },
     {
+        id: 28,
         name: "Sun Tzu",
         years: "c. 544-496 BC",
         role: "Strategist and philosopher",
@@ -232,6 +260,7 @@ const ROSTER = [
         wiki: "Sun Tzu"
     },
     {
+        id: 29,
         name: "Albert Einstein",
         years: "1879-1955",
         role: "Theoretical physicist",
@@ -240,6 +269,7 @@ const ROSTER = [
         wiki: "Albert Einstein"
     },
     {
+        id: 30,
         name: "Isaac Newton",
         years: "1643-1727",
         role: "Physicist and mathematician",
@@ -248,6 +278,7 @@ const ROSTER = [
         wiki: "Isaac Newton"
     },
     {
+        id: 31,
         name: "Marie Curie",
         years: "1867-1934",
         role: "Physicist and chemist",
@@ -256,6 +287,7 @@ const ROSTER = [
         wiki: "Marie Curie"
     },
     {
+        id: 32,
         name: "Nikola Tesla",
         years: "1856-1943",
         role: "Inventor and engineer",
@@ -264,6 +296,7 @@ const ROSTER = [
         wiki: "Nikola Tesla"
     },
     {
+        id: 33,
         name: "Thomas Edison",
         years: "1847-1931",
         role: "Inventor",
@@ -272,6 +305,7 @@ const ROSTER = [
         wiki: "Thomas Edison"
     },
     {
+        id: 34,
         name: "Galileo Galilei",
         years: "1564-1642",
         role: "Astronomer and physicist",
@@ -280,6 +314,7 @@ const ROSTER = [
         wiki: "Galileo Galilei"
     },
     {
+        id: 35,
         name: "Charles Darwin",
         years: "1809-1882",
         role: "Naturalist",
@@ -288,6 +323,7 @@ const ROSTER = [
         wiki: "Charles Darwin"
     },
     {
+        id: 36,
         name: "Stephen Hawking",
         years: "1942-2018",
         role: "Theoretical physicist",
@@ -296,6 +332,7 @@ const ROSTER = [
         wiki: "Stephen Hawking"
     },
     {
+        id: 37,
         name: "William Shakespeare",
         years: "1564-1616",
         role: "Playwright and poet",
@@ -304,6 +341,7 @@ const ROSTER = [
         wiki: "William Shakespeare"
     },
     {
+        id: 38,
         name: "Leonardo da Vinci",
         years: "1452-1519",
         role: "Artist and inventor",
@@ -312,6 +350,7 @@ const ROSTER = [
         wiki: "Leonardo da Vinci"
     },
     {
+        id: 39,
         name: "Michelangelo",
         years: "1475-1564",
         role: "Artist and sculptor",
@@ -320,6 +359,7 @@ const ROSTER = [
         wiki: "Michelangelo"
     },
     {
+        id: 40,
         name: "Vincent van Gogh",
         years: "1853-1890",
         role: "Painter",
@@ -328,6 +368,7 @@ const ROSTER = [
         wiki: "Vincent van Gogh"
     },
     {
+        id: 41,
         name: "Pablo Picasso",
         years: "1881-1973",
         role: "Painter",
@@ -336,6 +377,7 @@ const ROSTER = [
         wiki: "Pablo Picasso"
     },
     {
+        id: 42,
         name: "Ludwig van Beethoven",
         years: "1770-1827",
         role: "Composer",
@@ -344,6 +386,7 @@ const ROSTER = [
         wiki: "Ludwig van Beethoven"
     },
     {
+        id: 43,
         name: "Wolfgang Amadeus Mozart",
         years: "1756-1791",
         role: "Composer",
@@ -352,6 +395,7 @@ const ROSTER = [
         wiki: "Wolfgang Amadeus Mozart"
     },
     {
+        id: 44,
         name: "Mark Twain",
         years: "1835-1910",
         role: "Author and humorist",
@@ -360,6 +404,7 @@ const ROSTER = [
         wiki: "Mark Twain"
     },
     {
+        id: 45,
         name: "Anne Frank",
         years: "1929-1945",
         role: "Diary writer, Holocaust victim",
@@ -368,6 +413,7 @@ const ROSTER = [
         wiki: "Anne Frank"
     },
     {
+        id: 46,
         name: "Christopher Columbus",
         years: "1451-1506",
         role: "Explorer",
@@ -376,6 +422,7 @@ const ROSTER = [
         wiki: "Christopher Columbus"
     },
     {
+        id: 47,
         name: "Amelia Earhart",
         years: "1897-1937",
         role: "Aviation pioneer",
@@ -384,6 +431,7 @@ const ROSTER = [
         wiki: "Amelia Earhart"
     },
     {
+        id: 48,
         name: "Muhammad Ali",
         years: "1942-2016",
         role: "Boxer and activist",
@@ -392,6 +440,7 @@ const ROSTER = [
         wiki: "Muhammad Ali"
     },
     {
+        id: 49,
         name: "Jesse Owens",
         years: "1913-1980",
         role: "Olympic sprinter",
@@ -400,6 +449,7 @@ const ROSTER = [
         wiki: "Jesse Owens"
     },
     {
+        id: 50,
         name: "Michael Jackson",
         years: "1958-2009",
         role: "King of Pop",
@@ -408,6 +458,7 @@ const ROSTER = [
         wiki: "Michael Jackson"
     },
     {
+        id: 51,
         name: "Elvis Presley",
         years: "1935-1977",
         role: "King of Rock and Roll",
@@ -416,6 +467,7 @@ const ROSTER = [
         wiki: "Elvis Presley"
     },
     {
+        id: 52,
         name: "John Lennon",
         years: "1940-1980",
         role: "Beatle and peace campaigner",
@@ -424,6 +476,7 @@ const ROSTER = [
         wiki: "John Lennon"
     },
     {
+        id: 53,
         name: "Beyonce",
         years: "b. 1981",
         role: "Singer and performer",
@@ -432,6 +485,7 @@ const ROSTER = [
         wiki: "Beyonce"
     },
     {
+        id: 54,
         name: "Taylor Swift",
         years: "b. 1989",
         role: "Singer-songwriter",
@@ -440,6 +494,7 @@ const ROSTER = [
         wiki: "Taylor Swift"
     },
     {
+        id: 55,
         name: "Drake",
         years: "b. 1986",
         role: "Rapper and singer",
@@ -448,6 +503,7 @@ const ROSTER = [
         wiki: "Drake (musician)"
     },
     {
+        id: 56,
         name: "Kanye West",
         years: "b. 1977",
         role: "Rapper and producer",
@@ -456,6 +512,7 @@ const ROSTER = [
         wiki: "Kanye West"
     },
     {
+        id: 57,
         name: "Eminem",
         years: "b. 1972",
         role: "Rapper",
@@ -464,6 +521,7 @@ const ROSTER = [
         wiki: "Eminem"
     },
     {
+        id: 58,
         name: "Jay-Z",
         years: "b. 1969",
         role: "Rapper and businessman",
@@ -472,6 +530,7 @@ const ROSTER = [
         wiki: "Jay-Z"
     },
     {
+        id: 59,
         name: "Madonna",
         years: "b. 1958",
         role: "Singer and pop icon",
@@ -480,6 +539,7 @@ const ROSTER = [
         wiki: "Madonna (entertainer)"
     },
     {
+        id: 60,
         name: "Lady Gaga",
         years: "b. 1986",
         role: "Singer and actress",
@@ -488,6 +548,7 @@ const ROSTER = [
         wiki: "Lady Gaga"
     },
     {
+        id: 61,
         name: "Ariana Grande",
         years: "b. 1993",
         role: "Singer and actress",
@@ -496,6 +557,7 @@ const ROSTER = [
         wiki: "Ariana Grande"
     },
     {
+        id: 62,
         name: "Bruno Mars",
         years: "b. 1985",
         role: "Singer-songwriter",
@@ -504,6 +566,7 @@ const ROSTER = [
         wiki: "Bruno Mars"
     },
     {
+        id: 63,
         name: "Adele",
         years: "b. 1988",
         role: "Singer-songwriter",
@@ -512,6 +575,7 @@ const ROSTER = [
         wiki: "Adele"
     },
     {
+        id: 64,
         name: "Whitney Houston",
         years: "1963-2012",
         role: "Singer and actress",
@@ -520,6 +584,7 @@ const ROSTER = [
         wiki: "Whitney Houston"
     },
     {
+        id: 65,
         name: "Bob Marley",
         years: "1945-1981",
         role: "Reggae pioneer",
@@ -528,6 +593,7 @@ const ROSTER = [
         wiki: "Bob Marley"
     },
     {
+        id: 66,
         name: "Dolly Parton",
         years: "b. 1946",
         role: "Country singer and philanthropist",
@@ -536,6 +602,7 @@ const ROSTER = [
         wiki: "Dolly Parton"
     },
     {
+        id: 67,
         name: "Frank Sinatra",
         years: "1915-1998",
         role: "Singer and actor",
@@ -544,6 +611,7 @@ const ROSTER = [
         wiki: "Frank Sinatra"
     },
     {
+        id: 68,
         name: "Tupac Shakur",
         years: "1971-1996",
         role: "Rapper and actor",
@@ -552,6 +620,7 @@ const ROSTER = [
         wiki: "Tupac Shakur"
     },
     {
+        id: 69,
         name: "Snoop Dogg",
         years: "b. 1971",
         role: "Rapper and entertainer",
@@ -560,6 +629,7 @@ const ROSTER = [
         wiki: "Snoop Dogg"
     },
     {
+        id: 70,
         name: "Billie Eilish",
         years: "b. 2001",
         role: "Singer-songwriter",
@@ -568,6 +638,7 @@ const ROSTER = [
         wiki: "Billie Eilish"
     },
     {
+        id: 71,
         name: "Olivia Rodrigo",
         years: "b. 2003",
         role: "Singer-songwriter",
@@ -576,6 +647,7 @@ const ROSTER = [
         wiki: "Olivia Rodrigo"
     },
     {
+        id: 72,
         name: "Bad Bunny",
         years: "b. 1994",
         role: "Reggaeton artist",
@@ -584,6 +656,7 @@ const ROSTER = [
         wiki: "Bad Bunny"
     },
     {
+        id: 73,
         name: "Shakira",
         years: "b. 1977",
         role: "Singer and dancer",
@@ -592,6 +665,7 @@ const ROSTER = [
         wiki: "Shakira"
     },
     {
+        id: 74,
         name: "Billy Joel",
         years: "b. 1949",
         role: "Singer-songwriter",
@@ -600,6 +674,7 @@ const ROSTER = [
         wiki: "Billy Joel"
     },
     {
+        id: 75,
         name: "Elton John",
         years: "b. 1947",
         role: "Singer-songwriter",
@@ -608,6 +683,7 @@ const ROSTER = [
         wiki: "Elton John"
     },
     {
+        id: 76,
         name: "Katy Perry",
         years: "b. 1984",
         role: "Singer",
@@ -616,6 +692,7 @@ const ROSTER = [
         wiki: "Katy Perry"
     },
     {
+        id: 77,
         name: "Ed Sheeran",
         years: "b. 1991",
         role: "Singer-songwriter",
@@ -624,6 +701,7 @@ const ROSTER = [
         wiki: "Ed Sheeran"
     },
     {
+        id: 78,
         name: "MrBeast",
         years: "b. 1998",
         role: "YouTuber and philanthropist",
@@ -632,6 +710,7 @@ const ROSTER = [
         wiki: "MrBeast"
     },
     {
+        id: 79,
         name: "PewDiePie",
         years: "b. 1989",
         role: "YouTuber",
@@ -640,6 +719,7 @@ const ROSTER = [
         wiki: "PewDiePie"
     },
     {
+        id: 80,
         name: "Logan Paul",
         years: "b. 1995",
         role: "Influencer and boxer",
@@ -648,6 +728,7 @@ const ROSTER = [
         wiki: "Logan Paul"
     },
     {
+        id: 81,
         name: "Jake Paul",
         years: "b. 1997",
         role: "Influencer and boxer",
@@ -656,6 +737,7 @@ const ROSTER = [
         wiki: "Jake Paul"
     },
     {
+        id: 82,
         name: "KSI",
         years: "b. 1993",
         role: "Influencer and boxer",
@@ -664,6 +746,7 @@ const ROSTER = [
         wiki: "KSI"
     },
     {
+        id: 83,
         name: "Addison Rae",
         years: "b. 2000",
         role: "Creator and singer",
@@ -672,6 +755,7 @@ const ROSTER = [
         wiki: "Addison Rae"
     },
     {
+        id: 84,
         name: "iShowSpeed",
         years: "b. 2005",
         role: "Streamer and YouTuber",
@@ -680,6 +764,7 @@ const ROSTER = [
         wiki: "IShowSpeed"
     },
     {
+        id: 85,
         name: "Markiplier",
         years: "b. 1989",
         role: "Gaming YouTuber",
@@ -688,6 +773,7 @@ const ROSTER = [
         wiki: "Markiplier"
     },
     {
+        id: 86,
         name: "Andrew Tate",
         years: "b. 1986",
         role: "Internet personality",
@@ -696,6 +782,7 @@ const ROSTER = [
         wiki: "Andrew Tate"
     },
     {
+        id: 87,
         name: "Bella Poarch",
         years: "b. 1997",
         role: "TikTok creator",
@@ -704,6 +791,7 @@ const ROSTER = [
         wiki: "Bella Poarch"
     },
     {
+        id: 88,
         name: "DanTDM",
         years: "b. 1991",
         role: "Gaming YouTuber",
@@ -712,6 +800,7 @@ const ROSTER = [
         wiki: "DanTDM"
     },
     {
+        id: 89,
         name: "MatPat",
         years: "b. 1986",
         role: "YouTuber and theorist",
@@ -720,6 +809,7 @@ const ROSTER = [
         wiki: "MatPat"
     },
     {
+        id: 90,
         name: "SSSniperWolf",
         years: "b. 1992",
         role: "YouTuber",
@@ -728,6 +818,7 @@ const ROSTER = [
         wiki: "SSSniperWolf"
     },
     {
+        id: 91,
         name: "Piper Rockelle",
         years: "b. 2007",
         role: "Content creator and model",
@@ -736,6 +827,7 @@ const ROSTER = [
         wiki: "Piper Rockelle"
     },
     {
+        id: 92,
         name: "Ninja",
         years: "b. 1991",
         role: "Streamer and YouTuber",
@@ -744,14 +836,16 @@ const ROSTER = [
         wiki: "Ninja (gamer)"
     },
     {
+        id: 93,
         name: "Pokimane",
         years: "b. 1996",
         role: "Streamer and creator",
         tag: "Streamer",
-        image: "images/pokimane.png",
+        image: "images/pokimane.jpg",
         wiki: "Pokimane"
     },
     {
+        id: 94,
         name: "Tyler1",
         years: "b. 1995",
         role: "Twitch streamer",
@@ -760,6 +854,7 @@ const ROSTER = [
         wiki: "Tyler1"
     },
     {
+        id: 95,
         name: "Kai Cenat",
         years: "b. 2001",
         role: "Streamer and entertainer",
@@ -768,6 +863,7 @@ const ROSTER = [
         wiki: "Kai Cenat"
     },
     {
+        id: 96,
         name: "Valkyrae",
         years: "b. 1992",
         role: "Streamer and YouTuber",
@@ -776,6 +872,7 @@ const ROSTER = [
         wiki: "Valkyrae"
     },
     {
+        id: 97,
         name: "Dr Disrespect",
         years: "b. 1982",
         role: "Streamer",
@@ -784,6 +881,7 @@ const ROSTER = [
         wiki: "Dr Disrespect"
     },
     {
+        id: 98,
         name: "Ludwig",
         years: "b. 1995",
         role: "Streamer and YouTuber",
@@ -792,6 +890,7 @@ const ROSTER = [
         wiki: "Ludwig Ahgren"
     },
     {
+        id: 99,
         name: "Mia Khalifa",
         years: "b. 1993",
         role: "Media personality",
@@ -800,6 +899,7 @@ const ROSTER = [
         wiki: "Mia Khalifa"
     },
     {
+        id: 100,
         name: "Amouranth",
         years: "b. 1993",
         role: "Streamer and creator",
@@ -808,6 +908,7 @@ const ROSTER = [
         wiki: "Amouranth"
     },
     {
+        id: 101,
         name: "Sophie Rain",
         years: "b. 2004",
         role: "Internet personality",
@@ -816,6 +917,7 @@ const ROSTER = [
         wiki: "Sophie Rain"
     },
     {
+        id: 102,
         name: "Bonnie Blue",
         years: "b. 1999",
         role: "Adult film actress",
@@ -824,6 +926,7 @@ const ROSTER = [
         wiki: "Bonnie Blue"
     },
     {
+        id: 103,
         name: "Riley Reid",
         years: "b. 1991",
         role: "Adult film actress",
@@ -832,6 +935,7 @@ const ROSTER = [
         wiki: "Riley Reid"
     },
     {
+        id: 104,
         name: "Mia Malkova",
         years: "b. 1992",
         role: "Adult film actress and media personality",
@@ -840,6 +944,7 @@ const ROSTER = [
         wiki: "Mia Malkova"
     },
     {
+        id: 105,
         name: "Lily Phillips",
         years: "b. 2001",
         role: "Adult film actress",
@@ -848,6 +953,7 @@ const ROSTER = [
         wiki: "Lily Phillips"
     },
     {
+        id: 106,
         name: "Abella Danger",
         years: "b. 1995",
         role: "Adult film actress and director",
@@ -856,6 +962,7 @@ const ROSTER = [
         wiki: "Abella Danger"
     },
     {
+        id: 107,
         name: "Harry Potter",
         years: "Debut 1997",
         role: "Boy wizard of Hogwarts",
@@ -864,6 +971,7 @@ const ROSTER = [
         wiki: "Harry Potter"
     },
     {
+        id: 108,
         name: "Hermione Granger",
         years: "Debut 1997",
         role: "Hogwarts witch and bookworm",
@@ -872,6 +980,7 @@ const ROSTER = [
         wiki: "Hermione Granger"
     },
     {
+        id: 109,
         name: "Sherlock Holmes",
         years: "Debut 1887",
         role: "Consulting detective of Baker Street",
@@ -880,6 +989,7 @@ const ROSTER = [
         wiki: "Sherlock Holmes"
     },
     {
+        id: 110,
         name: "Dracula",
         years: "Debut 1897",
         role: "Transylvanian vampire count",
@@ -888,6 +998,7 @@ const ROSTER = [
         wiki: "Dracula"
     },
     {
+        id: 111,
         name: "Gandalf",
         years: "Debut 1954",
         role: "Wizard of Middle-earth",
@@ -896,6 +1007,7 @@ const ROSTER = [
         wiki: "Gandalf"
     },
     {
+        id: 112,
         name: "Alice",
         years: "Debut 1865",
         role: "Girl down the rabbit hole",
@@ -904,6 +1016,7 @@ const ROSTER = [
         wiki: "Alice (Alice's Adventures in Wonderland)"
     },
     {
+        id: 113,
         name: "Superman",
         years: "Debut 1938",
         role: "Kryptonian hero of Metropolis",
@@ -912,6 +1025,7 @@ const ROSTER = [
         wiki: "Superman"
     },
     {
+        id: 114,
         name: "Batman",
         years: "Debut 1939",
         role: "Caped crusader of Gotham",
@@ -920,6 +1034,7 @@ const ROSTER = [
         wiki: "Batman"
     },
     {
+        id: 115,
         name: "Spider-Man",
         years: "Debut 1962",
         role: "Web-slinging hero of New York",
@@ -928,6 +1043,7 @@ const ROSTER = [
         wiki: "Spider-Man"
     },
     {
+        id: 116,
         name: "Wonder Woman",
         years: "Debut 1941",
         role: "Amazon warrior princess",
@@ -936,6 +1052,7 @@ const ROSTER = [
         wiki: "Wonder Woman"
     },
     {
+        id: 117,
         name: "The Joker",
         years: "Debut 1940",
         role: "Gotham's clown prince of crime",
@@ -944,6 +1061,7 @@ const ROSTER = [
         wiki: "Joker (character)"
     },
     {
+        id: 118,
         name: "Harley Quinn",
         years: "Debut 1992",
         role: "Arkham psychiatrist turned villain",
@@ -952,6 +1070,7 @@ const ROSTER = [
         wiki: "Harley Quinn"
     },
     {
+        id: 119,
         name: "Darth Vader",
         years: "Debut 1977",
         role: "Sith lord in a black mask",
@@ -960,6 +1079,7 @@ const ROSTER = [
         wiki: "Darth Vader"
     },
     {
+        id: 120,
         name: "Luke Skywalker",
         years: "Debut 1977",
         role: "Rebel pilot turned Jedi",
@@ -968,6 +1088,7 @@ const ROSTER = [
         wiki: "Luke Skywalker"
     },
     {
+        id: 121,
         name: "James Bond",
         years: "Debut 1953",
         role: "007, British secret agent",
@@ -976,6 +1097,7 @@ const ROSTER = [
         wiki: "James Bond (literary character)"
     },
     {
+        id: 122,
         name: "Indiana Jones",
         years: "Debut 1981",
         role: "Archaeologist in a fedora",
@@ -984,6 +1106,7 @@ const ROSTER = [
         wiki: "Indiana Jones"
     },
     {
+        id: 123,
         name: "Rocky Balboa",
         years: "Debut 1976",
         role: "Boxer from Philadelphia",
@@ -992,6 +1115,7 @@ const ROSTER = [
         wiki: "Rocky Balboa"
     },
     {
+        id: 124,
         name: "Katniss Everdeen",
         years: "Debut 2008",
         role: "Tribute who sparked a rebellion",
@@ -1000,6 +1124,7 @@ const ROSTER = [
         wiki: "Katniss Everdeen"
     },
     {
+        id: 125,
         name: "Walter White",
         years: "Debut 2008",
         role: "Chemist turned meth kingpin",
@@ -1008,6 +1133,7 @@ const ROSTER = [
         wiki: "Walter White"
     },
     {
+        id: 126,
         name: "Willy Wonka",
         years: "Debut 1964",
         role: "Eccentric chocolate factory owner",
@@ -1016,6 +1142,7 @@ const ROSTER = [
         wiki: "Willy Wonka"
     },
     {
+        id: 127,
         name: "Daenerys Targaryen",
         years: "Debut 1996",
         role: "Mother of Dragons",
@@ -1024,6 +1151,7 @@ const ROSTER = [
         wiki: "Daenerys Targaryen"
     },
     {
+        id: 128,
         name: "Mickey Mouse",
         years: "Debut 1928",
         role: "Disney's original cartoon mouse",
@@ -1032,6 +1160,7 @@ const ROSTER = [
         wiki: "Mickey Mouse"
     },
     {
+        id: 129,
         name: "Bugs Bunny",
         years: "Debut 1940",
         role: "Carrot-munching trickster rabbit",
@@ -1040,6 +1169,7 @@ const ROSTER = [
         wiki: "Bugs Bunny"
     },
     {
+        id: 130,
         name: "SpongeBob SquarePants",
         years: "Debut 1999",
         role: "Fry cook of Bikini Bottom",
@@ -1048,6 +1178,7 @@ const ROSTER = [
         wiki: "SpongeBob SquarePants"
     },
     {
+        id: 131,
         name: "Scooby-Doo",
         years: "Debut 1969",
         role: "Mystery-solving Great Dane",
@@ -1056,6 +1187,7 @@ const ROSTER = [
         wiki: "Scooby-Doo"
     },
     {
+        id: 132,
         name: "Cinderella",
         years: "Debut 1950",
         role: "Princess of the glass slipper",
@@ -1064,6 +1196,7 @@ const ROSTER = [
         wiki: "Cinderella"
     },
     {
+        id: 133,
         name: "Elsa",
         years: "Debut 2013",
         role: "Snow queen of Arendelle",
@@ -1072,6 +1205,7 @@ const ROSTER = [
         wiki: "Elsa (Frozen)"
     },
     {
+        id: 134,
         name: "Simba",
         years: "Debut 1994",
         role: "Lion king of the Pride Lands",
@@ -1080,6 +1214,7 @@ const ROSTER = [
         wiki: "Simba"
     },
     {
+        id: 135,
         name: "Shrek",
         years: "Debut 2001",
         role: "Ogre of the swamp",
@@ -1088,6 +1223,7 @@ const ROSTER = [
         wiki: "Shrek"
     },
     {
+        id: 136,
         name: "Buzz Lightyear",
         years: "Debut 1995",
         role: "Toy space ranger",
@@ -1096,6 +1232,7 @@ const ROSTER = [
         wiki: "Buzz Lightyear"
     },
     {
+        id: 137,
         name: "Homer Simpson",
         years: "Debut 1989",
         role: "Springfield's donut-loving dad",
@@ -1104,6 +1241,7 @@ const ROSTER = [
         wiki: "Homer Simpson"
     },
     {
+        id: 138,
         name: "Mario",
         years: "Debut 1981",
         role: "Plumber and Nintendo mascot",
@@ -1112,6 +1250,7 @@ const ROSTER = [
         wiki: "Mario (character)"
     },
     {
+        id: 139,
         name: "Link",
         years: "Debut 1986",
         role: "Hero of Hyrule",
@@ -1120,6 +1259,7 @@ const ROSTER = [
         wiki: "Link (The Legend of Zelda)"
     },
     {
+        id: 140,
         name: "Sonic the Hedgehog",
         years: "Debut 1991",
         role: "Sega's speedy blue hedgehog",
@@ -1128,6 +1268,7 @@ const ROSTER = [
         wiki: "Sonic the Hedgehog"
     },
     {
+        id: 141,
         name: "Lara Croft",
         years: "Debut 1996",
         role: "Tomb-raiding archaeologist",
@@ -1136,6 +1277,7 @@ const ROSTER = [
         wiki: "Lara Croft"
     },
     {
+        id: 142,
         name: "Goku",
         years: "Debut 1984",
         role: "Saiyan fighter of Dragon Ball",
@@ -1144,6 +1286,7 @@ const ROSTER = [
         wiki: "Goku"
     },
     {
+        id: 143,
         name: "Naruto Uzumaki",
         years: "Debut 1999",
         role: "Ninja who dreams of Hokage",
@@ -1152,6 +1295,7 @@ const ROSTER = [
         wiki: "Naruto Uzumaki"
     },
     {
+        id: 144,
         name: "Sailor Moon",
         years: "Debut 1991",
         role: "Guardian of love and justice",
@@ -1160,6 +1304,7 @@ const ROSTER = [
         wiki: "Sailor Moon"
     },
     {
+        id: 145,
         name: "Pikachu",
         years: "Debut 1996",
         role: "Electric-type Pokemon mascot",
@@ -1168,12 +1313,22 @@ const ROSTER = [
         wiki: "Pikachu"
     },
     {
+        id: 146,
         name: "Monkey D. Luffy",
         years: "Debut 1997",
         role: "Pirate captain of the Straw Hats",
         tag: "Anime",
         image: "images/monkey-d-luffy.jpg",
         wiki: "Monkey D. Luffy"
+    },
+    {
+        id: 147,
+        name: "Jeffrey Epstein",
+        years: "1953-2019",
+        role: "Financier and sex offender",
+        tag: "Villain",
+        image: "images/jeffrey-epstein.jpg",
+        wiki: "Jeffrey Epstein"
     }
 ];
 
