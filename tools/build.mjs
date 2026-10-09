@@ -169,11 +169,11 @@ const ROSTER = [
     // it wins over the Wikipedia thumbnail and is credited from Commons.
 
     // --- Fictional: literature ----------------------------------
-    { name: "Harry Potter", wiki: "Harry Potter", years: "Debut 1997", role: "Boy wizard of Hogwarts", tag: "Literature", commons: "File:Harry Potter cosplay.jpg" },
-    { name: "Hermione Granger", wiki: "Hermione Granger", years: "Debut 1997", role: "Hogwarts witch and bookworm", tag: "Literature", commons: "File:Hermione Granger fanart - Cor-Sa.jpg" },
+    { name: "Harry Potter", wiki: "Harry Potter", years: "Debut 1997", role: "Boy wizard of Hogwarts", tag: "Literature", commons: "File:DSC09948 - Harry Potter (36409144493).jpg" },
+    { name: "Hermione Granger", wiki: "Hermione Granger", years: "Debut 1997", role: "Hogwarts witch and bookworm", tag: "Literature", commons: "File:Hermione Granger by Reilly Brown.JPG" },
     { name: "Sherlock Holmes", wiki: "Sherlock Holmes", years: "Debut 1887", role: "Consulting detective of Baker Street", tag: "Literature" },
-    { name: "Dracula", wiki: "Dracula", years: "Debut 1897", role: "Transylvanian vampire count", tag: "Literature" },
-    { name: "Gandalf", wiki: "Gandalf", years: "Debut 1954", role: "Wizard of Middle-earth", tag: "Literature", commons: "File:Supanova 2022 Gandalf White 2.jpg" },
+    { name: "Dracula", wiki: "Dracula", years: "Debut 1897", role: "Transylvanian vampire count", tag: "Literature", commons: "File:Bela Lugosi as Dracula, anonymous photograph from 1931, Universal Studios.jpg" },
+    { name: "Gandalf", wiki: "Gandalf", years: "Debut 1954", role: "Wizard of Middle-earth", tag: "Literature", commons: "File:Gandalf Cosplay at the 2014 New York Comic Con.jpg" },
     { name: "Alice", wiki: "Alice (Alice's Adventures in Wonderland)", years: "Debut 1865", role: "Girl down the rabbit hole", tag: "Literature" },
 
     // --- Fictional: comics --------------------------------------
@@ -189,19 +189,19 @@ const ROSTER = [
     { name: "Luke Skywalker", wiki: "Luke Skywalker", years: "Debut 1977", role: "Rebel pilot turned Jedi", tag: "Film & TV" },
     { name: "James Bond", wiki: "James Bond (literary character)", years: "Debut 1953", role: "007, British secret agent", tag: "Film & TV", commons: "File:James Bond at Madame Tussauds, London.jpg" },
     { name: "Indiana Jones", wiki: "Indiana Jones", years: "Debut 1981", role: "Archaeologist in a fedora", tag: "Film & TV", commons: "File:Indiana Jones Statue Leicester Square.jpg" },
-    { name: "Rocky Balboa", wiki: "Rocky Balboa", years: "Debut 1976", role: "Boxer from Philadelphia", tag: "Film & TV", commons: "File:Rocky Balboa Statue in Philadelphia.jpg" },
+    { name: "Rocky Balboa", wiki: "Rocky Balboa", years: "Debut 1976", role: "Boxer from Philadelphia", tag: "Film & TV", commons: "File:Estatua Rocky.jpg" },
     { name: "Katniss Everdeen", wiki: "Katniss Everdeen", years: "Debut 2008", role: "Tribute who sparked a rebellion", tag: "Film & TV" },
     { name: "Walter White", wiki: "Walter White", years: "Debut 2008", role: "Chemist turned meth kingpin", tag: "Film & TV", commons: "File:Dry brush portrait of Walter White from Breaking Bad by SD (2015).jpg" },
-    { name: "Willy Wonka", wiki: "Willy Wonka", years: "Debut 1964", role: "Eccentric chocolate factory owner", tag: "Film & TV" },
-    { name: "Daenerys Targaryen", wiki: "Daenerys Targaryen", years: "Debut 1996", role: "Mother of Dragons", tag: "Film & TV", commons: "File:SDCC 2012 - Daenerys Targaryen (7567458148).jpg" },
+    { name: "Willy Wonka", wiki: "Willy Wonka", years: "Debut 1964", role: "Eccentric chocolate factory owner", tag: "Film & TV", commons: "File:Katsucon 2017-02-18 16.47.59 (32624754150).jpg" },
+    { name: "Daenerys Targaryen", wiki: "Daenerys Targaryen", years: "Debut 1996", role: "Mother of Dragons", tag: "Film & TV", commons: "File:Daenerys Targaryen **EXPLORED** (13148766613).jpg" },
 
     // --- Fictional: cartoons -------------------------------------
-    { name: "Mickey Mouse", wiki: "Mickey Mouse", years: "Debut 1928", role: "Disney's original cartoon mouse", tag: "Cartoon", commons: "File:Disneyland Resort Line Mickey Mouse Statue.jpg" },
+    { name: "Mickey Mouse", wiki: "Mickey Mouse", years: "Debut 1928", role: "Disney's original cartoon mouse", tag: "Cartoon", commons: "File:Mickey's WaterWorks Parade Float.jpg" },
     { name: "Bugs Bunny", wiki: "Bugs Bunny", years: "Debut 1940", role: "Carrot-munching trickster rabbit", tag: "Cartoon", commons: "File:Bugs Bunny MultiVersus.png" },
-    { name: "SpongeBob SquarePants", wiki: "SpongeBob SquarePants", years: "Debut 1999", role: "Fry cook of Bikini Bottom", tag: "Cartoon", commons: "File:SpongeBob at New York City's 2025 Village Halloween Parade.jpg" },
-    { name: "Scooby-Doo", wiki: "Scooby-Doo", years: "Debut 1969", role: "Mystery-solving Great Dane", tag: "Cartoon", commons: "File:Scooby Doo Cosplay.jpg" },
-    { name: "Cinderella", wiki: "Cinderella", years: "Debut 1950", role: "Princess of the glass slipper", tag: "Cartoon" },
-    { name: "Elsa", wiki: "Elsa (Frozen)", years: "Debut 2013", role: "Snow queen of Arendelle", tag: "Cartoon", commons: "File:Frozen - Elsa - Magic On Parade (12291641724).jpg" },
+    { name: "SpongeBob SquarePants", wiki: "SpongeBob SquarePants", years: "Debut 1999", role: "Fry cook of Bikini Bottom", tag: "Cartoon", commons: "File:SpongeBob SquarePants character.png" },
+    { name: "Scooby-Doo", wiki: "Scooby-Doo", years: "Debut 1969", role: "Mystery-solving Great Dane", tag: "Cartoon", commons: "File:Cosplay of Scooby-Doo and Velma Dinkley at Made in Asia 2022 (52109874749).jpg" },
+    { name: "Cinderella", wiki: "Cinderella", years: "Debut 1950", role: "Princess of the glass slipper", tag: "Cartoon", commons: "File:Cosplay of Cinderella at GalaxyCon Richmond 2020 (49665987313).jpg" },
+    { name: "Elsa", wiki: "Elsa (Frozen)", years: "Debut 2013", role: "Snow queen of Arendelle", tag: "Cartoon", commons: "File:Elsa - La Reine des neiges - 20150804 15h20 (10903).jpg" },
     { name: "Simba", wiki: "Simba", years: "Debut 1994", role: "Lion king of the Pride Lands", tag: "Cartoon", commons: "File:Beto Sargentelli como Simba em O Rei Leão.jpg" },
     { name: "Shrek", wiki: "Shrek", years: "Debut 2001", role: "Ogre of the swamp", tag: "Cartoon", commons: "File:Shrek Madame Tussauds London.jpg" },
     { name: "Buzz Lightyear", wiki: "Buzz Lightyear", years: "Debut 1995", role: "Toy space ranger", tag: "Cartoon" },
@@ -209,16 +209,16 @@ const ROSTER = [
 
     // --- Fictional: games ----------------------------------------
     { name: "Mario", wiki: "Mario (character)", years: "Debut 1981", role: "Plumber and Nintendo mascot", tag: "Game", commons: "File:Cosplayer of Mario, Mario Kart at Otakuthon 20160807.jpg" },
-    { name: "Link", wiki: "Link (The Legend of Zelda)", years: "Debut 1986", role: "Hero of Hyrule", tag: "Game", commons: "File:ANIME EXPO 2017 Cosplay of Link 2.jpg" },
+    { name: "Link", wiki: "Link (The Legend of Zelda)", years: "Debut 1986", role: "Hero of Hyrule", tag: "Game", commons: "File:Cosplay of Link from The Legend of Zelda at Yukicon 2014 (20140118174122 IMG 5684 - Desucon Frostbite 2014 - matiast1).jpg" },
     { name: "Sonic the Hedgehog", wiki: "Sonic the Hedgehog", years: "Debut 1991", role: "Sega's speedy blue hedgehog", tag: "Game", commons: "File:SONIC Alton Towers.jpg" },
-    { name: "Lara Croft", wiki: "Lara Croft", years: "Debut 1996", role: "Tomb-raiding archaeologist", tag: "Game", commons: "File:Cosplay of Lara Croft from Tomb Raider at Brussels Comic Con 2019 (46391102755).jpg" },
+    { name: "Lara Croft", wiki: "Lara Croft", years: "Debut 1996", role: "Tomb-raiding archaeologist", tag: "Game", commons: "File:Comikaze 2013 - Lara Croft cosplay.jpg" },
 
     // --- Fictional: anime ----------------------------------------
     { name: "Goku", wiki: "Goku", years: "Debut 1984", role: "Saiyan fighter of Dragon Ball", tag: "Anime", commons: "File:Goku Cosplay by. Angel.jpg" },
     { name: "Naruto Uzumaki", wiki: "Naruto Uzumaki", years: "Debut 1999", role: "Ninja who dreams of Hokage", tag: "Anime", commons: "File:Cosplay of Naruto Uzumaki from Naruto Shippuden at AniManGaki 2014, Day 2 029 (20140810).jpg" },
     { name: "Sailor Moon", wiki: "Sailor Moon", years: "Debut 1991", role: "Guardian of love and justice", tag: "Anime", commons: "File:Japan Expo 2024 Sailor Moon.jpg" },
-    { name: "Pikachu", wiki: "Pikachu", years: "Debut 1996", role: "Electric-type Pokemon mascot", tag: "Anime", commons: "File:Big Pikachu figure at Königsbau Stuttgart (2022-12-31) 2.jpg" },
-    { name: "Monkey D. Luffy", wiki: "Monkey D. Luffy", years: "Debut 1997", role: "Pirate captain of the Straw Hats", tag: "Anime", commons: "File:Monkey D Luffy Cosplay.jpg" }
+    { name: "Pikachu", wiki: "Pikachu", years: "Debut 1996", role: "Electric-type Pokemon mascot", tag: "Anime", commons: "File:Cosplay of Pikachu from Pokemon at GalaxyCon Richmond 2020 (49666783737).jpg" },
+    { name: "Monkey D. Luffy", wiki: "Monkey D. Luffy", years: "Debut 1997", role: "Pirate captain of the Straw Hats", tag: "Anime", commons: "File:Figura Monkey D Luffy A74007320250206.jpg" }
 ];
 
 // ------------------------------------------------------------

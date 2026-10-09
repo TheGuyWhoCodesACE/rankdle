@@ -1044,7 +1044,7 @@ const ROSTER = [
         years: "Debut 1999",
         role: "Fry cook of Bikini Bottom",
         tag: "Cartoon",
-        image: "images/spongebob-squarepants.jpg",
+        image: "images/spongebob-squarepants.png",
         wiki: "SpongeBob SquarePants"
     },
     {

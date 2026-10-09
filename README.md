@@ -33,7 +33,7 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
 | `script.js` | Drawing, the pick / replace loop, session storage |
 | `people.js` | **Generated.** The roster of 146 people: name, dates, role, category, portrait |
 | `names.txt` | **Generated.** Every name in the roster, A-Z |
-| `images/` | Portraits pulled from Wikipedia, plus `CREDITS.md` |
+| `images/` | Portraits pulled from Wikipedia / Wikimedia Commons, plus `CREDITS.md` |
 | `tools/build.mjs` | Source of truth for the roster + the image downloader |
 
 ## Editing the roster
@@ -61,6 +61,20 @@ portrait (Sophie Rain and Piper Rockelle are the current examples), drop the fil
 into `images/` and add an entry to the `LOCAL_IMAGES` table in `tools/build.mjs`.
 The build will skip the Wikipedia lookup for them, keep the file as-is and credit
 them from that table instead.
+
+**Fictional characters** rarely have a usable Wikipedia page image - what Wikipedia
+shows for them is usually a logo or a non-free film still. Those entries name a
+Wikimedia Commons file instead:
+
+```js
+{ name: "Dracula", ..., tag: "Literature",
+  commons: "File:Bela Lugosi as Dracula, ...jpg" }
+```
+
+`commons` beats the Wikipedia thumbnail, and the build reads the author and licence
+straight from Commons for `images/CREDITS.md`. Commons only hosts free-licensed
+files, so anything there is safe to use. Each fictional character's `years` is their
+debut (`Debut 1997`), not a lifespan.
 
 ## Deploying (GitHub Pages)
 
