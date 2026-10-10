@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Rankdle - who's the better person?</title>
-    <meta name="description" content="Two people at a time - historical figures, musicians, streamers, creators and fictional characters. Pick the better one and the other gets replaced with someone new.">
+    <title>Rankdle - ten picks, one personality read</title>
+    <meta name="description" content="Two people at a time - historical figures, musicians, streamers, creators and fictional characters. Make ten picks and Rankdle tells you what your choices say about you.">
     <meta name="theme-color" content="#0a0a0c">
 
     <meta property="og:title" content="Rankdle">
-    <meta property="og:description" content="Two people. Pick the better one. The loser gets replaced with someone new.">
+    <meta property="og:description" content="Two people. Pick the better one. Ten times. Then see what your picks say about you.">
     <meta property="og:type" content="website">
 
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f2b544'/%3E%3Ctext x='32' y='46' font-family='Arial' font-size='40' font-weight='800' fill='%23171204' text-anchor='middle'%3E%3F%3C/text%3E%3C/svg%3E">
@@ -40,23 +40,28 @@
     <main class="main-container">
 
         <!-- Title -->
-        <section class="hero">
-            <span class="hero-kicker">Head-to-head</span>
+        <section class="hero" id="hero">
+            <span class="hero-kicker">Ten picks to a profile</span>
 
             <h1>Who&rsquo;s <em class="accent-word">better?<svg class="squiggle" viewBox="0 0 200 12" aria-hidden="true"><path pathLength="1" d="M3 8.4C28 3.2 52 10.4 79 7.2 104 4.3 128 10.4 152 6.8 168 4.5 184 7.6 197 5.6"/></svg></em></h1>
 
             <p class="hero-sub">
-                Two people. Pick the better one &mdash; the other gets replaced with someone new.
+                Two people, ten times over. Pick the better one &mdash; then Rankdle reads your
+                choices back to you.
             </p>
         </section>
 
 
         <!-- The two people (rendered by script.js) -->
-        <section class="duel-section">
+        <section class="duel-section" id="duel-section">
 
             <div class="section-head">
-                <span class="section-label">Make your pick</span>
+                <span class="section-label" id="round-label">Pick 1 of 10</span>
                 <span class="rule" aria-hidden="true"></span>
+            </div>
+
+            <div class="progress" id="progress" aria-hidden="true">
+                <div class="progress-dots" id="progress-dots"></div>
             </div>
 
             <div class="duel-frame">
@@ -64,9 +69,51 @@
                 <span class="vs-badge" aria-hidden="true">VS</span>
             </div>
 
-            <p class="hint">
+            <p class="hint" id="hint">
                 Tap a card to choose.
             </p>
+
+        </section>
+
+
+        <!-- The read-out (built by script.js once ten picks are in) -->
+        <section class="results" id="results" hidden>
+
+            <div class="results-head">
+                <span class="hero-kicker">Your profile</span>
+
+                <h2 class="results-title" id="results-title">&nbsp;</h2>
+
+                <p class="results-sub" id="results-sub">&nbsp;</p>
+
+                <div class="results-chips" id="results-chips"></div>
+            </div>
+
+            <div class="section-head">
+                <span class="section-label">What your picks said</span>
+                <span class="rule" aria-hidden="true"></span>
+            </div>
+
+            <div class="insights" id="insights"></div>
+
+            <div class="section-head">
+                <span class="section-label">You vs. the ones you passed on</span>
+                <span class="rule" aria-hidden="true"></span>
+            </div>
+
+            <div class="stat-block" id="stats"></div>
+
+            <div class="section-head">
+                <span class="section-label">All ten picks</span>
+                <span class="rule" aria-hidden="true"></span>
+            </div>
+
+            <ol class="recap" id="recap"></ol>
+
+            <div class="results-actions">
+                <button type="button" class="btn btn-primary" id="play-again">Play again</button>
+                <button type="button" class="btn btn-ghost" id="copy-results">Copy my profile</button>
+            </div>
 
         </section>
 
@@ -75,12 +122,12 @@
 
     <!-- Footer -->
     <footer>
-        <p class="footer-tagline">Two at a time, all day.</p>
+        <p class="footer-tagline">Ten picks. One honest profile.</p>
         <p class="footer-links">
             Portraits from
             <a href="images/CREDITS.md">Wikipedia</a>
             &middot;
-            <a href="?reset=1">reset session</a>
+            <a href="?reset=1">start over</a>
         </p>
     </footer>
 
