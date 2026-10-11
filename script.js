@@ -44,10 +44,63 @@ const RATINGS_TABLE = typeof RATINGS !== "undefined" ? RATINGS : {};
 
 const NEUTRAL_RATINGS = { fame: 3, era: 3, morality: 3, controversy: 3, gender: 0, fiction: 0 };
 
+// Two more signals come free with the roster and the engine below
+// uses both, added onto each person here:
+//
+//   - `born`: an anchor year parsed out of `years`, so "how far
+//     apart are these two" can be measured in real centuries
+//     rather than the coarse 0-5 era bucket. Fictional and
+//     franchise entries get their debut year, which places them
+//     on the same timeline.
+//   - `family`: the neighbourhood a tag belongs to, so a Musician
+//     counts as a near neighbour of a Film & TV star and a
+//     stranger to a Dictator.
+function anchorYear(years) {
+
+    const text = String(years || "");
+
+    // One to four digits: the BC entries are two-digit ("69-30 BC",
+    // "100-44 BC"), and demanding three would silently drop every
+    // ancient figure back to a neutral era.
+    const match = text.match(/(\d{1,4})/);
+
+    if (!match) {
+        return null;
+    }
+
+    const value = Number(match[1]);
+
+    return /\bBC\b/i.test(text) ? -value : value;
+}
+
+const TAG_FAMILY = {
+    "Musician": "performance",
+    "Film & TV": "performance",
+    "Cartoon": "performance",
+    "Anime": "performance",
+    "Comic": "performance",
+    "Game": "play",
+    "Streamer": "internet",
+    "Influencer": "internet",
+    "P*rn Star": "internet",
+    "Scientist": "ideas",
+    "Thinker": "ideas",
+    "Pioneer": "ideas",
+    "Literature": "ideas",
+    "Artist": "ideas",
+    "Leader": "power",
+    "Ruler": "power",
+    "Dictator": "power",
+    "Activist": "power",
+    "Villain": "infamy"
+};
+
 const PEOPLE = (typeof ROSTER !== "undefined" ? ROSTER : []).map((person) => ({
     ...person,
     ...NEUTRAL_RATINGS,
-    ...(RATINGS_TABLE[person.name] || {})
+    ...(RATINGS_TABLE[person.name] || {}),
+    born: anchorYear(person.years),
+    family: TAG_FAMILY[person.tag] || "other"
 }));
 
 
@@ -75,23 +128,45 @@ function currentRound() {
 
 
 // ------------------------------------------
-// PICKING PEOPLE (stat-driven)
+// PICKING PEOPLE (the matchmaker)
 //
-// The opening pair is a straight random draw. After that nobody
-// shows up twice in a run, and the person you kept STAYS ON
-// SCREEN to face the next challenger - so a run reads as your
-// pick running the table. Each new challenger is not a random
-// draw either - it is drawn around the person you kept, and each
-// draw flips its own coin (about 50/50, never alternating):
+// The opening matchup and every challenger after it are drawn by
+// the same engine, which tries to answer one question: what would
+// make the NEXT decision interesting?
 //
-//   - "different" half: whoever is MOST DIFFERENT from the
-//     person you kept
-//   - "similar" half: whoever is MOST SIMILAR - and if the
-//     person you kept is a villain, the pool shrinks to the
-//     other villains first, so villains keep meeting villains
+// The old version flipped a coin and took the single most similar
+// or most different person left on the roster. That sounds varied
+// but is the opposite: the same handful of extremes win that
+// contest every single time. Across 4500 draws Sailor Moon showed
+// up 223 times and Jake Paul twice. Ties were everywhere too -
+// with six 0-5 stats there are usually several people equally
+// "most different", and the coin chose between maybe three faces.
 //
-// All measured across the six ratings in ratings.json.
-// Exact ties are broken at random.
+// This version samples instead of taking the extreme:
+//
+//   1. Every person gets a CONTRAST score against the champion,
+//      0 (a twin) to 1 (an opposite), measured on three axes: the
+//      six ratings, real years apart (parsed from `years`), and
+//      how related their tags are.
+//   2. Each round rolls a MOOD - the kind of contrast that round
+//      is aiming for. Mostly middling, with a real chance of a
+//      near-twin or a total clash.
+//   3. Everyone in the pool is weighted by how close their
+//      contrast lands to the mood, then one is SAMPLED from those
+//      weights. Near-misses stay in the draw, so the same person
+//      stops being the automatic answer and every run differs.
+//
+// Two extra pulls sit on top of the sampling:
+//
+//   - Villains keep each other company, but as a strong weight
+//     rather than a hard filter, so the evil bracket mostly stays
+//     together without being a locked bracket.
+//   - A champion on a streak draws bigger names. The longer
+//     somebody survives on screen, the more the pool leans toward
+//     the famous - late rounds read as boss battles.
+//
+// All measured across the six ratings in ratings.json plus the
+// roster's own tags and years.
 // ------------------------------------------
 
 // Villains: real (non-fiction) people at the bottom of the
@@ -106,84 +181,137 @@ function isEvil(person) {
     return person.fiction === 0 && person.morality <= 1;
 }
 
-// How different two people are, 0-30. Every stat is normalised
-// to 0-1 first (so all six weigh equally) then scored in integer
-// fifths: the four 0-5 stats contribute up to 5 each, gender and
-// fiction up to 5 each. Integers keep tie comparisons exact.
-function differenceScore(a, b) {
+
+// ------------------------------------------
+// HOW ALIKE ARE TWO PEOPLE?
+//
+// Three axes, each 0-1, blended into one "contrast" score.
+// ------------------------------------------
+
+// The four 0-5 ratings averaged by their full range, plus gender
+// and fiction as full-weight differences. 0 = identical profile,
+// 1 = opposite ends of everything.
+function statContrast(a, b) {
+
+    const ranged =
+        (Math.abs(a.fame - b.fame) +
+            Math.abs(a.era - b.era) +
+            Math.abs(a.morality - b.morality) +
+            Math.abs(a.controversy - b.controversy)) / 20;
+
+    const flags = (Math.abs(a.gender - b.gender) + Math.abs(a.fiction - b.fiction)) / 2;
+
+    return Math.min(1, (ranged * 3 + flags) / 4);
+}
+
+
+// Years apart, on a saturating curve: 120 years reads as 0.5, a
+// millennium as 0.89, and 2500 years (Cleopatra vs a streamer) as
+// 0.95. Nobody's era contrast ever maxes out, so era alone can't
+// turn every ancient-vs-modern pairing into the same answer.
+function eraContrast(a, b) {
+
+    if (a.born === null || b.born === null || a.born === undefined || b.born === undefined) {
+        return 0.5;
+    }
+
+    const gap = Math.abs(a.born - b.born);
+
+    return gap / (gap + 120);
+}
+
+
+// 0 for the same tag, 0.45 for the same family (Musician vs Cartoon),
+// 1 for strangers (Musician vs Dictator).
+function categoryContrast(a, b) {
+
+    if (a.tag === b.tag) {
+        return 0;
+    }
+
+    return a.family === b.family ? 0.45 : 1;
+}
+
+
+// The single 0-1 number the matchmaker samples against.
+function contrast(a, b) {
     return (
-        Math.abs(a.fame - b.fame) +
-        Math.abs(a.era - b.era) +
-        Math.abs(a.morality - b.morality) +
-        Math.abs(a.controversy - b.controversy) +
-        5 * Math.abs(a.gender - b.gender) +
-        5 * Math.abs(a.fiction - b.fiction)
+        0.50 * statContrast(a, b) +
+        0.30 * eraContrast(a, b) +
+        0.20 * categoryContrast(a, b)
     );
 }
 
 
-// The most different person in `pool` compared to `reference`.
-// No reference (the very first card of a session) = random.
-// People who are equally the most different = random among them.
-function mostDifferent(pool, reference) {
+// How alike two people are on the fame axis, -1 to 1. The roster
+// is top-heavy (mean fame 4.25 of 5), so raw fame is useless for
+// telling a big name from a bigger one. Centring on the roster
+// mean makes "more famous than most of this lot" a real signal,
+// which is what the streak escalation below feeds on.
+const MEAN_FAME = (PEOPLE.length
+    ? PEOPLE.reduce((sum, person) => sum + person.fame, 0) / PEOPLE.length
+    : 3);
 
-    if (!pool.length) {
-        return null;
-    }
-
-    if (!reference) {
-        return pool[Math.floor(Math.random() * pool.length)];
-    }
-
-    let best = [];
-    let bestScore = -1;
-
-    for (const person of pool) {
-
-        const score = differenceScore(person, reference);
-
-        if (score > bestScore) {
-            bestScore = score;
-            best = [person];
-        } else if (score === bestScore) {
-            best.push(person);
-        }
-    }
-
-    return best[Math.floor(Math.random() * best.length)];
+function fameEdge(person) {
+    return (person.fame - MEAN_FAME) / 5;
 }
 
 
-// The most SIMILAR person in `pool` to `reference` (smallest
-// differenceScore). Ties broken at random. No reference = random.
-function mostSimilar(pool, reference) {
+// ------------------------------------------
+// THE MOOD
+//
+// What kind of contrast this round wants. Mostly middling with a
+// tail at each end, so runs get twins and clashes but neither
+// dominates.
+// ------------------------------------------
 
-    if (!pool.length) {
-        return null;
-    }
+function rollMood(champion) {
 
-    if (!reference) {
-        return pool[Math.floor(Math.random() * pool.length)];
-    }
+    // A villain champion wants company, so their rounds aim low on
+    // the contrast scale before any weighting happens. Fighting
+    // the mood with a weight multiplier instead would leave the
+    // villain bracket leaking on every high-contrast roll; shifting
+    // the aim is what actually keeps Hitler, Stalin, Saddam and
+    // Epstein meeting each other.
+    if (champion && isVillain(champion)) {
 
-    let best = [];
-    let bestScore = Infinity;
+        const r = Math.random();
 
-    for (const person of pool) {
-
-        const score = differenceScore(person, reference);
-
-        if (score < bestScore) {
-            bestScore = score;
-            best = [person];
-        } else if (score === bestScore) {
-            best.push(person);
+        // Mostly a near-twin, sometimes a mid-range rival.
+        if (r < 0.7) {
+            return 0.05 + Math.random() * 0.12;
         }
+
+        return 0.17 + Math.random() * 0.16;
     }
 
-    return best[Math.floor(Math.random() * best.length)];
+    const r = Math.random();
+
+    // One round in seven wants a near-twin...
+    if (r < 0.14) {
+        return 0.06 + Math.random() * 0.1;
+    }
+
+    // ...one in six wants a genuine clash.
+    if (r > 0.83) {
+        return 0.8 + Math.random() * 0.15;
+    }
+
+    // Everything else aims mid, spread wide enough that the draw
+    // never settles on one band.
+    return 0.28 + Math.random() * 0.34;
 }
 
+
+// How sharply the pool is filtered toward the mood. Low = a wide,
+// chaotic draw; high = only the best-fitting few are in with a
+// chance. 0.2 keeps a mid-sized group alive so sampling matters.
+const MOOD_SHARPNESS = 0.2;
+
+
+// ------------------------------------------
+// DRAWING
+// ------------------------------------------
 
 // Everybody not yet shown this run and not in `excluded`.
 function eligiblePool(excluded) {
@@ -193,33 +321,139 @@ function eligiblePool(excluded) {
 }
 
 
-// The actual decision: flip the coin, then pick accordingly.
-function chooseReplacement(excluded, reference) {
-
-    const pool = eligiblePool(excluded);
-    const wantSimilar = Math.random() < 0.5;
-
-    // Villain kept + similar half = the pool shrinks to the
-    // remaining villains, so Hitler, Stalin, Saddam, Epstein
-    // and the P*rn Stars keep ending up face to face.
-    if (wantSimilar && reference && isVillain(reference)) {
-
-        const villains = pool.filter(isVillain);
-
-        if (villains.length) {
-            return mostSimilar(villains, reference);
-        }
-    }
-
-    return wantSimilar ? mostSimilar(pool, reference) : mostDifferent(pool, reference);
+// One uniformly random person out of `pool`.
+function randomDraw(pool) {
+    return pool[Math.floor(Math.random() * pool.length)];
 }
 
 
-// A new, never-shown-this-run person for the slot next to
-// `reference`, following the rules above.
-function nextPerson(excluded, reference) {
+// How many rounds in a row the champion has been kept. Since the
+// winner stays on screen, this is just the tail of the picks that
+// share a name.
+function streakFor(name) {
 
-    let found = chooseReplacement(excluded, reference);
+    let streak = 0;
+
+    for (let i = state.picks.length - 1; i >= 0; i--) {
+
+        if (state.picks[i].chosen !== name) {
+            break;
+        }
+
+        streak++;
+    }
+
+    return streak;
+}
+
+
+// Pick one person out of `pool`, weighting each by `weightOf`.
+// The classic roulette wheel: every weight above zero can win, so
+// nothing is impossible and nothing is guaranteed.
+function weightedSample(pool, weightOf) {
+
+    let total = 0;
+    const weights = pool.map((person) => {
+        const weight = Math.max(0, weightOf(person));
+        total += weight;
+        return weight;
+    });
+
+    // Nothing scored above zero - fall back to a flat draw rather
+    // than returning nothing at all.
+    if (total <= 0) {
+        return randomDraw(pool);
+    }
+
+    let ticket = Math.random() * total;
+
+    for (let i = 0; i < pool.length; i++) {
+
+        ticket -= weights[i];
+
+        if (ticket <= 0) {
+            return pool[i];
+        }
+    }
+
+    return pool[pool.length - 1];
+}
+
+
+// The tag family of whoever was served last, so two challengers in
+// a row from the same corner of the roster get damped.
+function lastChallengerFamily() {
+
+    const last = state.picks[state.picks.length - 1];
+
+    if (!last) {
+        return null;
+    }
+
+    const person = byName(last.rejected);
+
+    return person ? person.family : null;
+}
+
+
+// Weight every eligible person for this round, then sample one.
+function drawChallenger(champion, excluded) {
+
+    const pool = eligiblePool(excluded);
+
+    if (!pool.length) {
+        return null;
+    }
+
+    const mood = rollMood(champion);
+    const streak = streakFor(champion.name);
+    const previousFamily = lastChallengerFamily();
+
+    return weightedSample(pool, (candidate) => {
+
+        // How close this candidate lands to what the round wants.
+        const gap = Math.abs(contrast(champion, candidate) - mood);
+        let weight = Math.exp(-(gap * gap) / (2 * MOOD_SHARPNESS * MOOD_SHARPNESS));
+
+        // A villain champion gets a strong pull toward the other
+        // villains. The mood bias above aims their rounds at the
+        // low end of the contrast scale, but aiming isn't enough on
+        // its own: 13 villains against 129 others means the sheer
+        // number of innocents would still win the roulette wheel.
+        // This is the pull that keeps the evil bracket a bracket,
+        // while still letting an outsider through now and then.
+        if (isVillain(champion) && isVillain(candidate)) {
+            weight *= 14;
+        }
+
+        // A long-reigning champion earns bigger opponents: each
+        // round on screen pushes the draw toward names that outshine
+        // the champion, so round eight is a heavier fight than round
+        // two. Fame is centred on the roster mean first, otherwise
+        // everyone here is "famous" and the pull is flat.
+        if (streak > 0) {
+            weight *= Math.max(0.15, 1 + streak * 0.45 * (fameEdge(candidate) - fameEdge(champion)));
+        }
+
+        // Don't serve the same corner of the roster twice running.
+        if (previousFamily && candidate.family === previousFamily) {
+            weight *= 0.3;
+        }
+
+        // A little salt on everything, so exact ties never resolve
+        // the same way twice.
+        return weight * (0.7 + Math.random() * 0.6);
+    });
+}
+
+
+// A new, never-shown-this-run person for the slot next to the
+// champion, following the rules above.
+function nextOpponent(champion, replaced) {
+
+    const excluded = new Set([champion.name, replaced.name]);
+
+    let found = drawChallenger(champion, excluded);
 
     if (found) {
         state.seen.add(found.name);
@@ -230,7 +464,7 @@ function nextPerson(excluded, reference) {
     // whoever is currently on screen out of the fresh pool.
     state.seen = new Set(excluded);
 
-    found = chooseReplacement(excluded, reference);
+    found = drawChallenger(champion, excluded);
 
     if (found) {
         state.seen.add(found.name);
@@ -242,29 +476,15 @@ function nextPerson(excluded, reference) {
 
 function freshPair() {
 
-    // The opening matchup is a straight random draw - two people
-    // off the top of a shuffled deck, no stat business yet.
-    // Everything after it keeps your pick and draws a challenger
-    // around them via nextOpponent().
+    // The opening matchup draws its left card off the top of a
+    // shuffled deck, then runs the same matchmaker for the right
+    // card with a wide mood - so the first thing you see is
+    // usually a real decision rather than two strangers.
     const left = randomDraw(PEOPLE);
-    const right = randomDraw(PEOPLE.filter((person) => person.name !== left.name));
+
+    const right = drawChallenger(left, new Set([left.name])) || randomDraw(PEOPLE);
 
     return [left, right];
-}
-
-
-// The next challenger for `kept` - the person the player just
-// picked, who stays on screen. Drawn around them by the rules
-// above: never anyone already shown this run, and never the
-// person being replaced.
-function nextOpponent(kept, replaced) {
-    return nextPerson(new Set([kept.name, replaced.name]), kept);
-}
-
-
-// One uniformly random person out of `pool`.
-function randomDraw(pool) {
-    return pool[Math.floor(Math.random() * pool.length)];
 }
 
 

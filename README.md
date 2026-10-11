@@ -13,9 +13,9 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
 
 ## How it works
 
-- **Two at a time.** The opening matchup is a completely random draw: two
-  people, side by side, each with a category chip (Musician, Streamer,
-  Activist, ...).
+- **Two at a time.** The opening matchup is a random draw on the left and a
+  matchmade one on the right: two people, side by side, each with a category
+  chip (Musician, Streamer, Activist, ...).
 - **Ten picks.** Tap (or click / press Enter on) a card to choose the better
   person. Your pick lights up and **stays on screen**; the card it beat clears
   out and a fresh challenger rises in to face it. The bar under the heading
@@ -49,23 +49,59 @@ everyone's id. The card's DOM element carries the id as `data-id`.
 
 ## How the next challenger is chosen
 
-The opening pair is a straight random draw. After that the person you picked
-stays on screen, and the new card is drawn **around the person you kept**, and
-the draw is not random either: each one flips its own coin (about 50/50, never
-alternating) between two modes.
+The left card of the opening pair is a straight random draw. Everything after
+that — including the opening right card — comes from the matchmaker, which
+asks one question: **what would make the next decision interesting?**
 
-- **Different half** — whoever is the most different from the person you kept,
-  measured across the six ratings (`fame`/`era`/`morality`/`controversy`
-  normalized to 0-1, plus `gender` and `fiction` as 0/1 - so all six weigh
-  equally), scored 0-30 in integer fifths.
-- **Similar half** — whoever is the most *similar*. And if the person you kept
-  is a **villain** (a real person at the bottom of the morality scale, or any
-  P*rn Star), the pool first shrinks to the remaining villains - so Hitler,
-  Stalin, Saddam, Epstein and the P*rn Stars keep ending up face to face.
+The old version flipped a coin and took the single most similar or most
+different person left. That sounds varied but is the opposite of it: the same
+handful of extremes win that contest every time. Measured over 4,500 draws,
+Sailor Moon served as a challenger 223 times while Jake Paul served twice,
+and with six 0–5 stats there were usually only about three faces in the running
+for any given matchup.
 
-Exact ties are broken at random. Nobody can repeat until the whole roster has
-been used - only the person you just picked carries over, and only for as long
-as you keep picking them.
+The current engine **samples** instead of taking the extreme.
+
+1. **Every person gets a contrast score**, 0 (a twin) to 1 (an opposite),
+   blended from three axes:
+   - **Stats (50%)** — the six ratings in `ratings.json`, normalized so the
+     four 0–5 ratings and the two 0/1 flags all weigh equally.
+   - **Years (30%)** — real distance in time, on a saturating curve so 120
+     years reads as 0.5 and Cleopatra-vs-a-streamer as 0.95. The anchor year
+     is parsed straight out of each person's `years` field: birth year, reign
+     start for rulers, debut year for fictional characters.
+   - **Category (20%)** — 0 for the same tag, 0.45 for a neighbouring one
+     (Musician vs Cartoon), 1 for strangers (Musician vs Dictator). Tags are
+     grouped into families for this: `performance`, `ideas`, `power`,
+     `internet`, `play`.
+2. **Each round rolls a mood** — the contrast it is aiming for. Most rounds
+   land mid-range, about one in seven wants a near-twin and about one in six
+   wants a genuine clash.
+3. **Everyone left is weighted** by how close their contrast lands to the
+   mood, on a Gaussian bell, and one is **sampled from those weights**.
+   Near-misses stay in the draw, so nothing is the automatic answer and no
+   two runs match.
+
+Two extra pulls sit on top of the sampling:
+
+- **Villains keep company.** If you are holding a villain (a real person at
+  the bottom of the morality scale, or any P\*rn Star), their rounds aim at the
+  low-contrast end *and* other villains get a heavy weight boost. Both are
+  needed: aiming alone cannot stop 129 innocent people out-weighing 13
+  villains in a roulette wheel. Measured, this keeps the bracket about 64%
+  villains against a 9% roster base rate — tight, but not locked, so an
+  outsider can still slip in.
+- **Streaks raise the stakes.** The longer a champion survives on screen, the
+  more the draw leans toward people who out-fame them, so round eight is a
+  heavier fight than round two. Fame is centred on the roster mean first —
+  the roster is top-heavy (mean 4.25 of 5), so raw fame would tell you
+  nothing about who the *really* big names are.
+
+A candidate also gets damped if the previous challenger was from the same tag
+family, so two challengers in a row never come from the same corner of the
+roster. Nobody can repeat until the whole roster has been used — only the
+person you just picked carries over, and only for as long as you keep picking
+them.
 
 Varied opponents are what make the ten picks readable: a run of near-identical
 matchups would have nothing to say about you.
