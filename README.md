@@ -17,12 +17,13 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
   people, side by side, each with a category chip (Musician, Streamer,
   Activist, ...).
 - **Ten picks.** Tap (or click / press Enter on) a card to choose the better
-  person. Your pick lights up, both cards clear, and a fresh pair rises in for
-  the next decision. The bar under the heading tracks how many are left.
+  person. Your pick lights up and **stays on screen**; the card it beat clears
+  out and a fresh challenger rises in to face it. The bar under the heading
+  tracks how many are left.
 - **Nobody repeats.** Everyone already shown this run is kept in a `seen` list,
-  so the next pair is always somebody you have not been shown yet. Ten picks
-  means twenty different people. Once the whole roster has been used, the pool
-  reshuffles and starts over.
+  so the challenger is always somebody you have not been shown yet - only your
+  pick carries over. Once the whole roster has been used, the pool reshuffles
+  and starts over.
 - **Then the read-out.** After the tenth pick the duel is replaced by a
   profile: an archetype title, the numbers behind it, a finding per trait, and
   a recap of all ten picks. `Copy my profile` puts the whole thing on the
@@ -33,9 +34,10 @@ Play it at: <https://theguywhocodesace.github.io/rankdle/> once this is pushed.
   including reloading straight onto your finished profile. Append `?reset=1`
   to the URL to wipe the run while testing.
 
-Both cards leave after every pick on purpose. Keeping the winner on screen
-would let one person win all ten rounds, and the profile would be an opinion
-about one face rather than a pattern across ten decisions.
+The winner staying on screen is the whole point. Each pick becomes a
+defending champion: it gets a fresh challenger every round, so a run ends up
+being about the chain of people you kept choosing - and which of them you
+finally let go.
 
 ## Person ids
 
@@ -45,11 +47,12 @@ refers to people by, so **append new people to the end of the roster** in
 `tools/build.mjs` rather than inserting them mid-list, which would shift
 everyone's id. The card's DOM element carries the id as `data-id`.
 
-## How the next pair is chosen
+## How the next challenger is chosen
 
-The opening pair is a straight random draw. After that, each new pair is
-drawn **around the person you just kept**, and the draw is not random either:
-each one flips its own coin (about 50/50, never alternating) between two modes.
+The opening pair is a straight random draw. After that the person you picked
+stays on screen, and the new card is drawn **around the person you kept**, and
+the draw is not random either: each one flips its own coin (about 50/50, never
+alternating) between two modes.
 
 - **Different half** — whoever is the most different from the person you kept,
   measured across the six ratings (`fame`/`era`/`morality`/`controversy`
@@ -60,9 +63,9 @@ each one flips its own coin (about 50/50, never alternating) between two modes.
   P*rn Star), the pool first shrinks to the remaining villains - so Hitler,
   Stalin, Saddam, Epstein and the P*rn Stars keep ending up face to face.
 
-The second card of the pair is drawn around the first, by the same logic.
 Exact ties are broken at random. Nobody can repeat until the whole roster has
-been used.
+been used - only the person you just picked carries over, and only for as long
+as you keep picking them.
 
 Varied opponents are what make the ten picks readable: a run of near-identical
 matchups would have nothing to say about you.
